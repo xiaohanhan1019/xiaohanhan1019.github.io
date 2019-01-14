@@ -1735,14 +1735,6 @@ pre .javascript .function {
 .sidebar-toggle-line:first-child {
   margin-top: 0;
 }
-.site-author-image {
-  display: block;
-  margin: 0 auto;
-  padding: 2px;
-  max-width: 120px;
-  height: auto;
-  border: 1px solid #eee;
-}
 .site-author-name {
   margin: 0;
   text-align: center;
@@ -1754,6 +1746,13 @@ pre .javascript .function {
   text-align: center;
   font-size: 13px;
   color: #999;
+}
+.site-author-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 128px;
+  height: auto;
+  border-radius: 50%;
 }
 .site-state {
   overflow: hidden;
@@ -1823,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2870;
+  background: #77a7c8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2989,5 +2988,47 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .post-body {
     text-align: justify;
+  }
+}
+header {
+  width: 80% !important;
+}
+header.post-header {
+  width: auto !important;
+}
+.container .main-inner {
+  width: 80%;
+}
+.content-wrap {
+  width: calc(100% - 260px);
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .header {
+    width: auto !important;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    width: auto !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .container .main-inner {
+    width: auto !important;
+  }
+}
+@media (max-width: 767px) {
+  .container .main-inner {
+    width: auto !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-wrap {
+    width: 100% !important;
+  }
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    width: 100% !important;
   }
 }
