@@ -2,22 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>first - xiaohanhan&#39;s blog</title>
+<title>Vim Tutorial - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="…">
+    <meta name="description" content="This tutorial includes some basic vim commands and I hope that it will be helpful.">
+<meta name="keywords" content="vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first">
-<meta property="og:url" content="http://yoursite.com/2019/01/14/first/index.html">
+<meta property="og:title" content="Vim Tutorial">
+<meta property="og:url" content="http://yoursite.com/2019/01/14/Vim-Tutorial/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="…">
+<meta property="og:description" content="This tutorial includes some basic vim commands and I hope that it will be helpful.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-15T04:26:40.584Z">
+<meta property="og:updated_time" content="2019-01-16T15:30:38.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first">
-<meta name="twitter:description" content="…">
+<meta name="twitter:title" content="Vim Tutorial">
+<meta name="twitter:description" content="This tutorial includes some basic vim commands and I hope that it will be helpful.">
 
 
 
@@ -87,7 +88,7 @@
         <div class="navbar-brand is-flex-center" style="display: none">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="first" height="28">
+                <img src="/images/logo.svg" alt="Vim Tutorial" height="28">
             
             </a>
         </div>
@@ -125,6 +126,12 @@
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -135,7 +142,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 0 words)
+                    4 minutes read (About 563 words)
                 </span>
                 
             </div>
@@ -143,12 +150,127 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                first
+                Vim Tutorial
             
         </h1>
         <div class="content">
-            <p><strong>…</strong></p>
+            <p>This tutorial includes some basic vim commands and I hope that it will be helpful.</p>
+<a id="more"></a>
+<h3 id="1-Moving-the-cursor"><a href="#1-Moving-the-cursor" class="headerlink" title="1.Moving the cursor"></a>1.Moving the cursor</h3><ul>
+<li><code>h</code> : left</li>
+<li><code>j</code> : down</li>
+<li><code>k</code> : up</li>
+<li><code>l</code> : right</li>
+</ul>
+<p>It takes time to get used to it.</p>
+<h3 id="2-Navigation"><a href="#2-Navigation" class="headerlink" title="2.Navigation"></a>2.Navigation</h3><ul>
+<li><code>w</code>: move the cursor one word forward (to the first letter)</li>
+<li><code>b</code> : one word backward (also to the first letter)</li>
+<li><code>e</code> : one word forward (to the last letter)</li>
+<li><code>fx</code> : forward to the letter <code>x</code></li>
+<li><code>(</code> : to the start of the sentence</li>
+<li><code>)</code> : start of the sentence</li>
+<li><code>0</code> : start of line</li>
+<li><code>$</code> : end of line </li>
+<li><code>{</code> : start of paragraph</li>
+<li><code>}</code> : end of paragraph </li>
+<li><code>G</code> : end of file<ul>
+<li><code>ctrl+G</code> : to see the cursor location and file status </li>
+</ul>
+</li>
+<li><code>gg</code> : start of file</li>
+<li><code>xG</code> : to the number <code>x</code> line of file<ul>
+<li><strong>typing a number before a motion repeats it that many times!</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-Delete"><a href="#3-Delete" class="headerlink" title="3.Delete"></a>3.Delete</h3><ul>
+<li><code>x</code>: delete the character at the cursor</li>
+<li><code>dw</code>: delete all the characters between the cursor and the first letter of the next word<ul>
+<li>e.g. Please de<code>l</code>ete the word. (Assume the cursor is at <code>l</code>)</li>
+<li>After you press dw, the sentence becomes <code>Please dethe word delete</code></li>
+</ul>
+</li>
+<li><code>de</code>: delete all the characters between the cursor and the next space<ul>
+<li>e.g. Please de<code>l</code>ete the word. (Assume the cursor is at <code>l</code>)</li>
+<li>After you press de, the sentence becomes <code>Please de the word delete</code></li>
+</ul>
+</li>
+<li><code>d$</code> : delete to end of line</li>
+<li><code>dd</code> : delete whole line</li>
+<li><code>p</code> : After you delete something, press p to paste things you delete wherever you like.</li>
+</ul>
+<h3 id="4-Insert"><a href="#4-Insert" class="headerlink" title="4.Insert"></a>4.Insert</h3><ul>
+<li><code>a</code> : insert after the cursor</li>
+<li><code>A</code> : insert after the end of line</li>
+<li><code>i</code> : insert before the cursor</li>
+<li><code>I</code> : insert before the start of line </li>
+<li><code>o</code> : insert in the next line</li>
+<li><code>O</code> : insert in the previous line</li>
+</ul>
+<h3 id="5-Search"><a href="#5-Search" class="headerlink" title="5.Search"></a>5.Search</h3><ul>
+<li><code>/yourSearchString + &lt;Enter&gt;</code> : search for <code>yourSearchString</code><ul>
+<li><code>n</code> : to search for the same string again (press <code>&lt;Enter&gt;</code> to exit)</li>
+<li><code>N</code> : to search for the same string again, but in opposite direction</li>
+<li><code>ctrl+o</code> : to go back to where you came from</li>
+<li><code>ctrl+i</code> : to go forward</li>
+<li>set option<ul>
+<li><code>:set ic</code> : ignore case</li>
+<li><code>:set noic</code> : disable ignore case</li>
+<li><code>:set hls</code> : highlight the matches</li>
+<li><code>:set nohls</code> : disable highlight matches</li>
+<li><code>:set is</code> : increase search</li>
+<li><code>:set nois</code>: disable increase search</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>%</code> : move the cursor to the other matching parenthesis</li>
+</ul>
+<h3 id="6-Replace"><a href="#6-Replace" class="headerlink" title="6.Replace"></a>6.Replace</h3><ul>
+<li><code>rx</code> : replace the character at cursor with <code>x</code></li>
+<li><code>ce</code> : almost the same as <code>de</code>, but this time will place you in Insert Mode</li>
+<li><code>s/old/new</code> : replace the first occurrence of ‘old’ with ‘new’</li>
+<li><code>s/old/new/g</code> : replace all occurrence of ‘old’ with ‘new’ in one line</li>
+<li><code>#,#/old/new/g</code> : #,# are the line numbers of the range of lines where the replace should be done</li>
+<li><code>%s/old/new/g</code> : replace all occurrence of ‘old’ with ‘new’ in the whole file</li>
+<li><code>%s/old/new/g</code> : replace all occurrence of ‘old’ with ‘new’ in the whole file, with a prompt whether to replace or not</li>
+</ul>
+<h3 id="7-Undo-amp-Redo"><a href="#7-Undo-amp-Redo" class="headerlink" title="7.Undo &amp; Redo"></a>7.Undo &amp; Redo</h3><ul>
+<li><code>u</code> : undo the last command</li>
+<li><code>U</code> : undo the command excuting on the while line</li>
+<li><code>ctrl+R</code> : redo the command</li>
+</ul>
+<h3 id="8-Copy-amp-Paste"><a href="#8-Copy-amp-Paste" class="headerlink" title="8.Copy &amp; Paste"></a>8.Copy &amp; Paste</h3><ul>
+<li><code>y</code> : to copy</li>
+<li><code>p</code> : to paste<ul>
+<li>e.g. Start Visual Mode with <code>v</code> and move the cursor to chose whatever you want, type <code>y</code> to copy the highlighted text and type <code>p</code> to paste the text.</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-Others"><a href="#9-Others" class="headerlink" title="9.Others"></a>9.Others</h3><ul>
+<li><code>.</code> : repeat the last command</li>
+<li><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> : many commands follow this pattern<ul>
+<li>e.g. <code>0y$</code> means copy the whole line<ul>
+<li><code>0</code> move the cursor to the start of line</li>
+<li><code>y</code> copy</li>
+<li><code>$</code> move the cursor to the end of line</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>ctrl+n</code> : auto complete</li>
+</ul>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/vim/">vim</a>
+                </div>
+            </div>
         </div>
         
         
@@ -157,40 +279,6 @@
 </div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
@@ -253,10 +341,10 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Tag
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        1
                     </p>
                 </div>
             </div>
@@ -301,6 +389,15 @@
 </div>
     
         
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    </div>
+</div>
+
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
@@ -314,16 +411,16 @@
         
         <article class="media">
             
-            <a href="/2019/01/14/first/" class="media-left">
+            <a href="/2019/01/14/Vim-Tutorial/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="first">
+                    <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-14T08:55:19.000Z">2019-01-14</time></div>
-                    <a href="/2019/01/14/first/" class="has-link-black-ter is-size-6">first</a>
+                    <a href="/2019/01/14/Vim-Tutorial/" class="has-link-black-ter is-size-6">Vim Tutorial</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -366,6 +463,17 @@
                 Tags
             </h3>
             <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/vim/">
+                        <span class="level-start">
+                            <span class="level-item">vim</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -392,16 +500,16 @@
         
         <article class="media">
             
-            <a href="/2019/01/14/first/" class="media-left">
+            <a href="/2019/01/14/Vim-Tutorial/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="first">
+                    <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-14T08:55:19.000Z">2019-01-14</time></div>
-                    <a href="/2019/01/14/first/" class="has-link-black-ter is-size-6">first</a>
+                    <a href="/2019/01/14/Vim-Tutorial/" class="has-link-black-ter is-size-6">Vim Tutorial</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -445,6 +553,17 @@
             </h3>
             <ul class="menu-list">
                 
+                <li>
+                    <a class="level is-marginless" href="/tags/vim/">
+                        <span class="level-start">
+                            <span class="level-item">vim</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
             </ul>
         </div>
     </div>
@@ -462,7 +581,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="first" height="28">
+                    <img src="/images/logo.svg" alt="Vim Tutorial" height="28">
                 
                 </a>
                 <p class="is-size-7">
