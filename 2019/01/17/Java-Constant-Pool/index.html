@@ -2,21 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>Tag: vim - xiaohanhan&#39;s blog</title>
+<title>Java常量池 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Zihan Song">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/tags/vim/index.html">
+    <meta name="description" content="1. 常量池 相同的值只存储一份，节省内存，共享访问，提高运行效率  2.基本类型的包装类 Boolean, Byte, Short, Integer, Long, Character, Float, Double 八种基本类型的包装类 常量值范围 Boolean：true, false Byte, Character : \u0000 - \u007f Short, Integer, Long">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常量池">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/17/Java-Constant-Pool/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Zihan Song">
+<meta property="og:description" content="1. 常量池 相同的值只存储一份，节省内存，共享访问，提高运行效率  2.基本类型的包装类 Boolean, Byte, Short, Integer, Long, Character, Float, Double 八种基本类型的包装类 常量值范围 Boolean：true, false Byte, Character : \u0000 - \u007f Short, Integer, Long">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-17T15:18:36.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaohanhan&#39;s blog">
-<meta name="twitter:description" content="Zihan Song">
+<meta name="twitter:title" content="Java常量池">
+<meta name="twitter:description" content="1. 常量池 相同的值只存储一份，节省内存，共享访问，提高运行效率  2.基本类型的包装类 Boolean, Byte, Short, Integer, Long, Character, Float, Double 八种基本类型的包装类 常量值范围 Boolean：true, false Byte, Character : \u0000 - \u007f Short, Integer, Long">
 
 
 
@@ -86,7 +88,7 @@
         <div class="navbar-brand is-flex-center" style="display: none">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="xiaohanhan&#39;s blog" height="28">
+                <img src="/images/logo.svg" alt="Java常量池" height="28">
             
             </a>
         </div>
@@ -123,39 +125,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">vim</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/01/14/Vim-Tutorial/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
-        </a>
-    </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-14T08:55:19.000Z">2019-01-14</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/vim/">vim</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 563 words)
+                    6 minutes read (About 903 words)
                 </span>
                 
             </div>
@@ -163,21 +144,70 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/14/Vim-Tutorial/">Vim Tutorial</a>
+                Java常量池
             
         </h1>
         <div class="content">
-            <p>This tutorial includes some basic vim commands and I hope that it will be helpful.</p>
+            <h3 id="1-常量池"><a href="#1-常量池" class="headerlink" title="1. 常量池"></a>1. 常量池</h3><ul>
+<li>相同的值只存储一份，节省内存，共享访问，提高运行效率</li>
+</ul>
+<h3 id="2-基本类型的包装类"><a href="#2-基本类型的包装类" class="headerlink" title="2.基本类型的包装类"></a>2.基本类型的包装类</h3><ul>
+<li><code>Boolean, Byte, Short, Integer, Long, Character, Float, Double</code> 八种基本类型的包装类</li>
+<li>常量值范围<ul>
+<li><code>Boolean</code>：true, false</li>
+<li><code>Byte, Character</code> : \u0000 - \u007f</li>
+<li><code>Short, Integer, Long</code> : -128 - 127</li>
+<li><code>Float, Double</code> : 无常量池</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-与equals"><a href="#3-与equals" class="headerlink" title="3.==与equals()"></a>3.==与equals()</h3><ul>
+<li>对于基本数据类型，<code>==</code>比较他们的数值</li>
+<li>对于对象，<code>==</code>比较两个对象在内存中的存放地址，可以通过重写<code>equals()</code>来比较两个对象的内容是否相等</li>
+</ul>
+<h3 id="4-字符串常量"><a href="#4-字符串常量" class="headerlink" title="4.字符串常量"></a>4.字符串常量</h3><ul>
+<li>Java为常量字符串建立了常量池缓存机制<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="hljs-string">"abc"</span>;</span><br><span class="line">String s2 = <span class="hljs-string">"ab"</span> + <span class="hljs-string">"c"</span>;</span><br><span class="line">String s3 = <span class="hljs-string">"a"</span> + <span class="hljs-string">"b"</span> + <span class="hljs-string">"c"</span>; <span class="hljs-comment">//都是常量，是确定的，编译器将优化</span></span><br><span class="line">System.out.println(s1==s2); <span class="hljs-comment">//true</span></span><br><span class="line">System.out.println(s1==s3); <span class="hljs-comment">//true</span></span><br><span class="line">System.out.println(s2==s3); <span class="hljs-comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-基本类型的包装类和字符串的两种创建方式"><a href="#5-基本类型的包装类和字符串的两种创建方式" class="headerlink" title="5.基本类型的包装类和字符串的两种创建方式"></a>5.基本类型的包装类和字符串的两种创建方式</h3><ul>
+<li>字面值赋值，放在栈内存<strong>（将被常量化）</strong><ul>
+<li><code>Integer a = 1;</code> </li>
+<li><code>String b = &quot;abc&quot;;</code></li>
+</ul>
+</li>
+<li>new对象进行创建，放在堆内存<strong>（不会常量化）</strong><ul>
+<li><code>Integer c = new Integer(1);</code></li>
+<li><code>String d = new String(&quot;abc&quot;);</code></li>
+</ul>
+</li>
+<li>栈内存读取速度快，容量小</li>
+<li>堆内存读取速度慢，容量大，可以通俗的理解为Java认为new出来的对象所占内存较大（不确定，而字面值是确定的），所以需要放在堆内存</li>
+</ul>
+<h3 id="6-Integer常量池的例子"><a href="#6-Integer常量池的例子" class="headerlink" title="6.Integer常量池的例子"></a>6.Integer常量池的例子</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i1 = <span class="hljs-number">10</span>;</span><br><span class="line">Integer i2 = <span class="hljs-number">10</span>; <span class="hljs-comment">//自动装箱，10本来只是int，是基本类型，而我们需要把它变成一个对象，相当于包装了一层</span></span><br><span class="line">System.out.println(i1==i2) <span class="hljs-comment">//true</span></span><br><span class="line"><span class="hljs-comment">//自动拆箱 基本类型和包装类进行比较，包装类自动拆箱</span></span><br><span class="line">	</span><br><span class="line">Integer i3 = <span class="hljs-keyword">new</span> Integer(<span class="hljs-number">10</span>);</span><br><span class="line">System.out.println(i1==i3) <span class="hljs-comment">//true 同理，包装类自动拆箱</span></span><br><span class="line">System.out.println(i2==i3) <span class="hljs-comment">//false i2,i3都是对象，而i2是常量，在常量池，i3是new出来的对象，在堆内存中 </span></span><br><span class="line">	</span><br><span class="line">Interger i4 = <span class="hljs-keyword">new</span> Integer(<span class="hljs-number">5</span>);</span><br><span class="line">Interger i5 = <span class="hljs-keyword">new</span> Integer(<span class="hljs-number">5</span>);</span><br><span class="line">System.out.println(i1 == (i4+i5)); <span class="hljs-comment">//true</span></span><br><span class="line">System.out.println(i1 == (i4+i5)); <span class="hljs-comment">//true</span></span><br><span class="line">System.out.println(i1 == (i4+i5)); <span class="hljs-comment">//true</span></span><br><span class="line"><span class="hljs-comment">//i4+i5的操作将会使i4,i5自动拆箱为基本类型并运算得到10，而根据之前所提到的，基本类型和包装类进行比较，包装类自动拆箱，所以都为true</span></span><br><span class="line">	</span><br><span class="line">Integer i6 = i4 + i5;</span><br></pre></td></tr></table></figure>
+<h3 id="7-String常量池的例子"><a href="#7-String常量池的例子" class="headerlink" title="7.String常量池的例子"></a>7.String常量池的例子</h3><p>字符串常量池存在于方法区，方法区包含的都是在整个程序中唯一的元素，如static变量</p>
+<ul>
+<li><p>一个简单的例子</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="hljs-string">"abc"</span>;</span><br><span class="line">String s2 = <span class="hljs-string">"abc"</span>;</span><br><span class="line">String s3 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"abc"</span>);</span><br><span class="line">String s4 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"abc"</span>);</span><br><span class="line">System.out.println(s1==s2); <span class="hljs-comment">//true 都是常量池</span></span><br><span class="line">System.out.println(s1==s3); <span class="hljs-comment">//false 一个是栈内存，一个是堆内存</span></span><br><span class="line">System.out.println(s3==s4); <span class="hljs-comment">//false 都是堆内存，但是不同对象</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图解：(<code>&quot;</code>由<code>&#39;</code>代替)</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  subgraph 方法区</span><br><span class="line">    s[&apos;abc&apos;]</span><br><span class="line">  end</span><br><span class="line">  subgraph 堆</span><br><span class="line">    A[&quot;s3 = new String(&apos;abc&apos;)&quot;]</span><br><span class="line">    B[&quot;s4 = new String(&apos;abc&apos;)&quot;]</span><br><span class="line">  end</span><br><span class="line">  subgraph 栈</span><br><span class="line">    s1</span><br><span class="line">    s2</span><br><span class="line">    s3</span><br><span class="line">    s4</span><br><span class="line">  end</span><br><span class="line">  s1--&gt;s</span><br><span class="line">  s2--&gt;s</span><br><span class="line">  A--&gt;s</span><br><span class="line">  B--&gt;s</span><br><span class="line">  s3--&gt;A</span><br><span class="line">  s4--&gt;B</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更为复杂的例子</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String s5 = <span class="hljs-string">"abcdef"</span>;</span><br><span class="line">String s6 = s1 + <span class="hljs-string">"def"</span>; <span class="hljs-comment">//涉及到变量（不确定的），编译器不会优化</span></span><br><span class="line">String s7 = <span class="hljs-string">"abc"</span> + <span class="hljs-string">"def"</span>; <span class="hljs-comment">//都是常量，编译器会优化成abcdef</span></span><br><span class="line">String s8 = <span class="hljs-string">"abc"</span> + <span class="hljs-keyword">new</span> String(<span class="hljs-string">"def"</span>); <span class="hljs-comment">//涉及到new对象，编译器不优化</span></span><br><span class="line">System.out.println(s6==s7); <span class="hljs-comment">//false</span></span><br><span class="line">System.out.println(s6==s8); <span class="hljs-comment">//false</span></span><br><span class="line">System.out.println(s7==s8); <span class="hljs-comment">//false</span></span><br><span class="line">System.out.println(s5==s7); <span class="hljs-comment">//true</span></span><br><span class="line"></span><br><span class="line">String s9 = s3 + <span class="hljs-string">"def"</span>; <span class="hljs-comment">//由于s3是new的，涉及到new对象，编译器不优化</span></span><br><span class="line">System.out.println(s7==s9); <span class="hljs-comment">//false</span></span><br><span class="line"><span class="hljs-comment">//对于s5~s9，只有s5,s7是在常量池中，其余都在堆内存上，且地址互不相同</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/14/Vim-Tutorial/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Java/">Java</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -187,7 +217,19 @@
 
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/14/Vim-Tutorial/">
+                <span class="level-item">Vim Tutorial</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -545,7 +587,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="xiaohanhan&#39;s blog" height="28">
+                    <img src="/images/logo.svg" alt="Java常量池" height="28">
                 
                 </a>
                 <p class="is-size-7">
