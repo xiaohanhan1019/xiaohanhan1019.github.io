@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-01-22T15:40:49.556Z">
+<meta property="og:updated_time" content="2019-01-22T15:42:45.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
 <meta name="twitter:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2032 words)
+                    14 minutes read (About 2038 words)
                 </span>
                 
             </div>
@@ -176,7 +176,7 @@ y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
 \end{array} \right)</script><h3 id="2-Logistic-Regression-逻辑回归"><a href="#2-Logistic-Regression-逻辑回归" class="headerlink" title="2. Logistic Regression (逻辑回归)"></a><strong>2. Logistic Regression (逻辑回归)</strong></h3><p>逻辑回归是一种解决二分分类问题的机器学习方法，用于预测某种实物的可能性。<br></p>
 <blockquote>
 <p>Given x, you want $\hat{y} = P(y=1 \mid x)​$. </p>
-<p>In other words, if x is a picture, as talked about above, you want $\hat{y}$ to tell you the chance that there is a cat in the picture.</p>
+<p>In other words, if x is a picture, as talked about above, you want $\hat{y}​$ to tell you the chance that there is a cat in the picture.</p>
 </blockquote>
 <p>根据输入 $x$ 和参数 $w, b$，计算出 $\hat{y}$ ，下面介绍了两种方法 :</p>
 <blockquote>
@@ -194,7 +194,7 @@ y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="3-Logistic-Regression-Cost-Function-逻辑回归损失函数"><a href="#3-Logistic-Regression-Cost-Function-逻辑回归损失函数" class="headerlink" title="3.Logistic Regression Cost Function (逻辑回归损失函数)"></a><strong>3.Logistic Regression Cost Function (逻辑回归损失函数)</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}$，希望通过训练集，找到参数 $w, b$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}$ 与 $y$ 的实际值由多接近 <br></p>
+<h3 id="3-Logistic-Regression-Cost-Function-逻辑回归损失函数"><a href="#3-Logistic-Regression-Cost-Function-逻辑回归损失函数" class="headerlink" title="3.Logistic Regression Cost Function (逻辑回归损失函数)"></a><strong>3.Logistic Regression Cost Function (逻辑回归损失函数)</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}​$，希望通过训练集，找到参数 $w, b​$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}​$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}​$ 与 $y​$ 的实际值由多接近 <br></p>
 <p>对于m个训练样本，我们通常用上标 $(i)​$ 来指明数据与第 $i​$ 个样本有关。<br></p>
 <p>通常，我们这样定义Loss function (损失函数) :</p>
 <script type="math/tex; mode=display">
