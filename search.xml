@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Neural Network and Deep Learning (Week One)]]></title>
     <url>%2F2019%2F01%2F21%2FDeep-Learning-Week-One%2F</url>
-    <content type="text"><![CDATA[1. Binary Classification (二分分类) \Gamma(n) = (n-1)!\quad\forall n\in\mathbb N用一对(x,y)来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(output label)的值为0或1]]></content>
+    <content type="text"><![CDATA[1. Binary Classification (二分分类) 在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat 通常，我们用一对$(x,y)$来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(output label)，$y\in\{0,1\}$ 则m个训练样本 (training example) 可表示为 \{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\} 用$ m=m_{train} $表示训练样本的个数 最后，用更紧凑的符号X表示整个训练集，X由训练集中的$x^{(1)}$，$x^{(2)}$，…，$x^{(m)}$作为列向量组成 \mathbf{X} = \left( \begin{array}{c} \vdots & \vdots & \ldots & \vdots \\\\ x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\ \vdots & \vdots & \ldots & \vdots \end{array} \right)]]></content>
       <tags>
         <tag>Deep Learning</tag>
       </tags>

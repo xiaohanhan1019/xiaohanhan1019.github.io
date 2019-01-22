@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="1. Binary Classification (二分分类) \Gamma(n) = (n-1)!\quad\forall n\in\mathbb N用一对(x,y)来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(output label)的值为0或1">
+    <meta name="description" content="1. Binary Classification (二分分类) 在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat 通常，我们用一对$(x,y)$来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(ou">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Network and Deep Learning (Week One)">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="1. Binary Classification (二分分类) \Gamma(n) = (n-1)!\quad\forall n\in\mathbb N用一对(x,y)来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(output label)的值为0或1">
+<meta property="og:description" content="1. Binary Classification (二分分类) 在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat 通常，我们用一对$(x,y)$来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(ou">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-21T15:17:11.976Z">
+<meta property="og:updated_time" content="2019-01-22T03:21:39.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
-<meta name="twitter:description" content="1. Binary Classification (二分分类) \Gamma(n) = (n-1)!\quad\forall n\in\mathbb N用一对(x,y)来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(output label)的值为0或1">
+<meta name="twitter:description" content="1. Binary Classification (二分分类) 在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat 通常，我们用一对$(x,y)$来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(ou">
 
 
 
@@ -136,7 +136,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 51 words)
+                    a minute read (About 212 words)
                 </span>
                 
             </div>
@@ -148,8 +148,23 @@
             
         </h1>
         <div class="content">
-            <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a>1. Binary Classification (二分分类)</h3><script type="math/tex; mode=display">
-\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N</script><p>用一对(x,y)来表示一个单独的样本，其中x(feature vector)是$n_x$维的向量，y(output label)的值为0或1</p>
+            <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a>1. Binary Classification (二分分类)</h3><ul>
+<li>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat</li>
+<li>通常，我们用一对$(x,y)$来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x$维的向量，<code>y(output label)</code>，$y\in\{0,1\}$</li>
+<li><p>则m个训练样本 (training example) 可表示为</p>
+<script type="math/tex; mode=display">
+\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script></li>
+<li><p>用$ m=m_{train} $表示训练样本的个数</p>
+</li>
+<li><p>最后，用更紧凑的符号<code>X</code>表示整个训练集，<code>X</code>由训练集中的$x^{(1)}$，$x^{(2)}$，…，$x^{(m)}$作为列向量组成</p>
+<script type="math/tex; mode=display">
+\mathbf{X} =
+\left( \begin{array}{c}
+\vdots & \vdots & \ldots & \vdots \\\\
+x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\
+\vdots & \vdots & \ldots & \vdots
+\end{array} \right)</script></li>
+</ul>
 
         </div>
         
