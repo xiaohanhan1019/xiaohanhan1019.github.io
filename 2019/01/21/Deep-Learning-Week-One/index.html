@@ -7,19 +7,21 @@
 
 
 
-    <meta name="description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+    <meta name="description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Network and Deep Learning (Week One)">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+<meta property="og:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
-<meta property="og:updated_time" content="2019-01-22T05:51:06.585Z">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/computation_graph.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png">
+<meta property="og:updated_time" content="2019-01-22T07:58:37.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
-<meta name="twitter:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+<meta name="twitter:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
 <meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 
 
@@ -134,11 +136,15 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 1111 words)
+                    13 minutes read (About 2017 words)
                 </span>
                 
             </div>
@@ -150,9 +156,9 @@
             
         </h1>
         <div class="content">
-            <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a><strong>1. Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，一般只有 ${0,1}$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+            <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a><strong>1. Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
 <a id="more"></a>
-<p>通常，我们用 $(x,y)$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x$维的向量，<code>y(output label)</code>取值为 $y\in\{0,1\}$<br><br>则m个训练样本 (training example) 可表示为</p>
+<p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量，<code>y(output label)</code>取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
 <script type="math/tex; mode=display">
 \{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script><p>用$ m=m_{train} ​$表示训练样本的个数<br></p>
 <p>最后，用更紧凑的符号 $X​$ 表示整个训练集，$X​$ 由训练集中的 $x^{(1)}​$，$x^{(2)}​$，…，$x^{(m)}​$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}​$，即 X.shape = $(n_x,m)​$</p>
@@ -200,10 +206,10 @@ L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))</script><blockquote>
 <p>if y = 0 : $L(\hat{y},y) = -\log(1-\hat{y})​$, you want  $\hat{y}​$ to be small</p>
 <p>所以，这个损失函数和 $L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2$ 类似，都希望 $L$ 越小越好</p>
 </blockquote>
-<p>上述的<code>Loss function</code>衡量了单个训练样本的表现，对于m个样本，我们定义<code>Cost function</code> (成本函数) ，它衡量了全体训练样本的表现</p>
+<p>上述的<code>Loss function</code>衡量了单个训练样本的表现，对于m个样本，我们定义<code>Cost function</code> (代价函数) ，它衡量了全体训练样本的表现</p>
 <script type="math/tex; mode=display">
-J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log\hat{y}^{(i)} + (1-y^{(i)}) \log(1-\hat{y}^{(i)})</script><p><code>Loss function</code>只适用于单个训练样本，<code>Cost function</code>是基于参数的总成本。所以，在训练逻辑回归模型时，我们要找到合适的参数 $w, b$ 使得<code>Cost function</code>尽可能的小</p>
-<h3 id="4-Gradient-Descent-梯度下降"><a href="#4-Gradient-Descent-梯度下降" class="headerlink" title="4.Gradient Descent (梯度下降)"></a><strong>4.Gradient Descent (梯度下降)</strong></h3><p>我们将使用梯度下降 (Gradient Descent) 算法来找出合适的参数 $w,b$，使得<code>Cost function</code> 即 $J(w,b)$ 最小 <br></p>
+J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log\hat{y}^{(i)} + (1-y^{(i)}) \log(1-\hat{y}^{(i)})</script><p><code>Loss function</code>只适用于单个训练样本，<code>Cost function</code>是基于参数的总代价。所以，在训练逻辑回归模型时，我们要找到合适的参数 $w, b​$ 使得<code>Cost function</code>尽可能的小<br></p>
+<h3 id="4-Gradient-Descent-梯度下降"><a href="#4-Gradient-Descent-梯度下降" class="headerlink" title="4.Gradient Descent (梯度下降)"></a><strong>4.Gradient Descent (梯度下降)</strong></h3><p>我们将使用<code>梯度下降 (Gradient Descent) 算法</code>来找出合适的参数 $w,b$，使得<code>Cost function</code> 即 $J(w,b)$ 最小 <br></p>
 <ul>
 <li><img src="/2019/01/21/Deep-Learning-Week-One/gradient_descent.png" alt=""></li>
 </ul>
@@ -217,8 +223,67 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 </blockquote>
 <p>代码表述为：</p>
 <blockquote>
-<p>Repeat {<br>$w := w - \alpha \frac{\partial J(w,b)}{\partial w}$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial w}$ 记作”dw”<br>$b := b - \alpha \frac{\partial J(w,b)}{\partial b}$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial b}​$ 记作”db”<br>}</p>
+<p>Repeat {<br>$w := w - \alpha \frac{\partial J(w,b)}{\partial w}​$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial w}​$ 记作”dw”<br>$b := b - \alpha \frac{\partial J(w,b)}{\partial b}​$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial b}​$ 记作”db”<br>}</p>
 </blockquote>
+<h3 id="5-Computation-Graph-计算图"><a href="#5-Computation-Graph-计算图" class="headerlink" title="5.Computation Graph (计算图)"></a><strong>5.Computation Graph (计算图)</strong></h3><p>神经网络的训练包含了两个过程：</p>
+<ul>
+<li>正向传播 (Forward Propagation)，从输入经过一层层神经网络，最后得到 $\hat{y}$ ，从而计算代价函数 $J$</li>
+<li>反向传播 (Back Propagation)，根据损失函数 $L(\hat{y},y)$ 来反方向的计算每一层参数的偏导数，从而更新参数</li>
+</ul>
+<p>下面我们用计算图 (Computation Graph) 来理解这个过程</p>
+<p><img src="/2019/01/21/Deep-Learning-Week-One/computation_graph.png" alt=""></p>
+<p>从左向右，可以计算出 $J​$ 的值，对应着神经网络中输入经过计算得到代价函数 $J(w,b)​$ 值的过程<br></p>
+<p>从右向左，根据求导的链式法则，可以得到：</p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial a} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial a} = 3 \cdot 1 = 3</script><script type="math/tex; mode=display">
+\frac{\partial J}{\partial b} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial b} = 3 \cdot 1 \cdot c = 6</script><script type="math/tex; mode=display">
+\frac{\partial J}{\partial c} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial c} = 3 \cdot 1 \cdot b = 9</script><p>在反向传播中，一般我们只关心最终输出值 (在这个例子中是 $J$ ) ，需要计算 $J$ 对于某个变量 (记作var) 的导数，即 $\frac {dJ}{dvar}​$，在Python代码中简写为<code>dvar</code> <br></p>
+<h3 id="6-Logistic-Regression-Gradient-Descent-逻辑回归梯度下降"><a href="#6-Logistic-Regression-Gradient-Descent-逻辑回归梯度下降" class="headerlink" title="6.Logistic Regression Gradient Descent (逻辑回归梯度下降)"></a><strong>6.Logistic Regression Gradient Descent (逻辑回归梯度下降)</strong></h3><p>现在，我们来实现逻辑回归梯度下降算法，只考虑单个样本的情况 :</p>
+<blockquote>
+<p>$z = w^{T} + b$</p>
+<p>$\hat{y} = a = \sigma({z})​$</p>
+<p>$L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))​$</p>
+</blockquote>
+<p>假设样本只有两个，分别为 $x1, x2​$，则计算图如下 :</p>
+<p><img src="/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png" alt=""></p>
+<p>在逻辑回归中，我们需要做的是，改变参数 $w, b​$ 的值，来最小化损失函数 <br></p>
+<p>向后传播计算损失函数 $L$ 的偏导数步骤如下：</p>
+<blockquote>
+<ul>
+<li>$da = \frac {dL(a,y)}{da} = -\frac {y}{a} + \frac{1-y}{1-a}​$</li>
+<li>$dz = \frac {dL}{dz} = \frac {dL}{da} \cdot \frac {da}{dz}= (-\frac {y}{a} + \frac{1-y}{1-a}) \cdot a \cdot (1-a) = a - y​$</li>
+<li>$dw_1 =  \frac {dL}{dw_1} = x_1 \cdot dz $</li>
+<li>$dw_2 =  \frac {dL}{dw_2} = x_2 \cdot dz $</li>
+<li>$db = dz$</li>
+</ul>
+</blockquote>
+<p>所以，在逻辑回归梯度下降算法中你需要做的是</p>
+<blockquote>
+<ul>
+<li>$ dz = a - y$</li>
+<li>$dw_1 = x_1 \cdot dz $</li>
+<li>$dw_2 = x_2 \cdot dz $</li>
+<li>$db = dz​$</li>
+<li>更新$w_1​$,  $w_1 = w_1 - \alpha dw_1​$</li>
+<li>更新$w_2$,  $w_2 = w_2 - \alpha dw_2$</li>
+<li>更新$b​$,  $b = b - \alpha db​$</li>
+</ul>
+</blockquote>
+<h3 id="7-Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集"><a href="#7-Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集" class="headerlink" title="7.Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)"></a><strong>7.Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)</strong></h3><p>之前只实现了单个样本的梯度下降算法，现在我们将梯度下降算法应用到整个训练集<br></p>
+<blockquote>
+<p>$J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) $</p>
+<p>$a^{(i)} = \hat{y}^{(i)} = \sigma(z^{(i)}) = \sigma(w^{T}x^{(i)}+b)$</p>
+<p>$\frac {\partial}{\partial w_1}J(w,b) = \frac {1}{m} \sum_{i=1}^{m} \frac {\partial}{\partial w_1}L(a^{(i)},y^{(i)}) = \frac {1}{m} \sum_{i=1}^{m}dw_1^{(i)}$ </p>
+<ul>
+<li>$dw_1^{(i)}​$按照之前单个样本的情况计算</li>
+</ul>
+</blockquote>
+<p>伪代码如下 :</p>
+<blockquote>
+<p>$J=0; dw_1=0; dw_2=0; db=0;​$<br>$for \quad i = 1 \quad to \quad m ​$<br>$\quad z^{(i)} = w^{T}x^{(i)}+b​$<br>$\quad a^{(i)} = \sigma(z^{(i)})​$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))​$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}​$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}​$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad​$ //这里应该是一个循环<br>$\quad db  += dz^{(i)}​$<br>​$J /= m​$<br>$dw_1 /= m​$<br>$dw_2 /= m​$<br>$db /= m​$</p>
+<p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br> $b = b - \alpha db​$</p>
+</blockquote>
+<p>但这种方法，有两个循环，一个是最外层的循环，循环 $m​$ 个训练样本，另一个是 $dw_1, dw_2​$ (feature) 的循环，在这个例子中 $n_x = 2​$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
 
         </div>
         
@@ -306,7 +371,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                         Categories
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        3
                     </p>
                 </div>
             </div>
@@ -355,6 +420,14 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/Deep-Learning/">
+            <span class="level-start">
+                <span class="level-item">Deep Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Java/">
             <span class="level-start">
                 <span class="level-item">Java</span>
@@ -399,7 +472,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
                     <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>
                     </p>
                 </div>
             </div>
@@ -548,7 +621,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
                     <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>
                     </p>
                 </div>
             </div>
