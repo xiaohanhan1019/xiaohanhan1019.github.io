@@ -7,21 +7,21 @@
 
 
 
-    <meta name="description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+    <meta name="description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Network and Deep Learning (Week One)">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+<meta property="og:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-01-22T07:58:37.233Z">
+<meta property="og:updated_time" content="2019-01-22T15:40:49.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
-<meta name="twitter:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+<meta name="twitter:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
 <meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 
 
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13 minutes read (About 2017 words)
+                    14 minutes read (About 2032 words)
                 </span>
                 
             </div>
@@ -156,36 +156,36 @@
             
         </h1>
         <div class="content">
-            <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a><strong>1. Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+            <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a><strong>1. Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
 <a id="more"></a>
-<p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量，<code>y(output label)</code>取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
+<p>通常，我们用 $(x,y)$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x$维的向量 ( $n_x$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}$<br><br>则m个训练样本 (training example) 可表示为</p>
 <script type="math/tex; mode=display">
-\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script><p>用$ m=m_{train} ​$表示训练样本的个数<br></p>
-<p>最后，用更紧凑的符号 $X​$ 表示整个训练集，$X​$ 由训练集中的 $x^{(1)}​$，$x^{(2)}​$，…，$x^{(m)}​$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}​$，即 X.shape = $(n_x,m)​$</p>
+\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script><p>用$ m=m_{train} $表示训练样本的个数<br></p>
+<p>最后，我们可以用更紧凑的符号 $X$ 表示整个训练集，$X$ 由训练集中的 $x^{(1)}$，$x^{(2)}$，…，$x^{(m)}$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}$，即 X.shape = $(n_x,m)$</p>
 <script type="math/tex; mode=display">
 \mathbf{X} =
 \left( \begin{array}{c}
 \vdots & \vdots & \ldots & \vdots \\\\
 x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\
 \vdots & \vdots & \ldots & \vdots
-\end{array} \right)</script><p>同时，把<code>y</code>标签也放入列中，用 $Y$ 来表示，$Y\in{\Bbb R}^{1*m}$，即 Y.shape = $(1,m)</p>
+\end{array} \right)</script><p>同时，把<code>y</code>也放入列中，用 $Y$ 来表示，$Y\in{\Bbb R}^{1*m}$，即 Y.shape = $(1,m)</p>
 <script type="math/tex; mode=display">
 \mathbf{Y} =
 \left( \begin{array}{c}
 y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
 \end{array} \right)</script><h3 id="2-Logistic-Regression-逻辑回归"><a href="#2-Logistic-Regression-逻辑回归" class="headerlink" title="2. Logistic Regression (逻辑回归)"></a><strong>2. Logistic Regression (逻辑回归)</strong></h3><p>逻辑回归是一种解决二分分类问题的机器学习方法，用于预测某种实物的可能性。<br></p>
 <blockquote>
-<p>Given x, you want $\hat{y} = P(y=1 \mid x)$. </p>
+<p>Given x, you want $\hat{y} = P(y=1 \mid x)​$. </p>
 <p>In other words, if x is a picture, as talked about above, you want $\hat{y}$ to tell you the chance that there is a cat in the picture.</p>
 </blockquote>
-<p>需要能根据输入 $x​$ 和参数 $w, b​$，计算出$\hat{y}​$</p>
+<p>根据输入 $x$ 和参数 $w, b$，计算出 $\hat{y}$ ，下面介绍了两种方法 :</p>
 <blockquote>
-<p>Parameter : $w\in{\Bbb R}^{n_x}, b\in{\Bbb R}$<br>Output : $\hat{y}$</p>
+<p>Parameter : $w\in{\Bbb R}^{n_x}, b\in{\Bbb R}​$<br>Output : $\hat{y}​$</p>
 <blockquote>
 <p>One way : $\hat{y} = w^{T}x + b​$ (Linear regression) </p>
 <ul>
 <li>Not good for binary classification</li>
-<li>Because you want $\hat{y}$ to be the chance that $y$ equals to one. In this situation  $\hat{y}$ can be much bigger than 1 or negative.</li>
+<li>Because you want $\hat{y}​$ to be the chance that $y​$ equals to one. In this situation  $\hat{y}​$ can be much bigger than 1 or negative.</li>
 </ul>
 <p>The other way : $\hat{y} = \sigma(w^{T}x + b)$ (Logistic Regression) </p>
 <ul>
@@ -195,7 +195,7 @@ y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
 </blockquote>
 </blockquote>
 <h3 id="3-Logistic-Regression-Cost-Function-逻辑回归损失函数"><a href="#3-Logistic-Regression-Cost-Function-逻辑回归损失函数" class="headerlink" title="3.Logistic Regression Cost Function (逻辑回归损失函数)"></a><strong>3.Logistic Regression Cost Function (逻辑回归损失函数)</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}$，希望通过训练集，找到参数 $w, b$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}$ 与 $y$ 的实际值由多接近 <br></p>
-<p>对于m个训练样本，我们通常用上标 $(i)$ 来指明数据与第 $i$ 个样本有关。<br></p>
+<p>对于m个训练样本，我们通常用上标 $(i)​$ 来指明数据与第 $i​$ 个样本有关。<br></p>
 <p>通常，我们这样定义Loss function (损失函数) :</p>
 <script type="math/tex; mode=display">
 L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2</script><p>但在逻辑回归中一般不使用，因为它是non-convex (非凸的) ，将来使用<code>梯度下降算法 (Gradient Descent)</code>时无法找到全局最优值 <br></p>
@@ -261,8 +261,8 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 <blockquote>
 <ul>
 <li>$ dz = a - y$</li>
-<li>$dw_1 = x_1 \cdot dz $</li>
-<li>$dw_2 = x_2 \cdot dz $</li>
+<li>$dw_1 = x_1 \cdot dz ​$</li>
+<li>$dw_2 = x_2 \cdot dz ​$</li>
 <li>$db = dz​$</li>
 <li>更新$w_1​$,  $w_1 = w_1 - \alpha dw_1​$</li>
 <li>更新$w_2$,  $w_2 = w_2 - \alpha dw_2$</li>
@@ -280,8 +280,8 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 </blockquote>
 <p>伪代码如下 :</p>
 <blockquote>
-<p>$J=0; dw_1=0; dw_2=0; db=0;​$<br>$for \quad i = 1 \quad to \quad m ​$<br>$\quad z^{(i)} = w^{T}x^{(i)}+b​$<br>$\quad a^{(i)} = \sigma(z^{(i)})​$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))​$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}​$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}​$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad​$ //这里应该是一个循环<br>$\quad db  += dz^{(i)}​$<br>​$J /= m​$<br>$dw_1 /= m​$<br>$dw_2 /= m​$<br>$db /= m​$</p>
-<p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br> $b = b - \alpha db​$</p>
+<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$ //这里应该是一个循环<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m$</p>
+<p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br>$b = b - \alpha db​$</p>
 </blockquote>
 <p>但这种方法，有两个循环，一个是最外层的循环，循环 $m​$ 个训练样本，另一个是 $dw_1, dw_2​$ (feature) 的循环，在这个例子中 $n_x = 2​$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
 
