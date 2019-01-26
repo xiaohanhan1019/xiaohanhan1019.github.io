@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
 <meta property="og:description" content="Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-26T13:28:39.429Z">
+<meta property="og:updated_time" content="2019-01-26T13:35:03.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week Two)">
 <meta name="twitter:description" content="Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
@@ -172,8 +172,7 @@
 </blockquote>
 <p>然后，我们再去掉对 $m$ 个训练样本的外层循环，分别从正向传播和反向传播两方面来分析：</p>
 <blockquote>
-<p><strong>1.正向传播</strong></p>
-<p>回顾一下逻辑回归的正向传播步骤，如果你有 $m$ 个训练样本</p>
+<h5 id="1-正向传播"><a href="#1-正向传播" class="headerlink" title="1.正向传播"></a><strong>1.正向传播</strong></h5><p>回顾一下逻辑回归的正向传播步骤，如果你有 $m$ 个训练样本</p>
 <p>那么对第一个样本进行预测，你需要计算<br>$ \quad z^{(1)} = w^{T}x^{(1)} + b$<br>$ \quad a^{(1)} = \sigma(z^{(1)})​$</p>
 <p>然后继续对第二个样本进行预测<br>$ \quad z^{(2)} = w^{T}x^{(2)} + b$<br>$ \quad a^{(2)} = \sigma(z^{(2)})$</p>
 <p>然后继续对第三个，第四个，…，直到第 $m$ 个</p>
@@ -192,8 +191,7 @@ Z = [z^{(1)}, z^{(2)}, ... , z^{(m)}] = w^{T}X + [b, b , ... , b] = [w^{T}x^{(1)
 <script type="math/tex; mode=display">
 A = [a^{(1)}, a^{(2)}, ... , a^{(m)}] = \sigma (Z)</script><p>同样也只需一句 Python 代码</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = sigmoid(Z)</span><br></pre></td></tr></table></figure>
-<p><strong>2.反向传播</strong></p>
-<p>接着，我们来看如何用向量化优化反向传播，计算梯度</p>
+<h5 id="2-反向传播"><a href="#2-反向传播" class="headerlink" title="2.反向传播"></a><strong>2.反向传播</strong></h5><p>接着，我们来看如何用向量化优化反向传播，计算梯度</p>
 <p>同样，你需要计算<br>$dz^{(1)} = a^{(1)} - y^{(1)}​$<br>$dz^{(2)} = a^{(2)} - y^{(2)}​$<br>$…​$<br>一直到第 $m​$ 个</p>
 <p>即计算 $dZ = [dz^{(1)} , dz^{(2)} , … , dz^{(m)}]$</p>
 <p>之前我们已经得到 $A = [a^{(1)}, a^{(2)}, … , a^{(m)}] = \sigma (Z)​$<br>我们再定义输出标签 $Y = [y^{(1)}, y^{(2)}, … , y^{(m)}]​$</p>
@@ -364,7 +362,15 @@ dz^{(m)}
         <a class="is-flex" href="#Vectorization-向量化">
         <span class="has-mr-6">1</span>
         <span>Vectorization (向量化)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-正向传播">
+        <span class="has-mr-6">1.1</span>
+        <span>1.正向传播</span>
         </a></li><li>
+        <a class="is-flex" href="#2-反向传播">
+        <span class="has-mr-6">1.2</span>
+        <span>2.反向传播</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#Broadcasting-广播">
         <span class="has-mr-6">2</span>
         <span>Broadcasting (广播) </span>
