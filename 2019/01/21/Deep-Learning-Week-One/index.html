@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-01-22T15:42:45.709Z">
+<meta property="og:updated_time" content="2019-01-26T05:27:29.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
 <meta name="twitter:description" content="1. Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2038 words)
+                    14 minutes read (About 2059 words)
                 </span>
                 
             </div>
@@ -158,10 +158,10 @@
         <div class="content">
             <h3 id="1-Binary-Classification-二分分类"><a href="#1-Binary-Classification-二分分类" class="headerlink" title="1. Binary Classification (二分分类)"></a><strong>1. Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
 <a id="more"></a>
-<p>通常，我们用 $(x,y)$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x$维的向量 ( $n_x$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}$<br><br>则m个训练样本 (training example) 可表示为</p>
+<p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量 ( $n_x​$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
 <script type="math/tex; mode=display">
 \{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script><p>用$ m=m_{train} $表示训练样本的个数<br></p>
-<p>最后，我们可以用更紧凑的符号 $X$ 表示整个训练集，$X$ 由训练集中的 $x^{(1)}$，$x^{(2)}$，…，$x^{(m)}$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}$，即 X.shape = $(n_x,m)$</p>
+<p>最后，我们可以用更紧凑的符号 $X​$ 表示整个训练集，$X​$ 由训练集中的 $x^{(1)}​$，$x^{(2)}​$，…，$x^{(m)}​$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}​$，即 X.shape = $(n_x,m)​$</p>
 <script type="math/tex; mode=display">
 \mathbf{X} =
 \left( \begin{array}{c}
@@ -280,10 +280,10 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 </blockquote>
 <p>伪代码如下 :</p>
 <blockquote>
-<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$ //这里应该是一个循环<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m$</p>
+<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$<br>$\quad…\quad\quad\quad\quad\quad\quad$ //这里应该是一个循环，这里 $n_x = 2$<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m​$</p>
 <p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br>$b = b - \alpha db​$</p>
 </blockquote>
-<p>但这种方法，有两个循环，一个是最外层的循环，循环 $m​$ 个训练样本，另一个是 $dw_1, dw_2​$ (feature) 的循环，在这个例子中 $n_x = 2​$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
+<p>但这种方法，有两个循环，一个是最外层的循环，循环 $m$ 个训练样本，另一个是 $dw_1, dw_2$ (feature) 的循环，在这个例子中 $n_x = 2$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
 
         </div>
         
@@ -307,6 +307,13 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/26/Deep-Learning-Week-Two/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Neural Network and Deep Learning (Week Two)</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -361,7 +368,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -425,7 +432,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                 <span class="level-item">Deep Learning</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Java/">
@@ -458,6 +465,25 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -534,7 +560,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                     <span class="level-item">January 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -558,7 +584,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -610,6 +636,25 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         
         <article class="media">
             
+            <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week One)">
@@ -683,7 +728,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                     <span class="level-item">January 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -707,7 +752,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>

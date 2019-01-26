@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaohanhan1019.github.io/2019/01/26/Deep-Learning-Week-Two/</loc>
+    <lastmod>2019-01-26</lastmod>
+  </url>  <url>
     <loc>https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/</loc>
-    <lastmod>2019-01-22</lastmod>
+    <lastmod>2019-01-26</lastmod>
   </url>  <url>
     <loc>https://xiaohanhan1019.github.io/2019/01/17/Java-Constant-Pool/</loc>
     <lastmod>2019-01-17</lastmod>
