@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="1.Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
+    <meta name="description" content="Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Network and Deep Learning (Week Two)">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/26/Deep-Learning-Week-Two/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="1.Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
+<meta property="og:description" content="Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-26T12:31:25.404Z">
+<meta property="og:updated_time" content="2019-01-26T13:28:39.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week Two)">
-<meta name="twitter:description" content="1.Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
+<meta name="twitter:description" content="Vectorization (向量化)Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。">
 
 
 
@@ -111,6 +111,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -152,7 +156,7 @@
             
         </h1>
         <div class="content">
-            <h3 id="1-Vectorization-向量化"><a href="#1-Vectorization-向量化" class="headerlink" title="1.Vectorization (向量化)"></a><strong>1.Vectorization (向量化)</strong></h3><p>Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。<br></p>
+            <h3 id="Vectorization-向量化"><a href="#Vectorization-向量化" class="headerlink" title="Vectorization (向量化)"></a><strong>Vectorization (向量化)</strong></h3><p>Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。<br></p>
 <a id="more"></a>
 <p>在逻辑回归中，你需要计算 $z = w^{T}x + b$ ，其中 $w, x$ 都是 $n_x$ 维向量</p>
 <blockquote>
@@ -214,7 +218,7 @@ dz^{(m)}
 <p>最后，我们可以得到向量化后的梯度下降算法<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line">Z = np.dot(w.T,X) + b</span><br><span class="line">A = sigmoid(Z)</span><br><span class="line">dw = np.dot(x,dZ.T)/m</span><br><span class="line">db = np.sum(dZ)/m</span><br><span class="line">w = w - alpha * dw</span><br><span class="line">b = b - alpha * db</span><br></pre></td></tr></table></figure></p>
 <p>你可能会有疑问，为什么这里不需要再计算 Cost function (代价函数) $J$ 了，笔者认为 $J$ 只是逻辑回归模型所需要的损失函数，借助它我们才能计算出 $dw, db$ ，从而进行迭代，而不需要真正计算 $J$，至于为什么之前计算了 $J​$ ，我也不知道。<br>这样，我们就完成了逻辑回归的梯度下降的一次迭代，但如果你需要多次执行迭代的操作，只能显式的调用for循环。</p>
 </blockquote>
-<h3 id="2-Broadcasting-广播"><a href="#2-Broadcasting-广播" class="headerlink" title="2. Broadcasting (广播) "></a><strong>2. Broadcasting (广播) </strong></h3><p>Broadcasting (广播) 机制主要是为了方便不同 shape 的 array (可以理解为不同形状的矩阵) 进行数学运算</p>
+<h3 id="Broadcasting-广播"><a href="#Broadcasting-广播" class="headerlink" title="Broadcasting (广播) "></a><strong>Broadcasting (广播) </strong></h3><p>Broadcasting (广播) 机制主要是为了方便不同 shape 的 array (可以理解为不同形状的矩阵) 进行数学运算</p>
 <ul>
 <li>当我们将向量和一个常量做加减乘除操作时，比如逻辑回归中的 $w^{T}x+b$ ，会对向量中的每一格元素都和常量做一次操作，或者你可以理解为把这个数复制 $m \times n$ 次，使其变为一个形状相同的 $(m,n)$ 矩阵，如 :</li>
 </ul>
@@ -350,6 +354,25 @@ dz^{(m)}
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Vectorization-向量化">
+        <span class="has-mr-6">1</span>
+        <span>Vectorization (向量化)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Broadcasting-广播">
+        <span class="has-mr-6">2</span>
+        <span>Broadcasting (广播) </span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -882,23 +905,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script src="/js/insight.js" defer></script>
 <link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
+<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

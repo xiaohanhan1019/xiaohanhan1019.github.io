@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
 <meta property="og:description" content="This tutorial includes some basic vim commands and I hope that it will be helpful.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-16T16:17:40.172Z">
+<meta property="og:updated_time" content="2019-01-26T13:29:32.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim Tutorial">
 <meta name="twitter:description" content="This tutorial includes some basic vim commands and I hope that it will be helpful.">
@@ -111,6 +111,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -160,14 +164,14 @@
         <div class="content">
             <p>This tutorial includes some basic vim commands and I hope that it will be helpful.</p>
 <a id="more"></a>
-<h3 id="1-Moving-the-cursor"><a href="#1-Moving-the-cursor" class="headerlink" title="1.Moving the cursor"></a>1.Moving the cursor</h3><ul>
+<h3 id="Moving-the-cursor"><a href="#Moving-the-cursor" class="headerlink" title="Moving the cursor"></a>Moving the cursor</h3><ul>
 <li><code>h</code> : left</li>
 <li><code>j</code> : down</li>
 <li><code>k</code> : up</li>
 <li><code>l</code> : right</li>
 </ul>
 <p>It takes time to get used to it.</p>
-<h3 id="2-Navigation"><a href="#2-Navigation" class="headerlink" title="2.Navigation"></a>2.Navigation</h3><ul>
+<h3 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h3><ul>
 <li><code>w</code>: move the cursor one word forward (to the first letter)</li>
 <li><code>b</code> : one word backward (also to the first letter)</li>
 <li><code>e</code> : one word forward (to the last letter)</li>
@@ -188,7 +192,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-Delete"><a href="#3-Delete" class="headerlink" title="3.Delete"></a>3.Delete</h3><ul>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><ul>
 <li><code>x</code>: delete the character at the cursor</li>
 <li><code>dw</code>: delete all the characters between the cursor and the first letter of the next word<ul>
 <li>e.g. Please de<code>l</code>ete the word. (Assume the cursor is at <code>l</code>)</li>
@@ -204,7 +208,7 @@
 <li><code>dd</code> : delete whole line</li>
 <li><code>p</code> : After you delete something, press p to paste things you delete wherever you like.</li>
 </ul>
-<h3 id="4-Insert"><a href="#4-Insert" class="headerlink" title="4.Insert"></a>4.Insert</h3><ul>
+<h3 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h3><ul>
 <li><code>a</code> : insert after the cursor</li>
 <li><code>A</code> : insert after the end of line</li>
 <li><code>i</code> : insert before the cursor</li>
@@ -212,7 +216,7 @@
 <li><code>o</code> : insert in the next line</li>
 <li><code>O</code> : insert in the previous line</li>
 </ul>
-<h3 id="5-Search"><a href="#5-Search" class="headerlink" title="5.Search"></a>5.Search</h3><ul>
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><ul>
 <li><code>/yourSearchString + &lt;Enter&gt;</code> : search for <code>yourSearchString</code><ul>
 <li><code>n</code> : to search for the same string again (press <code>&lt;Enter&gt;</code> to exit)</li>
 <li><code>N</code> : to search for the same string again, but in opposite direction</li>
@@ -231,7 +235,7 @@
 </li>
 <li><code>%</code> : move the cursor to the other matching parenthesis</li>
 </ul>
-<h3 id="6-Replace"><a href="#6-Replace" class="headerlink" title="6.Replace"></a>6.Replace</h3><ul>
+<h3 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h3><ul>
 <li><code>rx</code> : replace the character at cursor with <code>x</code></li>
 <li><code>ce</code> : almost the same as <code>de</code>, but this time will place you in Insert Mode</li>
 <li><code>s/old/new</code> : replace the first occurrence of ‘old’ with ‘new’</li>
@@ -240,19 +244,19 @@
 <li><code>%s/old/new/g</code> : replace all occurrence of ‘old’ with ‘new’ in the whole file</li>
 <li><code>%s/old/new/g</code> : replace all occurrence of ‘old’ with ‘new’ in the whole file, with a prompt whether to replace or not</li>
 </ul>
-<h3 id="7-Undo-amp-Redo"><a href="#7-Undo-amp-Redo" class="headerlink" title="7.Undo &amp; Redo"></a>7.Undo &amp; Redo</h3><ul>
+<h3 id="Undo-amp-Redo"><a href="#Undo-amp-Redo" class="headerlink" title="Undo &amp; Redo"></a>Undo &amp; Redo</h3><ul>
 <li><code>u</code> : undo the last command</li>
 <li><code>U</code> : undo the command excuting on the while line</li>
 <li><code>ctrl+R</code> : redo the command</li>
 </ul>
-<h3 id="8-Copy-amp-Paste"><a href="#8-Copy-amp-Paste" class="headerlink" title="8.Copy &amp; Paste"></a>8.Copy &amp; Paste</h3><ul>
+<h3 id="Copy-amp-Paste"><a href="#Copy-amp-Paste" class="headerlink" title="Copy &amp; Paste"></a>Copy &amp; Paste</h3><ul>
 <li><code>y</code> : to copy</li>
 <li><code>p</code> : to paste<ul>
 <li>e.g. Start Visual Mode with <code>v</code> and move the cursor to chose whatever you want, type <code>y</code> to copy the highlighted text and type <code>p</code> to paste the text.</li>
 </ul>
 </li>
 </ul>
-<h3 id="9-Others"><a href="#9-Others" class="headerlink" title="9.Others"></a>9.Others</h3><ul>
+<h3 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h3><ul>
 <li><code>.</code> : repeat the last command</li>
 <li><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> : many commands follow this pattern<ul>
 <li>e.g. <code>0y$</code> means copy the whole line<ul>
@@ -387,6 +391,53 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Moving-the-cursor">
+        <span class="has-mr-6">1</span>
+        <span>Moving the cursor</span>
+        </a></li><li>
+        <a class="is-flex" href="#Navigation">
+        <span class="has-mr-6">2</span>
+        <span>Navigation</span>
+        </a></li><li>
+        <a class="is-flex" href="#Delete">
+        <span class="has-mr-6">3</span>
+        <span>Delete</span>
+        </a></li><li>
+        <a class="is-flex" href="#Insert">
+        <span class="has-mr-6">4</span>
+        <span>Insert</span>
+        </a></li><li>
+        <a class="is-flex" href="#Search">
+        <span class="has-mr-6">5</span>
+        <span>Search</span>
+        </a></li><li>
+        <a class="is-flex" href="#Replace">
+        <span class="has-mr-6">6</span>
+        <span>Replace</span>
+        </a></li><li>
+        <a class="is-flex" href="#Undo-amp-Redo">
+        <span class="has-mr-6">7</span>
+        <span>Undo &amp; Redo</span>
+        </a></li><li>
+        <a class="is-flex" href="#Copy-amp-Paste">
+        <span class="has-mr-6">8</span>
+        <span>Copy &amp; Paste</span>
+        </a></li><li>
+        <a class="is-flex" href="#Others">
+        <span class="has-mr-6">9</span>
+        <span>Others</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -919,23 +970,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script src="/js/insight.js" defer></script>
 <link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
+<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
