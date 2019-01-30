@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-01-26T13:28:15.845Z">
+<meta property="og:updated_time" content="2019-01-30T10:08:35.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
 <meta name="twitter:description" content="Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2062 words)
+                    14 minutes read (About 2114 words)
                 </span>
                 
             </div>
@@ -177,7 +177,7 @@ x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\
 \mathbf{Y} =
 \left( \begin{array}{c}
 y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
-\end{array} \right)</script><h3 id="Logistic-Regression-逻辑回归"><a href="#Logistic-Regression-逻辑回归" class="headerlink" title="Logistic Regression (逻辑回归)"></a><strong>Logistic Regression (逻辑回归)</strong></h3><p>逻辑回归是一种解决二分分类问题的机器学习方法，用于预测某种实物的可能性。<br></p>
+\end{array} \right)</script><h3 id="Logistic-Regression-对数几率回归"><a href="#Logistic-Regression-对数几率回归" class="headerlink" title="Logistic Regression (对数几率回归)"></a><strong>Logistic Regression (对数几率回归)</strong></h3><p>参照了周志华的西瓜书，把 Logisitic Regression 翻译为对数纪律回归，简称为对率回归。对数几率回归是一种解决二分分类问题的机器学习方法，用于预测某种实物的可能性。<br></p>
 <blockquote>
 <p>Given x, you want $\hat{y} = P(y=1 \mid x)​$. </p>
 <p>In other words, if x is a picture, as talked about above, you want $\hat{y}​$ to tell you the chance that there is a cat in the picture.</p>
@@ -198,12 +198,12 @@ y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="Logistic-Regression-Cost-Function-逻辑回归损失函数"><a href="#Logistic-Regression-Cost-Function-逻辑回归损失函数" class="headerlink" title="Logistic Regression Cost Function (逻辑回归损失函数)"></a><strong>Logistic Regression Cost Function (逻辑回归损失函数)</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}​$，希望通过训练集，找到参数 $w, b​$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}​$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}​$ 与 $y​$ 的实际值由多接近 <br></p>
+<h3 id="Logistic-Regression-Cost-Function-对数几率回归损失函数"><a href="#Logistic-Regression-Cost-Function-对数几率回归损失函数" class="headerlink" title="Logistic Regression Cost Function (对数几率回归损失函数)"></a><strong>Logistic Regression Cost Function (对数几率回归损失函数)</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}​$，希望通过训练集，找到参数 $w, b​$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}​$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}​$ 与 $y​$ 的实际值由多接近 <br></p>
 <p>对于m个训练样本，我们通常用上标 $(i)​$ 来指明数据与第 $i​$ 个样本有关。<br></p>
 <p>通常，我们这样定义Loss function (损失函数) :</p>
 <script type="math/tex; mode=display">
-L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2</script><p>但在逻辑回归中一般不使用，因为它是non-convex (非凸的) ，将来使用<code>梯度下降算法 (Gradient Descent)</code>时无法找到全局最优值 <br></p>
-<p>在逻辑回归中，我们使用的损失函数为 : </p>
+L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2</script><p>但在对数几率回归中一般不使用，因为它是non-convex (非凸的) ，将来使用<code>梯度下降算法 (Gradient Descent)</code>时无法找到全局最优值 <br></p>
+<p>在对数几率回归中，我们使用的损失函数为 : </p>
 <script type="math/tex; mode=display">
 L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))</script><blockquote>
 <p>If y = 1 : $L(\hat{y},y) = -\log(\hat{y})​$, you want $\hat{y}​$ to be large</p>
@@ -212,12 +212,12 @@ L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))</script><blockquote>
 </blockquote>
 <p>上述的<code>Loss function</code>衡量了单个训练样本的表现，对于m个样本，我们定义<code>Cost function</code> (代价函数) ，它衡量了全体训练样本的表现</p>
 <script type="math/tex; mode=display">
-J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log\hat{y}^{(i)} + (1-y^{(i)}) \log(1-\hat{y}^{(i)})</script><p><code>Loss function</code>只适用于单个训练样本，<code>Cost function</code>是基于参数的总代价。所以，在训练逻辑回归模型时，我们要找到合适的参数 $w, b​$ 使得<code>Cost function</code>尽可能的小<br></p>
+J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log\hat{y}^{(i)} + (1-y^{(i)}) \log(1-\hat{y}^{(i)})</script><p><code>Loss function</code>只适用于单个训练样本，<code>Cost function</code>是基于参数的总代价。所以，在训练对数几率回归模型时，我们要找到合适的参数 $w, b$ 使得<code>Cost function</code>尽可能的小<br></p>
 <h3 id="Gradient-Descent-梯度下降"><a href="#Gradient-Descent-梯度下降" class="headerlink" title="Gradient Descent (梯度下降)"></a><strong>Gradient Descent (梯度下降)</strong></h3><p>我们将使用<code>梯度下降 (Gradient Descent) 算法</code>来找出合适的参数 $w,b$，使得<code>Cost function</code> 即 $J(w,b)$ 最小 <br></p>
 <ul>
 <li><img src="/2019/01/21/Deep-Learning-Week-One/gradient_descent.png" alt=""></li>
 </ul>
-<p>最上方的小红点为初始点，对于逻辑回归，一般使用0来初始化，随机初始化也有效，但通常不这么做 <br></p>
+<p>最上方的小红点为初始点，对于对数几率回归，一般使用0来初始化，随机初始化也有效，但通常不这么做 <br></p>
 <blockquote>
 <p>梯度下降过程：</p>
 <ul>
@@ -242,7 +242,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 \frac{\partial J}{\partial a} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial a} = 3 \cdot 1 = 3</script><script type="math/tex; mode=display">
 \frac{\partial J}{\partial b} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial b} = 3 \cdot 1 \cdot c = 6</script><script type="math/tex; mode=display">
 \frac{\partial J}{\partial c} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial c} = 3 \cdot 1 \cdot b = 9</script><p>在反向传播中，一般我们只关心最终输出值 (在这个例子中是 $J$ ) ，需要计算 $J$ 对于某个变量 (记作var) 的导数，即 $\frac {dJ}{dvar}​$，在Python代码中简写为<code>dvar</code> <br></p>
-<h3 id="Logistic-Regression-Gradient-Descent-逻辑回归梯度下降"><a href="#Logistic-Regression-Gradient-Descent-逻辑回归梯度下降" class="headerlink" title="Logistic Regression Gradient Descent (逻辑回归梯度下降)"></a><strong>Logistic Regression Gradient Descent (逻辑回归梯度下降)</strong></h3><p>现在，我们来实现逻辑回归梯度下降算法，只考虑单个样本的情况 :</p>
+<h3 id="Logistic-Regression-Gradient-Descent-对数几率回归梯度下降"><a href="#Logistic-Regression-Gradient-Descent-对数几率回归梯度下降" class="headerlink" title="Logistic Regression Gradient Descent (对数几率回归梯度下降)"></a><strong>Logistic Regression Gradient Descent (对数几率回归梯度下降)</strong></h3><p>现在，我们来实现对数几率回归梯度下降算法，只考虑单个样本的情况 :</p>
 <blockquote>
 <p>$z = w^{T} + b$</p>
 <p>$\hat{y} = a = \sigma({z})​$</p>
@@ -250,7 +250,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 </blockquote>
 <p>假设样本只有两个，分别为 $x1, x2​$，则计算图如下 :</p>
 <p><img src="/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png" alt=""></p>
-<p>在逻辑回归中，我们需要做的是，改变参数 $w, b$ 的值，来最小化损失函数，即需要计算出 $dw, dz$ <br></p>
+<p>在对数几率回归中，我们需要做的是，改变参数 $w, b$ 的值，来最小化损失函数，即需要计算出 $dw, dz$ <br></p>
 <p>向后传播计算损失函数 $L​$ 的偏导数步骤如下：</p>
 <blockquote>
 <ul>
@@ -261,7 +261,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 <li>$db = dz$</li>
 </ul>
 </blockquote>
-<p>所以，在逻辑回归梯度下降算法中你需要做的是</p>
+<p>所以，在对数几率回归梯度下降算法中你需要做的是</p>
 <blockquote>
 <ul>
 <li>$ dz = a - y$</li>
@@ -284,7 +284,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 </blockquote>
 <p>伪代码如下 :</p>
 <blockquote>
-<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$<br>$\quad…\quad\quad\quad\quad\quad\quad$ //这里应该是一个循环，这里 $n_x = 2$<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m​$</p>
+<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$<br>$\quad…\quad\quad\quad\quad\quad\quad$ //这里应该是一个循环，这里 $n_x = 2$<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m$</p>
 <p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br>$b = b - \alpha db​$</p>
 </blockquote>
 <p>但这种方法，有两个循环，一个是最外层的循环，循环 $m$ 个训练样本，另一个是 $dw_1, dw_2$ (feature) 的循环，在这个例子中 $n_x = 2$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
@@ -428,13 +428,13 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         <span class="has-mr-6">1</span>
         <span>Binary Classification (二分分类)</span>
         </a></li><li>
-        <a class="is-flex" href="#Logistic-Regression-逻辑回归">
+        <a class="is-flex" href="#Logistic-Regression-对数几率回归">
         <span class="has-mr-6">2</span>
-        <span>Logistic Regression (逻辑回归)</span>
+        <span>Logistic Regression (对数几率回归)</span>
         </a></li><li>
-        <a class="is-flex" href="#Logistic-Regression-Cost-Function-逻辑回归损失函数">
+        <a class="is-flex" href="#Logistic-Regression-Cost-Function-对数几率回归损失函数">
         <span class="has-mr-6">3</span>
-        <span>Logistic Regression Cost Function (逻辑回归损失函数)</span>
+        <span>Logistic Regression Cost Function (对数几率回归损失函数)</span>
         </a></li><li>
         <a class="is-flex" href="#Gradient-Descent-梯度下降">
         <span class="has-mr-6">4</span>
@@ -444,9 +444,9 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         <span class="has-mr-6">5</span>
         <span>Computation Graph (计算图)</span>
         </a></li><li>
-        <a class="is-flex" href="#Logistic-Regression-Gradient-Descent-逻辑回归梯度下降">
+        <a class="is-flex" href="#Logistic-Regression-Gradient-Descent-对数几率回归梯度下降">
         <span class="has-mr-6">6</span>
-        <span>Logistic Regression Gradient Descent (逻辑回归梯度下降)</span>
+        <span>Logistic Regression Gradient Descent (对数几率回归梯度下降)</span>
         </a></li><li>
         <a class="is-flex" href="#Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集">
         <span class="has-mr-6">7</span>
