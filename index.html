@@ -139,7 +139,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 51 words)
+                    3 minutes read (About 412 words)
                 </span>
                 
             </div>
@@ -152,6 +152,14 @@
         </h1>
         <div class="content">
             <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程及相关作业。</p>
+<h3 id="Why-do-you-need-non-linear-activation-function"><a href="#Why-do-you-need-non-linear-activation-function" class="headerlink" title="Why do you need non-linear activation function"></a><strong>Why do you need non-linear activation function</strong></h3><p>为什么神经网络需要非线性的激活函数？不能使用线性的激活函数，比如 $g(z) = z$ 吗？</p>
+<p>假设我们使用线性的激活函数 $g(z) = z$ ，那么有：</p>
+<script type="math/tex; mode=display">
+a^{[1]} = z^{[1]} = W^{[1]}x + b^{[1]}</script><script type="math/tex; mode=display">
+a^{[2]} = z^{[2]} = W^{[2]}a^{[1]} + b^{[2]}</script><p>把 $a^{[1]}$ 带入，则有</p>
+<script type="math/tex; mode=display">
+a^{[2]} = W^{[2]}(W^{[1]}x + b^{[1]}) + b^{[2]} = (W^{[2]}W{[1]})x + (W^{[2]}b^{[1]}+b{[2]}) = W'x+b'</script><p>我们可以得到，$a^{[2]}​$ 仍是输入 $x​$ 的线性组合。也就是说，使用线性函数的神经网络仅仅只是把输入 $x​$ 线性组合再输出。即便是包含许多隐藏层的神经网络，如果使用的是线性的激活函数，不管多少层，得到的输出依然是 $x​$ 的线性组合，也就意味着隐藏层根本没有什么作用。所以，隐藏层激活函数必须是非线性的，否则将失去意义。</p>
+<p>只有一个地方你可能会使用线性激活函数，在机器学习的回归问题中，$y$ 是一个实数，比如你像预测房地产的价格，那么 $y$ 是一个实数，而不是像二分类问题那样要么 $0$ 要么 $1$ ，这种情况下，在输出层你可能会使用线性激活函数，但隐藏层不会使用线性激活函数。</p>
 
         </div>
         
@@ -191,7 +199,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-1/">Shallow Neural Networks</a>
+                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-1/">Shallow Neural Networks-1</a>
             
         </h1>
         <div class="content">
@@ -584,14 +592,14 @@
             
             <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
@@ -782,14 +790,14 @@
             
             <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
@@ -981,14 +989,14 @@
             
             <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
