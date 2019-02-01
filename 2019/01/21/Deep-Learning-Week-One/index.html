@@ -2,26 +2,26 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>Neural Network and Deep Learning (Week One) - xiaohanhan&#39;s blog</title>
+<title>Basic of Neural Networks-1 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Neural Network and Deep Learning (Week One)">
+<meta property="og:title" content="Basic of Neural Networks-1">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-01-30T10:08:35.941Z">
+<meta property="og:updated_time" content="2019-02-01T10:37:21.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Neural Network and Deep Learning (Week One)">
-<meta name="twitter:description" content="Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat">
+<meta name="twitter:title" content="Basic of Neural Networks-1">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
 <meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/01/21/Deep-Learning-Week-One/gradient_descent.png">
 
 
@@ -141,14 +141,14 @@
                 <time class="level-item has-text-grey" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2114 words)
+                    14 minutes read (About 2159 words)
                 </span>
                 
             </div>
@@ -156,11 +156,12 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Neural Network and Deep Learning (Week One)
+                Basic of Neural Networks-1
             
         </h1>
         <div class="content">
-            <h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)"></a><strong>Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。</p>
+<h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)**"></a>Binary Classification (二分分类)**</h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
 <a id="more"></a>
 <p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量 ( $n_x​$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
 <script type="math/tex; mode=display">
@@ -315,7 +316,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         <div class="level-start">
             <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/26/Deep-Learning-Week-Two/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Neural Network and Deep Learning (Week Two)</span>
+                <span class="level-item">Basic of Neural Networks-2</span>
             </a>
         </div>
         
@@ -372,7 +373,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -426,7 +427,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             <ul class="menu-list"><li>
         <a class="is-flex" href="#Binary-Classification-二分分类">
         <span class="has-mr-6">1</span>
-        <span>Binary Classification (二分分类)</span>
+        <span>Binary Classification (二分分类)**</span>
         </a></li><li>
         <a class="is-flex" href="#Logistic-Regression-对数几率回归">
         <span class="has-mr-6">2</span>
@@ -470,22 +471,6 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/Deep-Learning/">
-            <span class="level-start">
-                <span class="level-item">Deep Learning</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Deep-Learning/Neural-Network/">
-            <span class="level-start">
-                <span class="level-item">Neural Network</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Java/">
             <span class="level-start">
                 <span class="level-item">Java</span>
@@ -494,6 +479,22 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/deeplearning-ai/">
+            <span class="level-start">
+                <span class="level-item">deeplearning.ai</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/deeplearning-ai/Deep-learning-NN/">
+            <span class="level-start">
+                <span class="level-item">Deep learning & NN</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/vim/">
             <span class="level-start">
                 <span class="level-item">vim</span>
@@ -532,18 +533,37 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         
         <article class="media">
             
+            <a href="/2019/02/01/Deep-Learning-Week-Three/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Deep-Learning-Week-Three/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -553,16 +573,16 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             
             <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week One)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
+                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -619,6 +639,17 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/01/">
                 <span class="level-start">
                     <span class="level-item">January 2019</span>
@@ -648,7 +679,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>
@@ -700,18 +731,37 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         
         <article class="media">
             
+            <a href="/2019/02/01/Deep-Learning-Week-Three/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Deep-Learning-Week-Three/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -721,16 +771,16 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             
             <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week One)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
+                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -787,6 +837,17 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/01/">
                 <span class="level-start">
                     <span class="level-item">January 2019</span>
@@ -816,7 +877,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>

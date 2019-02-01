@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>Category: Deep Learning - xiaohanhan&#39;s blog</title>
+<title>Category: Deep learning &amp; NN - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="description" content="Zihan Song">
 <meta property="og:type" content="website">
 <meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/categories/Deep-Learning/index.html">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/categories/deeplearning-ai/Deep-learning-NN/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
 <meta property="og:description" content="Zihan Song">
 <meta property="og:locale" content="en">
@@ -128,7 +128,9 @@
         <ul>
             <li><a href="/categories">Categories</a></li>
             
-            <li class="is-active"><a href="#" aria-current="page">Deep Learning</a></li>
+            <li><a href="/categories/deeplearning-ai/">deeplearning.ai</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Deep learning &amp; NN</a></li>
         </ul>
         </nav>
     </div>
@@ -140,17 +142,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time>
+                <time class="level-item has-text-grey" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    21 minutes read (About 3164 words)
+                    16 minutes read (About 2466 words)
                 </span>
                 
             </div>
@@ -158,11 +160,64 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/26/Deep-Learning-Week-Two/">Neural Network and Deep Learning (Week Two)</a>
+                <a class="has-link-black-ter" href="/2019/02/01/Deep-Learning-Week-Three/">Shallow Neural Networks</a>
             
         </h1>
         <div class="content">
-            <h3 id="Vectorization-向量化"><a href="#Vectorization-向量化" class="headerlink" title="Vectorization (向量化)"></a><strong>Vectorization (向量化)</strong></h3><p>Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。<br></p>
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。</p>
+<h3 id="Neural-Network-Overview"><a href="#Neural-Network-Overview" class="headerlink" title="Neural Network Overview"></a><strong>Neural Network Overview</strong></h3><p>本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :<br></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/02/01/Deep-Learning-Week-Three/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21 minutes read (About 3214 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/01/26/Deep-Learning-Week-Two/">Basic of Neural Networks-2</a>
+            
+        </h1>
+        <div class="content">
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础相关课程及第二周作业。</p>
+<h3 id="Vectorization-向量化"><a href="#Vectorization-向量化" class="headerlink" title="Vectorization (向量化)"></a><strong>Vectorization (向量化)</strong></h3><p>Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。<br></p>
         </div>
         
         
@@ -194,14 +249,14 @@
                 <time class="level-item has-text-grey" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2114 words)
+                    14 minutes read (About 2159 words)
                 </span>
                 
             </div>
@@ -209,11 +264,12 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/21/Deep-Learning-Week-One/">Neural Network and Deep Learning (Week One)</a>
+                <a class="has-link-black-ter" href="/2019/01/21/Deep-Learning-Week-One/">Basic of Neural Networks-1</a>
             
         </h1>
         <div class="content">
-            <h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)"></a><strong>Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。</p>
+<h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)**"></a>Binary Classification (二分分类)**</h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
         </div>
         
         
@@ -277,7 +333,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -336,22 +392,6 @@
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/Deep-Learning/">
-            <span class="level-start">
-                <span class="level-item">Deep Learning</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Deep-Learning/Neural-Network/">
-            <span class="level-start">
-                <span class="level-item">Neural Network</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Java/">
             <span class="level-start">
                 <span class="level-item">Java</span>
@@ -360,6 +400,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/deeplearning-ai/">
+            <span class="level-start">
+                <span class="level-item">deeplearning.ai</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/deeplearning-ai/Deep-learning-NN/">
+            <span class="level-start">
+                <span class="level-item">Deep learning & NN</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/vim/">
             <span class="level-start">
                 <span class="level-item">vim</span>
@@ -398,18 +454,37 @@
         
         <article class="media">
             
+            <a href="/2019/02/01/Deep-Learning-Week-Three/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Deep-Learning-Week-Three/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -419,16 +494,16 @@
             
             <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week One)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
+                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -485,6 +560,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/01/">
                 <span class="level-start">
                     <span class="level-item">January 2019</span>
@@ -514,7 +600,7 @@
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>
@@ -566,18 +652,37 @@
         
         <article class="media">
             
+            <a href="/2019/02/01/Deep-Learning-Week-Three/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Deep-Learning-Week-Three/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -587,16 +692,16 @@
             
             <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week One)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
+                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -653,6 +758,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/01/">
                 <span class="level-start">
                     <span class="level-item">January 2019</span>
@@ -682,7 +798,7 @@
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>
@@ -735,18 +851,37 @@
         
         <article class="media">
             
+            <a href="/2019/02/01/Deep-Learning-Week-Three/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Deep-Learning-Week-Three/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week Two)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week Two)</a>
+                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -756,16 +891,16 @@
             
             <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Neural Network and Deep Learning (Week One)">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Neural Network and Deep Learning (Week One)</a>
+                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Deep-Learning/">Deep Learning</a> / <a class="has-link-grey -link" href="/categories/Deep-Learning/Neural-Network/">Neural Network</a>
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                     </p>
                 </div>
             </div>
@@ -822,6 +957,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/01/">
                 <span class="level-start">
                     <span class="level-item">January 2019</span>
@@ -851,7 +997,7 @@
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">2</span>
+                            <span class="level-item tag">3</span>
                         </span>
                     </a>
                 </li>

@@ -2,21 +2,30 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>xiaohanhan&#39;s blog</title>
+<title>Shallow Neural Networks - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Zihan Song">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/index.html">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
+<meta name="keywords" content="Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shallow Neural Networks">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Zihan Song">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/1.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/2.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/3.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/4.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/5.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/6.png">
+<meta property="og:updated_time" content="2019-02-01T10:38:21.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaohanhan&#39;s blog">
-<meta name="twitter:description" content="Zihan Song">
+<meta name="twitter:title" content="Shallow Neural Networks">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
+<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/02/01/Deep-Learning-Week-Three/1.png">
 
 
 
@@ -80,7 +89,7 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -94,7 +103,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active" href="/">Home</a>
+                <a class="navbar-item" href="/">Home</a>
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
@@ -109,6 +118,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -122,8 +135,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
+                <div class="column is-9-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
@@ -147,185 +159,133 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/02/01/Deep-Learning-Week-Three/">Shallow Neural Networks</a>
+                Shallow Neural Networks
             
         </h1>
         <div class="content">
             <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。</p>
 <h3 id="Neural-Network-Overview"><a href="#Neural-Network-Overview" class="headerlink" title="Neural Network Overview"></a><strong>Neural Network Overview</strong></h3><p>本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/01/Deep-Learning-Week-Three/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    21 minutes read (About 3214 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/26/Deep-Learning-Week-Two/">Basic of Neural Networks-2</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础相关课程及第二周作业。</p>
-<h3 id="Vectorization-向量化"><a href="#Vectorization-向量化" class="headerlink" title="Vectorization (向量化)"></a><strong>Vectorization (向量化)</strong></h3><p>Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/26/Deep-Learning-Week-Two/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    14 minutes read (About 2159 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/21/Deep-Learning-Week-One/">Basic of Neural Networks-1</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。</p>
-<h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)**"></a>Binary Classification (二分分类)**</h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/21/Deep-Learning-Week-One/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/01/17/Java-Constant-Pool/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/Java-Constant-Pool.png" alt="Java常量池">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6 minutes read (About 940 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/17/Java-Constant-Pool/">Java常量池</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h3><ul>
-<li>相同的值只存储一份，节省内存，共享访问，提高运行效率</li>
+<a id="more"></a>
+<p><img src="/2019/02/01/Deep-Learning-Week-Three/1.png" alt=""></p>
+<p>而神经网络 (Neural Network) 是这个样子，如下图 :</p>
+<p><img src="/2019/02/01/Deep-Learning-Week-Three/2.png" alt=""></p>
+<p>我们可以把很多 sigmoid 单元堆叠起来来构成一个神经网络。在之前所学的对数几率回归中，每一个节点对应着两个计算步骤：首先计算 $z=w^{T}x + b​$ ，然后计算 $a=\sigma(z)​$ 。在这个神经网络中，三个竖排堆叠的节点就对应着这两部分的计算，那个单独的节点也对应着另一个类似的 $z, a​$ 的计算。 <br></p>
+<p>在神经网络中，所用的符号也会有些不一样。我们还是用 $x$ 来表示输入特征，用 $W^{[1]}, b^{[1]}$ 来表示参数，这样你就可以计算出 $z^{[1]} = W^{[1]}x + b^{[1]}$ 。这里右上角的 $[1]$ 代表着节点所属的层，你可以认为层数从 $0$ 开始算起，如上图中的 $x_1, x_2, x_3$ 就代表着第 $0$ 层（也称为输入层），三个竖排的节点就属于第 $1$ 层（也称为隐藏层），单独的那个节点属于第 $2$ 层（也称为输出层）。需要注意的是，这与之前用来标注第 $i$ 个训练样本 $(x^{(i)}, y^{(i)})$ 不同，这里用的是方括号。<br></p>
+<p>那么，在这个神经网络模型中，正向传播就分为两层。</p>
+<ul>
+<li>从输入层到隐藏层：在使用类似对数几率回归的方法计算了 $z^{[1]}$ 之后，再计算 $a^{[1]}=\sigma(z^{[1]})​$ 。</li>
+<li>从隐藏层到输出层：使用相同的方法计算 $z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}$ 。当然，这里的参数  $W^{[2]}, b^{[2]}$ 与 $W^{[1]}, b^{[1]}$ 不同，且第 $1$ 层的输出 $a^{[1]}$ 作为第 $2$ 层的输入 $x$ ，接着同样计算 $a^{[2]}=\sigma(z^{[2]})$ ，得到的 $a^{[2]}​$ 就是整个神经网络的输出。</li>
 </ul>
+<p>同样，还需要通过反向传播计算 $da^{[2]}, dz^{[2]}$ 等等，这些将会在后面详细讨论。</p>
+<h3 id="One-hidden-layer-Neural-Network"><a href="#One-hidden-layer-Neural-Network" class="headerlink" title="One hidden layer Neural Network"></a><strong>One hidden layer Neural Network</strong></h3><p>下图是一张单隐藏层的神经网络，也称为双层神经网络 (2 layer NN) 。我们把最左边的 $x1, x2, x3$ 称为输入层 （Input Layer) ，中间称为隐藏层 (Hidden Layer) ，最右边只有一个节点的称为输出层 (Output Layer) ，负责输出预测值 $\hat{y}$ 。在计算神经网络的层数时，不算入输入层。</p>
+<p><img src="/2019/02/01/Deep-Learning-Week-Three/3.png" alt=""></p>
+<p>由于在训练过程中，我们看不到这些中间节点的真正数值，不像输入，输出层那样，所以称为隐藏层。</p>
+<p>之前，我们用 $x$ 来表示输入，其实它还有一种表示方式 $a^{[0]}$ ，这个 $a$ 有 activation (激活) 的意思，意味这它把不同层的值传递给下一层，起到了激活的作用。用上标 $[i]$ 表示在第 $i$ 层，用下标 $j$ 表示这层中第 $j$ 个节点，如 $a^{[1]}_{2}$ 即表示第 $1$ 层的第 $2$ 个节点。那么上图中隐藏层的4个节点可以写成矩阵的形式：</p>
+<script type="math/tex; mode=display">
+a^{[1]} =
+\left( \begin{array}{c}
+a^{[1]}_{1} \\\
+a^{[1]}_{2} \\\
+a^{[1]}_{3} \\\
+a^{[1]}_{4}
+\end{array} \right)</script><h3 id="Computing-a-Neural-Network’s-Output"><a href="#Computing-a-Neural-Network’s-Output" class="headerlink" title="Computing a Neural Network’s Output"></a><strong>Computing a Neural Network’s Output</strong></h3><p>接下来，我们来看神经网络的输出是如何计算出来的。我们可以把神经网络的计算看作对数几率回归的多次重复计算。</p>
+<p>我们先来回顾一下对数几率回归的计算过程，如下图：</p>
+<p><img src="/2019/02/01/Deep-Learning-Week-Three/4.png" alt=""></p>
+<p>这里的圆圈代表了，对数几率回归的两个步骤。我们先隐去其他节点，如右图，那么它就和对数几率回归非常相似，我们可以计算出 $z^{[1]}_{1} = w^{[1]T}_{1}x+b^{[1]}_{1}$ ， $a^{[1]}_{1} = \sigma(z^{[1]}_{1})$ ，上标代表层数，下标表示这层上的第几个节点。</p>
+<p>以此类推，我们可以写出：</p>
+<p><img src="/2019/02/01/Deep-Learning-Week-Three/5.png" alt=""></p>
+<p>回想起之前所讲的向量化，如果我们想让程序高效的运行，就必须将其向量化。</p>
+<p>我们首先先将 $w$ 向量化，由于有4个对数几率回归单元，而每一个回归单元都有其对应的参数向量 $w$ ，且每一个回归单元都有输入 $x_1, x_2, x_3​$ ，所以我们可以得到：</p>
+<script type="math/tex; mode=display">
+W^{[1]} =
+\left( \begin{array}{c}
+w^{[1]T}_{1} \\\
+w^{[1]T}_{2} \\\
+w^{[1]T}_{3} \\\
+w^{[1]T}_{4}
+\end{array} \right)_{(4 \times 3)}</script><p>那么，我们可以得到如下式子：</p>
+<script type="math/tex; mode=display">
+Z^{[1]} =
+\left( \begin{array}{c}
+w^{[1]T}_{1} \\\
+w^{[1]T}_{2} \\\
+w^{[1]T}_{3} \\\
+w^{[1]T}_{4}
+\end{array} \right)
+\cdot
+\left( \begin{array}{c}
+x_1 \\\
+x_2 \\\
+x_3
+\end{array} \right)
++
+\left( \begin{array}{c}
+b^{[1]}_{1} \\\
+b^{[1]}_{2} \\\
+b^{[1]}_{3} \\\
+b^{[1]}_{4}
+\end{array} \right)
+=
+\left( \begin{array}{c}
+w^{[1]T}_{1}x+b^{[1]}_{1} \\\
+w^{[1]T}_{2}x+b^{[1]}_{2} \\\
+w^{[1]T}_{3}x+b^{[1]}_{3} \\\
+w^{[1]T}_{4}x+b^{[1]}_{4}
+\end{array} \right)
+=
+\left( \begin{array}{c}
+z^{[1]}_{1} \\\
+z^{[1]}_{2} \\\
+z^{[1]}_{3} \\\
+z^{[1]}_{4}
+\end{array} \right)</script><script type="math/tex; mode=display">
+a^{[1]} =
+\left( \begin{array}{c}
+a^{[1]}_{1} \\\
+a^{[1]}_{2} \\\
+a^{[1]}_{3} \\\
+a^{[1]}_{4}
+\end{array} \right)
+=
+\sigma(Z^{[1]})
+=\sigma(W^{[1]}x + b^{[1]})</script><p>在本神经网络中，你就应该计算 (为了更好理解，右下角标注了矩阵的形状) ：</p>
+<script type="math/tex; mode=display">
+z^{[1]}_{(4 \times 1)} = W^{[1]}_{(4 \times 3)}x_{(3 \times 1)}+ b^{[1]}_{(4 \times 1)}</script><script type="math/tex; mode=display">
+a^{[1]}_{4 \times 1} = \sigma(z^{[1]}_{(4 \times 1)})</script><p>记得我们之前说过，可以用 $a^{[0]}​$表示 $x​$ ，所以 $z^{[1]}​$ 有可以写成 $z^{[1]} = W^{[1]}a^{[0]}+ b^{[1]}​$ ，那么可以用同样的方法推导出：</p>
+<script type="math/tex; mode=display">
+z^{[2]}_{(1 \times 1)} = W^{[2]}_{(1 \times 4)}a^{[1]}_{(4 \times 1)}+ b^{[2]}_{(1 \times 1)}</script><script type="math/tex; mode=display">
+a^{[2]}_{1 \times 1} = \sigma(z^{[2]}_{(1 \times 1)})</script><p>所以在代码中，我们只需实现上述的4行代码。然而这是对单个样本的，即对于输入的特征向量 $x$ ，可以计算出 $\hat{y} = a^{[2]}​$ ，对于整个训练集的向量化将在接下来的部分介绍。</p>
+<h3 id="Vectorizing-across-multiple-examples"><a href="#Vectorizing-across-multiple-examples" class="headerlink" title="Vectorizing across multiple examples"></a><strong>Vectorizing across multiple examples</strong></h3><p>接下来，我们实现对整个训练集的向量化。假设你有 $m​$ 个训练样本，理解了上述理论，那么我们可以通过输入 $x^{(i)}​$ 计算得出 $ \hat{y}^{(i)} = a^{[2](i)}​$ 其中 $i \in [1,m]​$ 。</p>
+<p>还记得我们之前把输入的特征向量 $x^{(1)}, x^{(2)}, …, x^{(m)}​$ 横向堆叠起来，得到了一个 $(n_x \times m)​$ 的矩阵 $X​$ ，即</p>
+<script type="math/tex; mode=display">
+\mathbf{X} =\left( \begin{array}{c}\vdots & \vdots & \ldots & \vdots \\\\x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\\vdots & \vdots & \ldots & \vdots\end{array} \right)_{(n_x \times m)}</script><p>同样的，我们把 $x^{(1)}, x^{(2)}, …, x^{(m)}​$ 横向堆叠起来，那么我们需要计算的式子变为：</p>
+<script type="math/tex; mode=display">
+Z^{[1]} = W^{[1]}X + b^{[1]}</script><script type="math/tex; mode=display">
+A^{[1]} = \sigma(Z^{[1]})</script><script type="math/tex; mode=display">
+Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}</script><script type="math/tex; mode=display">
+A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \times m)​$ ，你可以这样理解，每一个样本对应着矩阵的一列，所以有 $m​$ 列，隐藏层中的每一个节点对应着矩阵的一行，所以 $Z^{[1]}​$ 有 $4​$ 行，规律同样适用于 $X, A​$。</p>
+<h3 id="Activation-functions"><a href="#Activation-functions" class="headerlink" title="Activation functions"></a><strong>Activation functions</strong></h3><p>到目前为止，我们一直选择 sigmoid 函数作为 activation function (激活函数) ，但有时使用其他函数效果要好得多，它们各自有不同的特点，下面我们来介绍几个不同的激活函数 $g(x)$：</p>
+<p><img src="/2019/02/01/Deep-Learning-Week-Three/6.png" alt=""></p>
+<ul>
+<li>tanh (双曲正切函数)，实际上是 sigmoid 函数向下平移后再经过拉伸得到的。对于隐藏单元，如果你选择 tanh 作为激活函数，它的表现几乎总是比 sigmoid 函数要好，因为 tanh 函数的输出介于 $(-1,1)$ 之间，激活函数的平均值更接近于 $0$ ，而不是 $0.5$ ，这让下一层的学习更方便一点。所以之后我们几乎不再使用 sigmoid 作为激活函数了，但有一个例外，即选择输出层的激活函数的时候，因为二分类问题的输出为 $\{0,1\}$ ，你更希望 $\hat{y}$ 介于 $0,1$ 之间，所以一般会选择 sigmoid 函数。</li>
+<li>所以之前所举的例子中，你可以使用 tanh 函数作为隐藏层的激活函数，而选择 sigmoid 函数作为输出层的激活函数。同样的，可以使用上标来表示每一层的激活函数，如：$g^{[1]}(x) = tanh(z), g^{[2]} = \sigma(z)​$ </li>
+<li>然而，不管是 tanh 还是 sigmoid 函数，都有一个缺点，如果 $z$ 特别大或者特别小，那么在这一点的函数导数会很小，因此会拖慢梯度下降算法。为了弥补这个缺点，就出现了 ReLU (rectified linear unit) 函数，该函数有如下特点：当 $z$ 为正，导数为 $1$，当 $z$ 为负，导数为 $0$ ，当 $z$ 为 $0$ 时，导数不存在，但在实际使用中， $z$ 几乎不会等于 $0$ ，当然你可以在程序中直接把在 $z=0$ 点的导数赋为 $0$ 或 $1$ 。</li>
+<li>但 ReLU 也有一个缺点，当 $z$ 为负时，导数恒等于 $0$ 。所以就有了 Leaky ReLU 函数，通常表现比 ReLU 函数更好，但实际使用中频率没那么高。</li>
+<li>ReLU 和 Leaky ReLU 的优势在于，对于 $z$ 的许多取值，激活函数的导数和 $0$ 差的很远，这也就意味着，在实践中你的神经网络的学习速度会快很多。</li>
+<li>总结一下，在我们一般选择 sigmoid 作为输出层的激活函数，而选择 ReLU 作为其他层的激活函数，ReLU 如今被人们广泛使用。</li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/17/Java-Constant-Pool/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Deep-Learning/">Deep Learning</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -335,64 +295,19 @@
 
 
 
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/01/14/Vim-Tutorial/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-14T08:55:19.000Z">2019-01-14</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/vim/">vim</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 minutes read (About 563 words)
-                </span>
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/26/Deep-Learning-Week-Two/">
+                <span class="level-item">Basic of Neural Networks-2</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/14/Vim-Tutorial/">Vim Tutorial</a>
-            
-        </h1>
-        <div class="content">
-            <p>This tutorial includes some basic vim commands and I hope that it will be helpful.</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/14/Vim-Tutorial/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
@@ -401,7 +316,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -481,6 +396,37 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Neural-Network-Overview">
+        <span class="has-mr-6">1</span>
+        <span>Neural Network Overview</span>
+        </a></li><li>
+        <a class="is-flex" href="#One-hidden-layer-Neural-Network">
+        <span class="has-mr-6">2</span>
+        <span>One hidden layer Neural Network</span>
+        </a></li><li>
+        <a class="is-flex" href="#Computing-a-Neural-Network’s-Output">
+        <span class="has-mr-6">3</span>
+        <span>Computing a Neural Network’s Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Vectorizing-across-multiple-examples">
+        <span class="has-mr-6">4</span>
+        <span>Vectorizing across multiple examples</span>
+        </a></li><li>
+        <a class="is-flex" href="#Activation-functions">
+        <span class="has-mr-6">5</span>
+        <span>Activation functions</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -546,7 +492,7 @@
     
         <!-- 主页三栏，Post页两栏-->
         <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 <div class="card widget">
@@ -744,7 +690,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -937,204 +883,6 @@
 </div>
  -->
                 <!-- 主页三栏，post页两栏 -->
-                
-                    
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Deep-Learning-Week-Three/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Deep-Learning-Week-Three/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/26/Deep-Learning-Week-Two/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Deep-Learning-Week-Two/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/21/Deep-Learning-Week-One/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Deep-Learning-Week-One/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/17/Java-Constant-Pool/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/Java-Constant-Pool.png" alt="Java常量池">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time></div>
-                    <a href="/2019/01/17/Java-Constant-Pool/" class="has-link-black-ter is-size-6">Java常量池</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/14/Vim-Tutorial/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-14T08:55:19.000Z">2019-01-14</time></div>
-                    <a href="/2019/01/14/Vim-Tutorial/" class="has-link-black-ter is-size-6">Vim Tutorial</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vim/">vim</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <ul class="menu-list">
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Deep-Learning/">
-                        <span class="level-start">
-                            <span class="level-item">Deep Learning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">3</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Java/">
-                        <span class="level-start">
-                            <span class="level-item">Java</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/vim/">
-                        <span class="level-start">
-                            <span class="level-item">vim</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
                 
             </div>
         </div>
