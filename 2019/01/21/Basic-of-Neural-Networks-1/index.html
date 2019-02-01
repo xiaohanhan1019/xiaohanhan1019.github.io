@@ -2,21 +2,27 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>Category: deeplearning.ai - xiaohanhan&#39;s blog</title>
+<title>Basic of Neural Networks-1 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Zihan Song">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/categories/deeplearning-ai/index.html">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
+<meta name="keywords" content="Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic of Neural Networks-1">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Zihan Song">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png">
+<meta property="og:updated_time" content="2019-02-01T10:37:21.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaohanhan&#39;s blog">
-<meta name="twitter:description" content="Zihan Song">
+<meta name="twitter:title" content="Basic of Neural Networks-1">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
+<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
 
 
 
@@ -80,7 +86,7 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -109,6 +115,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -122,167 +132,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">Categories</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">deeplearning.ai</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a few seconds read (About 51 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-2/">Shallow Neural Networks-2</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程及相关作业。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 minutes read (About 2466 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-1/">Shallow Neural Networks</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。</p>
-<h3 id="Neural-Network-Overview"><a href="#Neural-Network-Overview" class="headerlink" title="Neural Network Overview"></a><strong>Neural Network Overview</strong></h3><p>本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/01/Shallow-Neural-Networks-1/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    21 minutes read (About 3214 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/26/Basic-of Neural-Networks-2/">Basic of Neural Networks-2</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础相关课程及第二周作业。</p>
-<h3 id="Vectorization-向量化"><a href="#Vectorization-向量化" class="headerlink" title="Vectorization (向量化)"></a><strong>Vectorization (向量化)</strong></h3><p>Vectorization (向量化) 的意义在于：消除代码中显式的调用for循环。在深度学习领域中，你常常需要训练大数据集，所以程序运行的效率非常重要，否则需要等待很长时间才能得到结果。<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/26/Basic-of Neural-Networks-2/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
+                <div class="column is-9-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
@@ -306,22 +156,151 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/21/Basic-of-Neural-Networks-1/">Basic of Neural Networks-1</a>
+                Basic of Neural Networks-1
             
         </h1>
         <div class="content">
             <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。</p>
 <h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)**"></a>Binary Classification (二分分类)**</h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+<a id="more"></a>
+<p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量 ( $n_x​$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
+<script type="math/tex; mode=display">
+\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script><p>用$ m=m_{train} $表示训练样本的个数<br></p>
+<p>最后，我们可以用更紧凑的符号 $X$ 表示整个训练集，$X$ 由训练集中的 $x^{(1)}$，$x^{(2)}$，…，$x^{(m)}$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}$，即 X.shape = $(n_x,m)$</p>
+<script type="math/tex; mode=display">
+\mathbf{X} =
+\left( \begin{array}{c}
+\vdots & \vdots & \ldots & \vdots \\\\
+x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\
+\vdots & \vdots & \ldots & \vdots
+\end{array} \right)</script><p>同时，把<code>y</code>也放入列中，用 $Y$ 来表示，$Y\in{\Bbb R}^{1*m}$，即 Y.shape = $(1,m)​$</p>
+<script type="math/tex; mode=display">
+\mathbf{Y} =
+\left( \begin{array}{c}
+y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
+\end{array} \right)</script><h3 id="Logistic-Regression-对数几率回归"><a href="#Logistic-Regression-对数几率回归" class="headerlink" title="Logistic Regression (对数几率回归)"></a><strong>Logistic Regression (对数几率回归)</strong></h3><p>参照了周志华的西瓜书，把 Logisitic Regression 翻译为对数纪律回归，简称为对率回归。对数几率回归是一种解决二分分类问题的机器学习方法，用于预测某种实物的可能性。<br></p>
+<blockquote>
+<p>Given x, you want $\hat{y} = P(y=1 \mid x)​$. </p>
+<p>In other words, if x is a picture, as talked about above, you want $\hat{y}​$ to tell you the chance that there is a cat in the picture.</p>
+</blockquote>
+<p>根据输入 $x$ 和参数 $w, b$，计算出 $\hat{y}$ ，下面介绍了两种方法 :</p>
+<blockquote>
+<p>Parameter : $w\in{\Bbb R}^{n_x}, b\in{\Bbb R}​$<br>Output : $\hat{y}​$</p>
+<blockquote>
+<p>One way : $\hat{y} = w^{T}x + b​$ (Linear regression) </p>
+<ul>
+<li>Not good for binary classification</li>
+<li>Because you want $\hat{y}​$ to be the chance that $y​$ equals to one. In this situation  $\hat{y}​$ can be much bigger than 1 or negative.</li>
+</ul>
+<p>The other way : $\hat{y} = \sigma(w^{T}x + b)$ (Logistic Regression) </p>
+<ul>
+<li>$\sigma(z) =  \frac{1}{1+e^{-z}} ​$</li>
+<li>通过$\sigma(z)$函数，可以将输出限定在$[0,1]$之间</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="Logistic-Regression-Cost-Function-对数几率回归损失函数"><a href="#Logistic-Regression-Cost-Function-对数几率回归损失函数" class="headerlink" title="Logistic Regression Cost Function (对数几率回归损失函数)"></a><strong>Logistic Regression Cost Function (对数几率回归损失函数)</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}​$，希望通过训练集，找到参数 $w, b​$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}​$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}​$ 与 $y​$ 的实际值由多接近 <br></p>
+<p>对于m个训练样本，我们通常用上标 $(i)​$ 来指明数据与第 $i​$ 个样本有关。<br></p>
+<p>通常，我们这样定义Loss function (损失函数) :</p>
+<script type="math/tex; mode=display">
+L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2</script><p>但在对数几率回归中一般不使用，因为它是non-convex (非凸的) ，将来使用<code>梯度下降算法 (Gradient Descent)</code>时无法找到全局最优值 <br></p>
+<p>在对数几率回归中，我们使用的损失函数为 : </p>
+<script type="math/tex; mode=display">
+L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))</script><blockquote>
+<p>If y = 1 : $L(\hat{y},y) = -\log(\hat{y})​$, you want $\hat{y}​$ to be large</p>
+<p>if y = 0 : $L(\hat{y},y) = -\log(1-\hat{y})​$, you want  $\hat{y}​$ to be small</p>
+<p>所以，这个损失函数和 $L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2$ 类似，都希望 $L$ 越小越好</p>
+</blockquote>
+<p>上述的<code>Loss function</code>衡量了单个训练样本的表现，对于m个样本，我们定义<code>Cost function</code> (代价函数) ，它衡量了全体训练样本的表现</p>
+<script type="math/tex; mode=display">
+J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log\hat{y}^{(i)} + (1-y^{(i)}) \log(1-\hat{y}^{(i)})</script><p><code>Loss function</code>只适用于单个训练样本，<code>Cost function</code>是基于参数的总代价。所以，在训练对数几率回归模型时，我们要找到合适的参数 $w, b$ 使得<code>Cost function</code>尽可能的小<br></p>
+<h3 id="Gradient-Descent-梯度下降"><a href="#Gradient-Descent-梯度下降" class="headerlink" title="Gradient Descent (梯度下降)"></a><strong>Gradient Descent (梯度下降)</strong></h3><p>我们将使用<code>梯度下降 (Gradient Descent) 算法</code>来找出合适的参数 $w,b$，使得<code>Cost function</code> 即 $J(w,b)$ 最小 <br></p>
+<ul>
+<li><img src="/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png" alt=""></li>
+</ul>
+<p>最上方的小红点为初始点，对于对数几率回归，一般使用0来初始化，随机初始化也有效，但通常不这么做 <br></p>
+<blockquote>
+<p>梯度下降过程：</p>
+<ul>
+<li>从初始点开始，朝最陡的下坡方向走一步</li>
+<li>重复上述过程，不断修正 $w, b​$ 使得 $J(w,b)​$ 接近全局最优值 (global opitmal)</li>
+</ul>
+</blockquote>
+<p>代码表述为：</p>
+<blockquote>
+<p>Repeat {<br>$w := w - \alpha \frac{\partial J(w,b)}{\partial w}​$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial w}​$ 记作”dw”<br>$b := b - \alpha \frac{\partial J(w,b)}{\partial b}​$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial b}​$ 记作”db”<br>}</p>
+</blockquote>
+<h3 id="Computation-Graph-计算图"><a href="#Computation-Graph-计算图" class="headerlink" title="Computation Graph (计算图)"></a><strong>Computation Graph (计算图)</strong></h3><p>神经网络的训练包含了两个过程：</p>
+<ul>
+<li>正向传播 (Forward Propagation)，从输入经过一层层神经网络，最后得到 $\hat{y}$ ，从而计算代价函数 $J$</li>
+<li>反向传播 (Back Propagation)，根据损失函数 $L(\hat{y},y)$ 来反方向的计算每一层参数的偏导数，从而更新参数</li>
+</ul>
+<p>下面我们用计算图 (Computation Graph) 来理解这个过程</p>
+<p><img src="/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png" alt=""></p>
+<p>从左向右，可以计算出 $J​$ 的值，对应着神经网络中输入经过计算得到代价函数 $J(w,b)​$ 值的过程<br></p>
+<p>从右向左，根据求导的链式法则，可以得到：</p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial a} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial a} = 3 \cdot 1 = 3</script><script type="math/tex; mode=display">
+\frac{\partial J}{\partial b} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial b} = 3 \cdot 1 \cdot c = 6</script><script type="math/tex; mode=display">
+\frac{\partial J}{\partial c} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial c} = 3 \cdot 1 \cdot b = 9</script><p>在反向传播中，一般我们只关心最终输出值 (在这个例子中是 $J$ ) ，需要计算 $J$ 对于某个变量 (记作var) 的导数，即 $\frac {dJ}{dvar}​$，在Python代码中简写为<code>dvar</code> <br></p>
+<h3 id="Logistic-Regression-Gradient-Descent-对数几率回归梯度下降"><a href="#Logistic-Regression-Gradient-Descent-对数几率回归梯度下降" class="headerlink" title="Logistic Regression Gradient Descent (对数几率回归梯度下降)"></a><strong>Logistic Regression Gradient Descent (对数几率回归梯度下降)</strong></h3><p>现在，我们来实现对数几率回归梯度下降算法，只考虑单个样本的情况 :</p>
+<blockquote>
+<p>$z = w^{T} + b$</p>
+<p>$\hat{y} = a = \sigma({z})​$</p>
+<p>$L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))​$</p>
+</blockquote>
+<p>假设样本只有两个，分别为 $x1, x2​$，则计算图如下 :</p>
+<p><img src="/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png" alt=""></p>
+<p>在对数几率回归中，我们需要做的是，改变参数 $w, b$ 的值，来最小化损失函数，即需要计算出 $dw, dz$ <br></p>
+<p>向后传播计算损失函数 $L​$ 的偏导数步骤如下：</p>
+<blockquote>
+<ul>
+<li>$da = \frac {dL(a,y)}{da} = -\frac {y}{a} + \frac{1-y}{1-a}​$</li>
+<li>$dz = \frac {dL}{dz} = \frac {dL}{da} \cdot \frac {da}{dz}= (-\frac {y}{a} + \frac{1-y}{1-a}) \cdot a \cdot (1-a) = a - y​$</li>
+<li>$dw_1 =  \frac {dL}{dw_1} = x_1 \cdot dz $</li>
+<li>$dw_2 =  \frac {dL}{dw_2} = x_2 \cdot dz $</li>
+<li>$db = dz$</li>
+</ul>
+</blockquote>
+<p>所以，在对数几率回归梯度下降算法中你需要做的是</p>
+<blockquote>
+<ul>
+<li>$ dz = a - y$</li>
+<li>$dw_1 = x_1 \cdot dz ​$</li>
+<li>$dw_2 = x_2 \cdot dz ​$</li>
+<li>$db = dz​$</li>
+<li>更新$w_1​$,  $w_1 = w_1 - \alpha dw_1​$</li>
+<li>更新$w_2$,  $w_2 = w_2 - \alpha dw_2$</li>
+<li>更新$b​$,  $b = b - \alpha db​$</li>
+</ul>
+</blockquote>
+<h3 id="Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集"><a href="#Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集" class="headerlink" title="Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)"></a><strong>Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)</strong></h3><p>之前只实现了单个样本的梯度下降算法，现在我们将梯度下降算法应用到整个训练集<br></p>
+<blockquote>
+<p>$J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) $</p>
+<p>$a^{(i)} = \hat{y}^{(i)} = \sigma(z^{(i)}) = \sigma(w^{T}x^{(i)}+b)$</p>
+<p>$\frac {\partial}{\partial w_1}J(w,b) = \frac {1}{m} \sum_{i=1}^{m} \frac {\partial}{\partial w_1}L(a^{(i)},y^{(i)}) = \frac {1}{m} \sum_{i=1}^{m}dw_1^{(i)}$ </p>
+<ul>
+<li>$dw_1^{(i)}​$按照之前单个样本的情况计算</li>
+</ul>
+</blockquote>
+<p>伪代码如下 :</p>
+<blockquote>
+<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$<br>$\quad…\quad\quad\quad\quad\quad\quad$ //这里应该是一个循环，这里 $n_x = 2$<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m$</p>
+<p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br>$b = b - \alpha db​$</p>
+</blockquote>
+<p>但这种方法，有两个循环，一个是最外层的循环，循环 $m$ 个训练样本，另一个是 $dw_1, dw_2$ (feature) 的循环，在这个例子中 $n_x = 2$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/21/Basic-of-Neural-Networks-1/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Deep-Learning/">Deep Learning</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -331,7 +310,26 @@
 
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/26/Basic-of Neural-Networks-2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Basic of Neural Networks-2</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/17/Java-Constant-Pool/">
+                <span class="level-item">Java常量池</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -340,7 +338,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -420,6 +418,45 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Binary-Classification-二分分类">
+        <span class="has-mr-6">1</span>
+        <span>Binary Classification (二分分类)**</span>
+        </a></li><li>
+        <a class="is-flex" href="#Logistic-Regression-对数几率回归">
+        <span class="has-mr-6">2</span>
+        <span>Logistic Regression (对数几率回归)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Logistic-Regression-Cost-Function-对数几率回归损失函数">
+        <span class="has-mr-6">3</span>
+        <span>Logistic Regression Cost Function (对数几率回归损失函数)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Gradient-Descent-梯度下降">
+        <span class="has-mr-6">4</span>
+        <span>Gradient Descent (梯度下降)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Computation-Graph-计算图">
+        <span class="has-mr-6">5</span>
+        <span>Computation Graph (计算图)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Logistic-Regression-Gradient-Descent-对数几率回归梯度下降">
+        <span class="has-mr-6">6</span>
+        <span>Logistic Regression Gradient Descent (对数几率回归梯度下降)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集">
+        <span class="has-mr-6">7</span>
+        <span>Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -485,7 +522,7 @@
     
         <!-- 主页三栏，Post页两栏-->
         <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 <div class="card widget">
@@ -683,7 +720,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -876,204 +913,6 @@
 </div>
  -->
                 <!-- 主页三栏，post页两栏 -->
-                
-                    
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="has-link-black-ter is-size-6">Shallow Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/26/Basic-of Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Basic-of Neural-Networks-2/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/17/Java-Constant-Pool/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/Java-Constant-Pool.png" alt="Java常量池">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time></div>
-                    <a href="/2019/01/17/Java-Constant-Pool/" class="has-link-black-ter is-size-6">Java常量池</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <ul class="menu-list">
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Deep-Learning/">
-                        <span class="level-start">
-                            <span class="level-item">Deep Learning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">4</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Java/">
-                        <span class="level-start">
-                            <span class="level-item">Java</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/vim/">
-                        <span class="level-start">
-                            <span class="level-item">vim</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
                 
             </div>
         </div>
