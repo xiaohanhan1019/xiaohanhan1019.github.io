@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-2/1.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-2/2.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-2/3.png">
-<meta property="og:updated_time" content="2019-02-02T09:06:38.255Z">
+<meta property="og:updated_time" content="2019-02-02T09:13:26.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shallow Neural Networks-2">
 <meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程及相关作业。 Why do you need non-linear activation function为什么神经网络需要非线性的激活函数？不能使用线性的激活函数，比如 $g(z) = z$ 吗？">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2148 words)
+                    14 minutes read (About 2157 words)
                 </span>
                 
             </div>
@@ -225,14 +225,13 @@ dW^{[2]} = \frac{1}{m}dZ^{[2]}A^{[1]T}</script><script type="math/tex; mode=disp
 db^{[2]} = \frac{1}{m}np.sum(dZ^{[2]},axis=1,keepdims=True)</script><blockquote>
 <p> 这个过程其实和之前的 Logistic Regression 很相似。需要注意的是，这里$db^{[2]}$ 的计算直接用了 python 语句，np.sum函数的参数 axis 代表在哪个维度上求和，keepdims为了保持 $db^{[2]}$ 的形状为 $(n^{[2]},1)$ 而不是奇怪的 $(n^{[2]}, )$ </p>
 </blockquote>
-<p>接下来，</p>
 <script type="math/tex; mode=display">
 dZ^{[2]} = W^{[2]T}dZ^{[2]} * g^{[1]'}(Z^{[1]})</script><script type="math/tex; mode=display">
 dW^{[1]} = \frac{1}{m}dZ^{[1]}X^{T}</script><script type="math/tex; mode=display">
 db^{[1]}=\frac{1}{m}np.sum(dZ^{[1]},axis = 1,keepdims = True)</script><blockquote>
-<p>需要注意的是 $dZ^{[2]} = W^{[2]T}dZ^{[2]} *t g^{[1]’}(Z^{[1]})$ 这里是对应元素相乘，$W^{[2]T}dZ^{[2]}$ 的形状为 $(n^{[1]}, m)$ ，$g’^{[1]}(Z^{[1]})$ 的形状也为 $(n^{[1]}, m)$ 。</p>
+<p>需要注意的是 $dZ^{[2]} = W^{[2]T}dZ^{[2]} *g^{[1]’}(Z^{[1]})$ 这里是对应元素相乘，$W^{[2]T}dZ^{[2]}$ 的形状为 $(n^{[1]}, m)$ ，$g’^{[1]}(Z^{[1]})$ 的形状也为 $(n^{[1]}, m)$ 。</p>
 </blockquote>
-<p>关于详细的推导过程，会在下部分详细说明。</p>
+<p>关于详细的推导过程，会在接下来的部分详细说明。</p>
 <h3 id="Backpropagation-intuition"><a href="#Backpropagation-intuition" class="headerlink" title="Backpropagation intuition"></a><strong>Backpropagation intuition</strong></h3><p>先回顾一下之前我们在实现 Logistic Regression 时是如何推导的，可以参考之前的博客 <a href="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/">Logistic Regression Gradient Descent</a>.</p>
 <p>由于现在多了一层隐藏层，整个反向传播过程会更复杂一点。</p>
 <p>首先，先考虑单个样本的情况，先画出计算图，如下图：</p>
@@ -250,7 +249,7 @@ dz^{[2]} \cdot \frac{\partial z^{[2]}}{\partial b^{[2]}} = dz^{[2]}</script><scr
 dz^{[1]} = \frac{\partial L}{\partial z^{[1]}} = \frac{\partial L}{\partial a^{[1]}} \cdot \frac{\partial a^{[1]}}{\partial z^{[1]}} = \frac{\partial L}{\partial z^{[2]}} \cdot \frac{\partial z^{[2]}}{\partial a^{[1]}} \cdot \frac{\partial a^{[1]}}{\partial z^{[1]}} = dz^{[2]} \cdot \frac{\partial z^{[2]}}{\partial a^{[1]}} \cdot \frac{\partial a^{[1]}}{\partial z^{[1]}}</script><p>即，</p>
 <script type="math/tex; mode=display">
 dz^{[1]} = W^{[2]T}dz^{[2]} * g^{[1]'}(z^{[1]})</script><blockquote>
-<p>同样，这里的 $W^{[2]T}$ 也需要转置，具体为什么，我也不是很明白，但可以从矩阵乘法的规则来判断其形状。需要注意的是，这里的乘法 $*$ 为对应元素相乘，而不是一般意义上的矩阵乘法。你必须要确保矩阵的形状相匹配，这里 $W^{[2]T}$ 形状为 $(n^{[1]}, n^{[2]})$ ，$dz^{[2]}$ 的形状为 $(n^{[2]}, 1)$ ，$z^{[1]}$ 的形状为 $(n^{[1]}, 1)$</p>
+<p>同样，这里的 $W^{[2]T}$ 也需要转置，具体为什么，我也不是很明白，但可以从矩阵乘法的规则来判断其形状是否正确。需要注意的是，这里的乘法 $*$ 为对应元素相乘，而不是一般意义上的矩阵乘法。在实现过程中，你必须要确保矩阵的形状相匹配，这里 $W^{[2]T}$ 形状为 $(n^{[1]}, n^{[2]})$ ，$dz^{[2]}$ 的形状为 $(n^{[2]}, 1)$ ，$z^{[1]}$ 的形状为 $(n^{[1]}, 1)$</p>
 </blockquote>
 <script type="math/tex; mode=display">
 dW^{[1]} = dz^{[1]} \cdot \frac{\partial z^{[1]}}{\partial W^{[1]}} = dz^{[1]}x^{T} = dz^{[1]}a^{[0]T}</script><script type="math/tex; mode=display">
@@ -262,8 +261,8 @@ db^{[1]} = dz^{[1]} \cdot \frac{\partial z^{[1]}}{\partial b^{[1]}} = dz^{[1]}</
 <p>假设，我们将 $W^{[1]}, W^{[2]}$ 都初始化为零矩阵，那么经过正向传播以后，我们会得到 $a^{[1]}_1 = a^{[1]}_{2}$ ，那么根据对称性，在反向传播后会有 $dz^{[1]}_{1} = dz^{[1]}_{2}$ ， $dW^{[1]}_{1}=dW^{[1]}_{2}$ ，无论你执行多少次梯度下降算法，隐藏层的每个节点都在做相同的操作。这样的话，最后我们获得的 $W^{[1]}, W^{[2]}$ 每行元素都相同，也就是说所有隐藏层中的节点都可以用一个节点来代替，多余的节点没有任何意义，这不是我们想要的。 另外，参数 $b$ 可以全部初始化为 $0$ ，不会发生上面提到的问题。</p>
 <p>所以，我们必须随机初始化所有的参数。python 语句如下：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">W1 = np.random.randn((<span class="hljs-number">2</span>,<span class="hljs-number">2</span>))*<span class="hljs-number">0.01</span></span><br><span class="line">b1 = np.zero((<span class="hljs-number">2</span>,<span class="hljs-number">1</span>))</span><br><span class="line">W1 = np.random.randn((<span class="hljs-number">1</span>,<span class="hljs-number">2</span>))*<span class="hljs-number">0.01</span></span><br><span class="line">b1 = <span class="hljs-number">0</span></span><br></pre></td></tr></table></figure>
-<p>你可能为由疑问，为什么这里要 $*0.01$ ，为什么是 $0.01$ 而不是其他的数字？事实上，我们倾向于把矩阵初始化为非常非常小的随机值。因为如果你用 tanh 函数或者 sigmoid 函数作为激活函数，如果 $W$ 比较小，那正向传播后得到的 $z$ 也会比较小，经过激活函数后所得到的 $a$ 也会接近于 $0$ ，而在 $0$ 附近，激活函数的斜率比较大，能大大地提高梯度下降算法的更新速度，提高学习的速度。如果你使用的激活函数为 ReLU 或是 Leaky ReLU 则没有这个问题。</p>
-<p>有时候，会有比 $0.01$ 更好用的常数，如果你只是训练一个单隐层神经网络，或是一个相对较浅的神经网络，没有太多隐藏层，使用 $0.01$ 没有太大问题。但是当你训练一个很深的神经网络时，你可能需要尝试一下别的常数，关于常数的详细内容会在后续部分提到。</p>
+<p>你可能为由疑问，为什么这里要 $*0.01$ ，为什么是 $0.01$ 而不是其他的数字？事实上，我们倾向于把矩阵初始化为非常非常小的随机值。因为如果你用 tanh 函数或者 sigmoid 函数作为激活函数， $W$ 比较小，那正向传播后得到的 $z$ 也会比较小，经过激活函数后所得到的 $a$ 也会接近于 $0$ ，而在 $0$ 附近，激活函数的斜率比较大，能大大地提高梯度下降算法的更新速度，即学习的速度。如果你使用的激活函数为 ReLU 或是 Leaky ReLU 则没有这个问题。</p>
+<p>有时候，会有比 $0.01​$ 更好用的常数，但如果你只是训练一个单隐层神经网络，或是一个相对较浅的神经网络，没有太多隐藏层，使用 $0.01​$ 没有太大问题。但是当你训练一个很深的神经网络时，你可能需要尝试一下别的常数，关于常数的详细内容会在后续部分提到。</p>
 
         </div>
         
