@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
 <meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程及相关作业。 Why do you need non-linear activation function为什么神经网络需要非线性的激活函数？不能使用线性的激活函数，比如 $g(z) = z$ 吗？">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-01T13:53:14.038Z">
+<meta property="og:updated_time" content="2019-02-02T05:19:05.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shallow Neural Networks-2">
 <meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程及相关作业。 Why do you need non-linear activation function为什么神经网络需要非线性的激活函数？不能使用线性的激活函数，比如 $g(z) = z$ 吗？">
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 413 words)
+                    7 minutes read (About 1088 words)
                 </span>
                 
             </div>
@@ -166,7 +166,67 @@ a^{[2]} = z^{[2]} = W^{[2]}a^{[1]} + b^{[2]}</script><p>把 $a^{[1]}$ 带入，�
 <script type="math/tex; mode=display">
 a^{[2]} = W^{[2]}(W^{[1]}x + b^{[1]}) + b^{[2]} = (W^{[2]}W{[1]})x + (W^{[2]}b^{[1]}+b{[2]}) = W'x+b'</script><p>我们可以得到，$a^{[2]}​$ 仍是输入 $x​$ 的线性组合。也就是说，使用线性函数的神经网络仅仅只是把输入 $x​$ 线性组合再输出。即便是包含许多隐藏层的神经网络，如果使用的是线性的激活函数，不管多少层，得到的输出依然是 $x​$ 的线性组合，也就意味着隐藏层根本没有什么作用。所以，隐藏层激活函数必须是非线性的，否则将失去意义。</p>
 <p>只有一个地方你可能会使用线性激活函数，在机器学习的回归问题中，$y$ 是一个实数，比如你像预测房地产的价格，那么 $y$ 是一个实数，而不是像二分类问题那样要么 $0$ 要么 $1$ ，这种情况下，在输出层你可能会使用线性激活函数，但隐藏层不会使用线性激活函数。</p>
-
+<h3 id="Derivatives-of-activation-functions"><a href="#Derivatives-of-activation-functions" class="headerlink" title="Derivatives of activation functions"></a><strong>Derivatives of activation functions</strong></h3><p>在反向传播的过程中，我们需要计算激活函数的导数，那么我们来看一下上述这些激活函数的导数。</p>
+<ul>
+<li>Sigmoid 函数<script type="math/tex; mode=display">
+g(z) = \frac{1}{1+e^{-z}}</script></li>
+</ul>
+<script type="math/tex; mode=display">
+g'(z) = g(z)(1-g(z)) = a(1-a)</script><ul>
+<li>tanh 函数</li>
+</ul>
+<script type="math/tex; mode=display">
+g(z) = \frac{e^{z}-e^{-z}}{e^{z}+e^{-z}}</script><script type="math/tex; mode=display">
+g'(z) = 1-(g(z))^{2} = 1-a^2</script><ul>
+<li>ReLU 函数<script type="math/tex; mode=display">
+g(z) = max(0,z)</script></li>
+</ul>
+<script type="math/tex; mode=display">
+g'(z) = 
+\begin{cases}
+0,\quad z < 0 \\
+1,\quad z \geq  0
+\end{cases}</script><ul>
+<li>Leaky ReLU 函数<script type="math/tex; mode=display">
+g(z) = max(0.01z,z)</script></li>
+</ul>
+<script type="math/tex; mode=display">
+g'(z) = \begin{cases}
+0.01,\quad z < 0 \\\
+1,\quad \quad z \geq  0
+\end{cases}</script><h3 id="Gradient-descent-for-neural-networks"><a href="#Gradient-descent-for-neural-networks" class="headerlink" title="Gradient descent for neural networks"></a><strong>Gradient descent for neural networks</strong></h3><p>好了，有了以上的铺垫，我们终于可以实现在单隐藏层神经网络上的梯度下降算法了。</p>
+<p>由于是单隐藏层神经网络，那么我们有参数 $W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}​$ 。我们一般用 $n_x = n^{[0]}​$ 来表示输入层特征的个数，用 $n^{[1]}​$ 表示隐藏层节点个数，用 $n^{[2]}=1​$ 表示输出层节点个数。 其中，$W^{[1]}​$ 的维度为 $(n^{[1]}, n^{[0]})​$ ，$b^{[1]}​$ 的维度为 $(n^{[1]}, 1)​$ ，$W^{[2]}​$ 的维度为 $(n^{[2]}, n^{[1]})​$ ，$b^{[2]}​$ 的维度为 ​$(n^{[2]}, 1)​$ 。</p>
+<p>假设我们在做二元分类，那么 Cost function 为：</p>
+<script type="math/tex; mode=display">
+J(W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}) = \frac{1}{m}\sum_{i=1}^{m}L(\hat{y}, y)</script><p>整个训练神经网络的过程为：</p>
+<blockquote>
+<p>Repeat{</p>
+<p>initialize parameters $W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]} $</p>
+<p>compute predicts $\hat{y}^{(i)}, i \in [1,m]​$</p>
+<p>compute $dW^{[1]}, db^{[1]}, W^{[2]}, b^{[2]}$</p>
+<p>update $W^{[1]} = W^{[1]} - \alpha dW^{[1]}, b^{[1]} = b^{[1]} - \alpha db^{[1]} …​$  </p>
+<p>}</p>
+</blockquote>
+<p>在训练神经网络时，随机初始化参数很重要，并不是单纯的全部初始化为 $0​$ ，我们将在后续详细讨论。</p>
+<p>在之前，我们讨论了如果计算 predict (预测值) ，以及如何向量化实现整个过程，所以现在的关键在于，如何计算这些偏导项 $dW^{[1]}, db^{[1]}​$ … </p>
+<p>神经网络正向传播的过程为：</p>
+<script type="math/tex; mode=display">
+Z^{[1]} = W^{[1]}X + b^{[1]}</script><script type="math/tex; mode=display">
+A^{[1]} = g(Z^{[1]})</script><script type="math/tex; mode=display">
+Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}</script><script type="math/tex; mode=display">
+A^{[2]} = g(Z^{[2]}) = \sigma(Z^{[2]})</script><p>反向传播的过程为：</p>
+<script type="math/tex; mode=display">
+dZ^{[2]} = A^{[2]}-Y</script><script type="math/tex; mode=display">
+dW^{[2]} = \frac{1}{m}dZ^{[2]}A^{[1]T}</script><script type="math/tex; mode=display">
+db^{[2]} = \frac{1}{m}np.sum(dZ^{[2]},axis=1,keepdims=True)</script><blockquote>
+<p> 这个过程其实和之前的 Logistic Regression 很相似。需要注意的是，这里$db^{[2]}$ 的计算直接用了 python 语句，np.sum函数的参数 axis 代表在哪个维度上求和，keepdims为了保持 $db^{[2]}$ 的形状为 $(n^{[2]},1)$ 而不是奇怪的 $(n^{[2]}, )$ </p>
+</blockquote>
+<p>接下来，</p>
+<script type="math/tex; mode=display">
+dZ^{[2]} = W^{[2]T}dZ^{[2]} \cdot g^{[1]'}(Z^{[1]})</script><script type="math/tex; mode=display">
+dW^{[1]} = \frac{1}{m}dZ^{[1]}X^{T}</script><script type="math/tex; mode=display">
+db^{[1]}=\frac{1}{m}np.sum(dZ^{[1]},axis = 1,keepdims = True)</script><p>需要注意的是 $dZ^{[2]} = W^{[2]T}dZ^{[2]} \cdot g^{[1]’}(Z^{[1]})$ 这里是对应元素相乘，$W^{[2]T}dZ^{[2]}$ 的形状为 $(n^{[1]}, m)$ ，$g’^{[1]}(Z^{[1]})$ 的形状也为 $(n^{[1]}, m)​$ 。关于详细的推导过程，会在下部分详细说明。</p>
+<h3 id="Backpropagation-intuition"><a href="#Backpropagation-intuition" class="headerlink" title="Backpropagation intuition"></a><strong><strong>Backpropagation intuition</strong></strong></h3>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -298,6 +358,18 @@ a^{[2]} = W^{[2]}(W^{[1]}x + b^{[1]}) + b^{[2]} = (W^{[2]}W{[1]})x + (W^{[2]}b^{
         <a class="is-flex" href="#Why-do-you-need-non-linear-activation-function">
         <span class="has-mr-6">1</span>
         <span>Why do you need non-linear activation function</span>
+        </a></li><li>
+        <a class="is-flex" href="#Derivatives-of-activation-functions">
+        <span class="has-mr-6">2</span>
+        <span>Derivatives of activation functions</span>
+        </a></li><li>
+        <a class="is-flex" href="#Gradient-descent-for-neural-networks">
+        <span class="has-mr-6">3</span>
+        <span>Gradient descent for neural networks</span>
+        </a></li><li>
+        <a class="is-flex" href="#Backpropagation-intuition">
+        <span class="has-mr-6">4</span>
+        <span>Backpropagation intuition</span>
         </a></li></ul>
         </div>
     </div>

@@ -7,21 +7,21 @@
 
 
 
-    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表no">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Basic of Neural Networks-1">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表no">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-02-01T10:37:21.846Z">
+<meta property="og:updated_time" content="2019-02-02T04:07:21.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic of Neural Networks-1">
-<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)**在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表no">
 <meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
 
 
@@ -161,7 +161,7 @@
         </h1>
         <div class="content">
             <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。</p>
-<h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)**"></a>Binary Classification (二分分类)**</h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+<h3 id="Binary-Classification-二分分类"><a href="#Binary-Classification-二分分类" class="headerlink" title="Binary Classification (二分分类)"></a><strong>Binary Classification (二分分类)</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
 <a id="more"></a>
 <p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量 ( $n_x​$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
 <script type="math/tex; mode=display">
@@ -427,7 +427,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             <ul class="menu-list"><li>
         <a class="is-flex" href="#Binary-Classification-二分分类">
         <span class="has-mr-6">1</span>
-        <span>Binary Classification (二分分类)**</span>
+        <span>Binary Classification (二分分类)</span>
         </a></li><li>
         <a class="is-flex" href="#Logistic-Regression-对数几率回归">
         <span class="has-mr-6">2</span>
