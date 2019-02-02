@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/4.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/5.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/6.png">
-<meta property="og:updated_time" content="2019-02-01T10:53:06.367Z">
+<meta property="og:updated_time" content="2019-02-02T07:14:39.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shallow Neural Networks-1">
 <meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16 minutes read (About 2466 words)
+                    16 minutes read (About 2472 words)
                 </span>
                 
             </div>
@@ -269,7 +269,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
 <ul>
 <li>tanh (双曲正切函数)，实际上是 sigmoid 函数向下平移后再经过拉伸得到的。对于隐藏单元，如果你选择 tanh 作为激活函数，它的表现几乎总是比 sigmoid 函数要好，因为 tanh 函数的输出介于 $(-1,1)$ 之间，激活函数的平均值更接近于 $0$ ，而不是 $0.5$ ，这让下一层的学习更方便一点。所以之后我们几乎不再使用 sigmoid 作为激活函数了，但有一个例外，即选择输出层的激活函数的时候，因为二分类问题的输出为 $\{0,1\}$ ，你更希望 $\hat{y}$ 介于 $0,1$ 之间，所以一般会选择 sigmoid 函数。</li>
 <li>所以之前所举的例子中，你可以使用 tanh 函数作为隐藏层的激活函数，而选择 sigmoid 函数作为输出层的激活函数。同样的，可以使用上标来表示每一层的激活函数，如：$g^{[1]}(x) = tanh(z), g^{[2]} = \sigma(z)​$ </li>
-<li>然而，不管是 tanh 还是 sigmoid 函数，都有一个缺点，如果 $z$ 特别大或者特别小，那么在这一点的函数导数会很小，因此会拖慢梯度下降算法。为了弥补这个缺点，就出现了 ReLU (rectified linear unit) 函数，该函数有如下特点：当 $z$ 为正，导数为 $1$，当 $z$ 为负，导数为 $0$ ，当 $z$ 为 $0$ 时，导数不存在，但在实际使用中， $z$ 几乎不会等于 $0$ ，当然你可以在程序中直接把在 $z=0$ 点的导数赋为 $0$ 或 $1$ 。</li>
+<li>然而，不管是 tanh 还是 sigmoid 函数，都有一个缺点，如果 $z​$ 特别大或者特别小，那么在这一点的函数导数会很小，因此会拖慢梯度下降算法。为了弥补这个缺点，就出现了 ReLU (rectified linear unit) 函数，该函数有如下特点：当 $z​$ 为正，导数为 $1​$，当 $z​$ 为负，导数为 $0​$ ，当 $z​$ 为 $0​$ 时，导数不存在，但在实际使用中， $z​$ 几乎不会等于 $0​$ ，当然你可以在程序中直接把在 $z=0​$ 点的导数赋为 $0​$ 或 $1​$ 。</li>
 <li>但 ReLU 也有一个缺点，当 $z$ 为负时，导数恒等于 $0$ 。所以就有了 Leaky ReLU 函数，通常表现比 ReLU 函数更好，但实际使用中频率没那么高。</li>
 <li>ReLU 和 Leaky ReLU 的优势在于，对于 $z$ 的许多取值，激活函数的导数和 $0$ 差的很远，这也就意味着，在实践中你的神经网络的学习速度会快很多。</li>
 <li>总结一下，在我们一般选择 sigmoid 作为输出层的激活函数，而选择 ReLU 作为其他层的激活函数，ReLU 如今被人们广泛使用。</li>

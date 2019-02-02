@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-02-02T04:07:21.500Z">
+<meta property="og:updated_time" content="2019-02-02T07:29:28.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic of Neural Networks-1">
 <meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification (二分分类)在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表no">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2159 words)
+                    15 minutes read (About 2210 words)
                 </span>
                 
             </div>
@@ -249,17 +249,17 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 <p>$\hat{y} = a = \sigma({z})​$</p>
 <p>$L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))​$</p>
 </blockquote>
-<p>假设样本只有两个，分别为 $x1, x2​$，则计算图如下 :</p>
+<p>假设样本只有两个，分别为 $x1, x2$，则计算图如下 :</p>
 <p><img src="/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png" alt=""></p>
 <p>在对数几率回归中，我们需要做的是，改变参数 $w, b$ 的值，来最小化损失函数，即需要计算出 $dw, dz$ <br></p>
 <p>向后传播计算损失函数 $L​$ 的偏导数步骤如下：</p>
 <blockquote>
 <ul>
-<li>$da = \frac {dL(a,y)}{da} = -\frac {y}{a} + \frac{1-y}{1-a}​$</li>
-<li>$dz = \frac {dL}{dz} = \frac {dL}{da} \cdot \frac {da}{dz}= (-\frac {y}{a} + \frac{1-y}{1-a}) \cdot a \cdot (1-a) = a - y​$</li>
-<li>$dw_1 =  \frac {dL}{dw_1} = x_1 \cdot dz $</li>
-<li>$dw_2 =  \frac {dL}{dw_2} = x_2 \cdot dz $</li>
-<li>$db = dz$</li>
+<li>$da = \frac {\partial L(a,y)}{\partial a} = -\frac {y}{a} + \frac{1-y}{1-a}​$</li>
+<li>$dz = \frac {\partial L}{\partial z} = \frac {\partial L}{\partial a} \cdot \frac {da}{dz}= (-\frac {y}{a} + \frac{1-y}{1-a}) \cdot a \cdot (1-a) = a - y​$</li>
+<li>$dw_1 =  \frac {\partial L}{\partial w_1} = \frac {\partial L}{\partial z} \cdot \frac { \partial z}{\partial w_1} = x_1 \cdot dz ​$</li>
+<li>$dw_2 =  \frac {\partial L}{\partial w_2} = \frac {\partial L}{\partial z} \cdot \frac { \partial z}{\partial w_2} = x_2 \cdot dz ​$</li>
+<li>$db =  \frac {\partial L}{\partial b} = \frac {\partial L}{\partial z} \cdot \frac { \partial z}{\partial b} = dz​$</li>
 </ul>
 </blockquote>
 <p>所以，在对数几率回归梯度下降算法中你需要做的是</p>
@@ -277,7 +277,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 <h3 id="Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集"><a href="#Gradient-descent-on-m-examples-将梯度下降算法应用到整个训练集" class="headerlink" title="Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)"></a><strong>Gradient descent on $m$ examples (将梯度下降算法应用到整个训练集)</strong></h3><p>之前只实现了单个样本的梯度下降算法，现在我们将梯度下降算法应用到整个训练集<br></p>
 <blockquote>
 <p>$J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) $</p>
-<p>$a^{(i)} = \hat{y}^{(i)} = \sigma(z^{(i)}) = \sigma(w^{T}x^{(i)}+b)$</p>
+<p>$a^{(i)} = \hat{y}^{(i)} = \sigma(z^{(i)}) = \sigma(w^{T}x^{(i)}+b)​$</p>
 <p>$\frac {\partial}{\partial w_1}J(w,b) = \frac {1}{m} \sum_{i=1}^{m} \frac {\partial}{\partial w_1}L(a^{(i)},y^{(i)}) = \frac {1}{m} \sum_{i=1}^{m}dw_1^{(i)}$ </p>
 <ul>
 <li>$dw_1^{(i)}​$按照之前单个样本的情况计算</li>
