@@ -2,21 +2,27 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>Archives: 2019 - xiaohanhan&#39;s blog</title>
+<title>Deep Neural Networks-1 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Zihan Song">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/archives/2019/index.html">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。">
+<meta name="keywords" content="Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Neural Networks-1">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-1/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Zihan Song">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-1/1.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-1/2.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-1/3.png">
+<meta property="og:updated_time" content="2019-02-08T09:12:57.509Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaohanhan&#39;s blog">
-<meta name="twitter:description" content="Zihan Song">
+<meta name="twitter:title" content="Deep Neural Networks-1">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。">
+<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-1/1.png">
 
 
 
@@ -80,7 +86,7 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -109,6 +115,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -122,191 +132,131 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        2019
-        </h3>
-        <div class="timeline">
+                <div class="column is-9-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-02-08T09:11:34.000Z">2019-02-08</time>
-                        <a href="/2019/02/08/Deep-Neural-Networks-2/" class="has-link-black-ter is-size-6">Deep Neural Networks-2</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
                 </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time>
-                        <a href="/2019/02/08/Deep-Neural-Networks-1/" class="has-link-black-ter is-size-6">Deep Neural Networks-1</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time>
-                        <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="has-link-black-ter is-size-6">Shallow Neural Networks-2</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes read (About 1228 words)
+                </span>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time>
-                        <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks-1</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time>
-                        <a href="/2019/01/26/Basic-of Neural-Networks-2/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time>
-                        <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2019/01/17/Java-Constant-Pool/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/gallery/Java-Constant-Pool.png" alt="Java常量池">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time>
-                        <a href="/2019/01/17/Java-Constant-Pool/" class="has-link-black-ter is-size-6">Java常量池</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2019/01/14/Vim-Tutorial/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/gallery/Vim-Tutorial.png" alt="Vim Tutorial">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-01-14T08:55:19.000Z">2019-01-14</time>
-                        <a href="/2019/01/14/Vim-Tutorial/" class="has-link-black-ter is-size-6">Vim Tutorial</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/vim/">vim</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Deep Neural Networks-1
+            
+        </h1>
+        <div class="content">
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。</p>
+<a id="more"></a>
+<h3 id="Deep-L-layer-Neural-network"><a href="#Deep-L-layer-Neural-network" class="headerlink" title="Deep L-layer Neural network"></a><strong>Deep L-layer Neural network</strong></h3><p>主要复习了之前 Logistic Regression 和单隐藏层的神经网络，并推广到多隐藏层，同时也介绍了深层神经网络的一些符号约定，基本遵循了之前的规则，所以这里不再详述。</p>
+<h3 id="Forward-propagation-in-a-deep-network"><a href="#Forward-propagation-in-a-deep-network" class="headerlink" title="Forward propagation in a deep network"></a><strong>Forward propagation in a deep network</strong></h3><p>以 $4$ 层的神经网络为例，我们来推导一下对于单个样本的正向传播过程：</p>
+<p><img src="/2019/02/08/Deep-Neural-Networks-1/1.png" alt=""></p>
+<p>第一层：</p>
+<script type="math/tex; mode=display">
+z^{[1]} = w^{[1]}x + b^{[1]} = w^{[1]}a^{[0]} + b^{[1]}</script><script type="math/tex; mode=display">
+a^{[1]} = g^{[1]}(z^{[1]})</script><p>推广到第 $l$ 层：</p>
+<script type="math/tex; mode=display">
+z^{[l]} = w^{[l]}a^{[l-1]} + b^{[l]}</script><script type="math/tex; mode=display">
+a^{[l]} = g^{[l]}(z^{[l]})</script><p>第 $l$ 层向量化版本：</p>
+<script type="math/tex; mode=display">
+Z^{[l]} = W^{[l]}A^{[l-1]} + b^{[l]}</script><script type="math/tex; mode=display">
+A^{[l]} = g^{[l]}(Z^{[l]})</script><p>这里有一点需要注意，对于深层神经网络正向传播，它类似一个循环的过程，即从 $1$ to $l$ 的循环，对每一层分别计算正向传播的过程。你可能会想到前面所说的向量化来优化，但这里避免不了显式的 $for$ 循环。</p>
+<h3 id="Getting-your-matrix-dimensions-right"><a href="#Getting-your-matrix-dimensions-right" class="headerlink" title="Getting your matrix dimensions right"></a><strong>Getting your matrix dimensions right</strong></h3><p>在实现深层神经网络的过程中，想要降低 bug 的出现概率，你必须非常仔细地检查矩阵维数是否正确。本节就来讨论如何确定矩阵的维数。</p>
+<p>以下图的神经网络为例：</p>
+<p><img src="/2019/02/08/Deep-Neural-Networks-1/2.png" alt=""></p>
+<p>不难看出 $l=5, n^{[0]}=n_x=2, n^{[1]}=3, n^{[2]}=5, n^{[3]}=4, n^{[4]}=2, n^{[5]}=1$，如果我们想要进行正向传播，那么首先需要计算</p>
+<script type="math/tex; mode=display">
+z^{[1]} = W^{[1]}x + b^{[1]}</script><p>这里的 $z^{[1]}​$ 的维度为 $(n^{[1]},1)​$ ，$x​$ 的维度为 $(n^{[0]},1)​$ ，根据矩阵乘法的规则，可以得到 $w^{[1]}​$ 的维度必为 $(n^{[1]},n^{[0]})​$ ，同样可以得到 $b^{[1]}​$ 的维度为 $(n^{[1]},1)​$ 。</p>
+<p>总结一下， $W^{[l]}​$ 的维度为 $(n^{[l]},n^{[l-1]})​$ ，$b^{[1]}​$ 的维度为 $(n^{[l]},1)​$ 。顺便提一下，$dw^{[l]},db^{[l]}​$ 的维度与 $W^{[l]},b^{[l]}​$ 相同。</p>
+<p>接着，我们需要计算</p>
+<script type="math/tex; mode=display">
+a^{[1]} = g^{[1]}(z^{[1]})</script><p>可以得到，$a^{[l]}$ 的维度与 $z^{[l]}$ 相同，同样为 $(n^{[l]},1)$。</p>
+<blockquote>
+<p>总结一下：</p>
+<script type="math/tex; mode=display">
+W^{[l]} :(n^{[l]},n^{[l-1]})</script><script type="math/tex; mode=display">
+z^{[l]},a^{[l]},b^{[l]} :(n^{[l]},1)</script><p>$dw,db$ 的维度与 $W,b$ 相同</p>
+</blockquote>
+<p>接下来，我们看一下向量化后，各矩阵的维数，同样需要计算</p>
+<script type="math/tex; mode=display">
+Z^{[1]} = W^{[1]}X + b^{[1]}</script><p>我们将 $m$ 个样本横向堆叠，那么 $Z^{[1]}$ 的维度为 $(n^{[1]},m)$ ，$X$ 的维度为 $(n^{[0]},m)$ ，$W^{[1]}$ 的维度为 $(n^{[1]},n^{[0]})$ ，$b^{[1]}$ 的维度为 $(n^{[0]},1)$ ，由于 Broadcasting ，所以实际运算中，会将 $b^{[1]}$ 复制 $m$ 次，形成维度为 $(n^{[0]},m)$ 的矩阵。</p>
+<blockquote>
+<p>在向量化后，各矩阵维度如下：</p>
+<script type="math/tex; mode=display">
+W^{[l]} :(n^{[l]},n^{[l-1]})</script><script type="math/tex; mode=display">
+Z^{[l]},A^{[l]} :(n^{[l]},m)</script><script type="math/tex; mode=display">
+b^{[l]} :(n^{[l]},1)</script><p>同样，$dZ,dA$ 与 $Z,A​$ 维度一样</p>
+</blockquote>
+<h3 id="Why-deep-representations"><a href="#Why-deep-representations" class="headerlink" title="Why deep representations"></a><strong>Why deep representations</strong></h3><p>本节从几个例子来探讨了为什么深度神经网络如此强大。</p>
+<p><strong>人脸识别</strong></p>
+<p><img src="/2019/02/08/Deep-Neural-Networks-1/3.png" alt=""></p>
+<p>神经网络第一层，你可以把它当成一个边缘探测器 (edge detector) 从原始图片中识别人脸的边缘，下方图片中的一个小方块就是一个隐藏单元，代表着边缘的方向，从而识别边缘。神经网络第二层就将前一层的边缘信息进行组合，组合成面部的不同部分，比如：眼睛，鼻子等等。最后再将这些局部特征放在一起，比如：鼻子，眼睛，下巴，就可以识别整张人脸。可以看出，随着神经网络由浅入深，所获得的信息也是从部分到整体。更深入的部分会在卷积神经网络中讨论。</p>
+<p><strong>语音识别</strong></p>
+<p>和人脸识别有些相似，也是通过这种从简单到复杂，从部分到整体的方式，在前几层先学习一些简单的特征，再后面几层进行组合，最后去识别更复杂的东西。以语音识别为例，第一层你可能会试着探测一些低层次的音频波形特征，比如：音调，白噪音等等。然后将这些波形组合在一起，就能去探测声音的基本单元，即音位 (phonemes) ，比如 cat 发音的 /k/ /æ/ /t/ 分别为三个音位，有了基本的声音单元后，我们就可以识别单词，从而识别词组，再到整个句子。在前几层学习一些简单的特征，再后面几层进行组合，去识别更复杂的东西。</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Deep-Learning/">Deep Learning</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
 </div>
 
 
 
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/08/Deep-Neural-Networks-2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Deep Neural Networks-2</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/01/Shallow-Neural-Networks-2/">
+                <span class="level-item">Shallow Neural Networks-2</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
 </div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -386,6 +336,33 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Deep-L-layer-Neural-network">
+        <span class="has-mr-6">1</span>
+        <span>Deep L-layer Neural network</span>
+        </a></li><li>
+        <a class="is-flex" href="#Forward-propagation-in-a-deep-network">
+        <span class="has-mr-6">2</span>
+        <span>Forward propagation in a deep network</span>
+        </a></li><li>
+        <a class="is-flex" href="#Getting-your-matrix-dimensions-right">
+        <span class="has-mr-6">3</span>
+        <span>Getting your matrix dimensions right</span>
+        </a></li><li>
+        <a class="is-flex" href="#Why-deep-representations">
+        <span class="has-mr-6">4</span>
+        <span>Why deep representations</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -451,7 +428,7 @@
     
         <!-- 主页三栏，Post页两栏-->
         <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 <div class="card widget">
@@ -649,7 +626,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -842,204 +819,6 @@
 </div>
  -->
                 <!-- 主页三栏，post页两栏 -->
-                
-                    
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/02/08/Deep-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T09:11:34.000Z">2019-02-08</time></div>
-                    <a href="/2019/02/08/Deep-Neural-Networks-2/" class="has-link-black-ter is-size-6">Deep Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/08/Deep-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time></div>
-                    <a href="/2019/02/08/Deep-Neural-Networks-1/" class="has-link-black-ter is-size-6">Deep Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="has-link-black-ter is-size-6">Shallow Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-1/" class="has-link-black-ter is-size-6">Shallow Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/26/Basic-of Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-26T04:42:51.000Z">2019-01-26</time></div>
-                    <a href="/2019/01/26/Basic-of Neural-Networks-2/" class="has-link-black-ter is-size-6">Basic of Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <ul class="menu-list">
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Deep-Learning/">
-                        <span class="level-start">
-                            <span class="level-item">Deep Learning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Java/">
-                        <span class="level-start">
-                            <span class="level-item">Java</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/vim/">
-                        <span class="level-start">
-                            <span class="level-item">vim</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
                 
             </div>
         </div>

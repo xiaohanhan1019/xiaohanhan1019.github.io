@@ -7,13 +7,13 @@
 
 
 
-    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shallow Neural Networks-1">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/1.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/2.png">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/4.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/5.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/6.png">
-<meta property="og:updated_time" content="2019-02-02T07:14:39.833Z">
+<meta property="og:updated_time" content="2019-02-08T09:13:08.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shallow Neural Networks-1">
-<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程。 Neural Network Overview本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :">
 <meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/1.png">
 
 
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16 minutes read (About 2472 words)
+                    16 minutes read (About 2471 words)
                 </span>
                 
             </div>
@@ -163,7 +163,7 @@
             
         </h1>
         <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层次神经网络的相关课程。</p>
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程。</p>
 <h3 id="Neural-Network-Overview"><a href="#Neural-Network-Overview" class="headerlink" title="Neural Network Overview"></a><strong>Neural Network Overview</strong></h3><p>本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :<br></p>
 <a id="more"></a>
 <p><img src="/2019/02/01/Shallow-Neural-Networks-1/1.png" alt=""></p>
@@ -358,7 +358,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        8
                     </p>
                 </div>
             </div>
@@ -461,7 +461,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                 <span class="level-item">deeplearning.ai</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">6</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/deeplearning-ai/Deep-learning-NN/">
@@ -469,7 +469,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                 <span class="level-item">Deep learning & NN</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/vim/">
@@ -507,6 +507,44 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/02/08/Deep-Neural-Networks-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-2">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T09:11:34.000Z">2019-02-08</time></div>
+                    <a href="/2019/02/08/Deep-Neural-Networks-2/" class="has-link-black-ter is-size-6">Deep Neural Networks-2</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/08/Deep-Neural-Networks-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time></div>
+                    <a href="/2019/02/08/Deep-Neural-Networks-1/" class="has-link-black-ter is-size-6">Deep Neural Networks-1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -565,44 +603,6 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/17/Java-Constant-Pool/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/Java-Constant-Pool.png" alt="Java常量池">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time></div>
-                    <a href="/2019/01/17/Java-Constant-Pool/" class="has-link-black-ter is-size-6">Java常量池</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -621,7 +621,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                     <span class="level-item">February 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -656,7 +656,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">6</span>
                         </span>
                     </a>
                 </li>
@@ -708,6 +708,44 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
         
         <article class="media">
             
+            <a href="/2019/02/08/Deep-Neural-Networks-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-2">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T09:11:34.000Z">2019-02-08</time></div>
+                    <a href="/2019/02/08/Deep-Neural-Networks-2/" class="has-link-black-ter is-size-6">Deep Neural Networks-2</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/08/Deep-Neural-Networks-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time></div>
+                    <a href="/2019/02/08/Deep-Neural-Networks-1/" class="has-link-black-ter is-size-6">Deep Neural Networks-1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-2">
@@ -763,44 +801,6 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Basic of Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time></div>
-                    <a href="/2019/01/21/Basic-of-Neural-Networks-1/" class="has-link-black-ter is-size-6">Basic of Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/01/17/Java-Constant-Pool/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/Java-Constant-Pool.png" alt="Java常量池">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-17T15:14:08.000Z">2019-01-17</time></div>
-                    <a href="/2019/01/17/Java-Constant-Pool/" class="has-link-black-ter is-size-6">Java常量池</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -819,7 +819,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                     <span class="level-item">February 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -854,7 +854,7 @@ A^{[2]} = \sigma(Z^{[2]})</script><p>其中，$Z^{[1]}​$ 的形状为 $(4 \tim
                             <span class="level-item">Deep Learning</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">4</span>
+                            <span class="level-item tag">6</span>
                         </span>
                     </a>
                 </li>
