@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-2/</loc>
+    
+    <lastmod>2019-02-08T12:01:33.465Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-1/</loc>
     
     <lastmod>2019-02-08T09:16:56.870Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://xiaohanhan1019.github.io/2019/02/01/Shallow-Neural-Networks-1/</loc>
     
     <lastmod>2019-02-08T09:13:08.028Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-2/</loc>
-    
-    <lastmod>2019-02-08T09:12:53.933Z</lastmod>
     
   </url>
   

@@ -7,18 +7,20 @@
 
 
 
-    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。">
+    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程及作业。 Building blocks of deep neural networks本节，我们将用网络块来深入理解正向传播和反向传播的过程，由于之前部分已经详细解释了正向传播和反向传播，这里不再详述，本节只是起到补充说明加深理解的作用。">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deep Neural Networks-2">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-2/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。">
+<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程及作业。 Building blocks of deep neural networks本节，我们将用网络块来深入理解正向传播和反向传播的过程，由于之前部分已经详细解释了正向传播和反向传播，这里不再详述，本节只是起到补充说明加深理解的作用。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-08T09:12:53.933Z">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-2/1.png">
+<meta property="og:updated_time" content="2019-02-08T12:01:33.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep Neural Networks-2">
-<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。">
+<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程及作业。 Building blocks of deep neural networks本节，我们将用网络块来深入理解正向传播和反向传播的过程，由于之前部分已经详细解释了正向传播和反向传播，这里不再详述，本节只是起到补充说明加深理解的作用。">
+<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/02/08/Deep-Neural-Networks-2/1.png">
 
 
 
@@ -144,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 156 words)
+                    3 minutes read (About 491 words)
                 </span>
                 
             </div>
@@ -156,26 +158,39 @@
             
         </h1>
         <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。</p>
+            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程及作业。</p>
+<h3 id="Building-blocks-of-deep-neural-networks"><a href="#Building-blocks-of-deep-neural-networks" class="headerlink" title="Building blocks of deep neural networks"></a><strong>Building blocks of deep neural networks</strong></h3><p>本节，我们将用网络块来深入理解正向传播和反向传播的过程，由于之前部分已经详细解释了正向传播和反向传播，这里不再详述，本节只是起到补充说明加深理解的作用。</p>
 <a id="more"></a>
-<h3 id="Building-blocks-of-deep-neural-networks"><a href="#Building-blocks-of-deep-neural-networks" class="headerlink" title="Building blocks of deep neural networks**"></a>Building blocks of deep neural networks**</h3><h3 id="Forward-and-backward-propagation"><a href="#Forward-and-backward-propagation" class="headerlink" title="Forward and backward propagation"></a><strong>Forward and backward propagation</strong></h3><p>总结一下，如何在深层神经网络中实现前向传播和反向传播</p>
+<p><img src="/2019/02/08/Deep-Neural-Networks-2/1.png" alt=""></p>
+<p>顺便提一下，在正向传播中，我们需要缓存 $z^{[l]}$ ，因为在反向传播中会用到。</p>
+<h3 id="Forward-and-backward-propagation"><a href="#Forward-and-backward-propagation" class="headerlink" title="Forward and backward propagation"></a><strong>Forward and backward propagation</strong></h3><p>总结一下，如何在深层神经网络中实现前向传播和反向传播</p>
 <h5 id="Forward-propagation-for-layer-l"><a href="#Forward-propagation-for-layer-l" class="headerlink" title="Forward propagation for layer $l$"></a>Forward propagation for layer $l$</h5><blockquote>
 <p>Input $a^{[l-1]}$</p>
 <p>Output $a^{[l]}$, cache $(z^{[l]})$</p>
 <p>Step：</p>
 <script type="math/tex; mode=display">
 z^{[l]} = W^{[l]} \cdot a^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
-a^{[l]} = g^{[l]}(z^{[l]})</script></blockquote>
+a^{[l]} = g^{[l]}(z^{[l]})</script><p>After vectorization：</p>
+<script type="math/tex; mode=display">
+Z^{[l]} = W^{[l]}A^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
+A^{[l]} = g^{[l]}(Z^{[l]})</script></blockquote>
 <h5 id="Backward-propagation-for-layer-l"><a href="#Backward-propagation-for-layer-l" class="headerlink" title="Backward propagation for layer $l$"></a>Backward propagation for layer $l$</h5><blockquote>
 <p>Input $da^{[l]}$</p>
 <p>Output $da^{[l-1]}, dW^{[l]}, db^{[l]}$</p>
-<p>Step:</p>
+<p>Step：</p>
 <script type="math/tex; mode=display">
 dz^{[l]} = da^{[l]} * g^{[l]'}(z^{[l]})</script><script type="math/tex; mode=display">
 dW^{[l]} = dz^{[l]} \cdot a^{[l-1]}</script><script type="math/tex; mode=display">
 db^{[l]} = dz^{[l]}</script><script type="math/tex; mode=display">
-da^{[l-1]} = W^{[l]T} \cdot dz^{[l]}</script></blockquote>
-
+da^{[l-1]} = W^{[l]T} \cdot dz^{[l]}</script><p>After vectorization：</p>
+<script type="math/tex; mode=display">
+dZ^{[l]} = dA^{[l]} * g^{[l]'}(Z^{[l]})</script><script type="math/tex; mode=display">
+dW^{[l]} = \frac{1}{m}dZ^{[l]}A^{[l-1]T}</script><script type="math/tex; mode=display">
+db^{[l]} = \frac{1}{m}np.sum(dZ^{[l]},axis=1,keepdims=True)</script><script type="math/tex; mode=display">
+dA^{[l-1]} = W^{[l]T} \cdot dZ^{[l]}</script></blockquote>
+<h3 id="Parameters-vs-Hyperparameters"><a href="#Parameters-vs-Hyperparameters" class="headerlink" title="Parameters vs. Hyperparameters"></a><strong>Parameters vs. Hyperparameters</strong></h3><p>在神经网络中，参数有：$W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]} …$ ，超参数有：学习率 (learning rate) $\alpha$ ，梯度下降迭代次数 (iteration) ，隐藏层 (hidden layer) 个数， 隐藏层神经元个数 $n^{[1]}, n^{[2]} …$ ，激活函数的选择等等。这些超参数控制了最后参数的变化，因此称为超参数，在接下来的课程会深入探讨。</p>
+<p>选择最优的超参数常常是困难的，它需要靠我们的经验，以及一次次的尝试，从而获得更好的参数来训练出更优的模型。</p>
+<h3 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a><strong>Homework</strong></h3>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -306,7 +321,7 @@ da^{[l-1]} = W^{[l]T} \cdot dz^{[l]}</script></blockquote>
             <ul class="menu-list"><li>
         <a class="is-flex" href="#Building-blocks-of-deep-neural-networks">
         <span class="has-mr-6">1</span>
-        <span>Building blocks of deep neural networks**</span>
+        <span>Building blocks of deep neural networks</span>
         </a></li><li>
         <a class="is-flex" href="#Forward-and-backward-propagation">
         <span class="has-mr-6">2</span>
@@ -319,7 +334,15 @@ da^{[l-1]} = W^{[l]T} \cdot dz^{[l]}</script></blockquote>
         <a class="is-flex" href="#Backward-propagation-for-layer-l">
         <span class="has-mr-6">2.2</span>
         <span>Backward propagation for layer $l$</span>
-        </a></li></ul></li></ul>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Parameters-vs-Hyperparameters">
+        <span class="has-mr-6">3</span>
+        <span>Parameters vs. Hyperparameters</span>
+        </a></li><li>
+        <a class="is-flex" href="#Homework">
+        <span class="has-mr-6">4</span>
+        <span>Homework</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
