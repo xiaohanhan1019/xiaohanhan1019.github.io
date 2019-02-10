@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png">
 <meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-02-02T09:15:13.189Z">
+<meta property="og:updated_time" content="2019-02-10T08:27:58.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic of Neural Networks-1">
 <meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2158 words)
+                    14 minutes read (About 2159 words)
                 </span>
                 
             </div>
@@ -245,7 +245,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 \frac{\partial J}{\partial c} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial c} = 3 \cdot 1 \cdot b = 9</script><p>在反向传播中，一般我们只关心最终输出值 (在这个例子中是 $J$ ) ，需要计算 $J$ 对于某个变量 (记作var) 的导数，即 $\frac {dJ}{dvar}​$，在Python代码中简写为<code>dvar</code> <br></p>
 <h3 id="Logistic-Regression-Gradient-Descent"><a href="#Logistic-Regression-Gradient-Descent" class="headerlink" title="Logistic Regression Gradient Descent"></a><strong>Logistic Regression Gradient Descent</strong></h3><p>现在，我们来实现对数几率回归梯度下降算法，只考虑单个样本的情况 :</p>
 <blockquote>
-<p>$z = w^{T} + b$</p>
+<p>$z = w^{T}x + b$</p>
 <p>$\hat{y} = a = \sigma({z})​$</p>
 <p>$L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))​$</p>
 </blockquote>
