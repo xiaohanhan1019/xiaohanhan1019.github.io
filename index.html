@@ -139,7 +139,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 640 words)
+                    4 minutes read (About 644 words)
                 </span>
                 
             </div>
@@ -152,57 +152,16 @@
         </h1>
         <div class="content">
             <p>本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言</p>
-<h3 id="UML-Unified-Modeling-Language-统一建模语言"><a href="#UML-Unified-Modeling-Language-统一建模语言" class="headerlink" title="UML (Unified Modeling Language) 统一建模语言"></a><strong>UML (Unified Modeling Language) 统一建模语言</strong></h3><p>由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统</p>
-<h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a><strong>建模</strong></h5><ul>
-<li>所谓建模就是把不太理解的东西和一些已经较为理解、且十分类似的东西做比较，从而对这些不太理解的东西产生更深刻的理解</li>
-</ul>
-<h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a><strong>模型</strong></h5><ul>
-<li>建模产生的结果就是模型，模型是对现实的简化、对事物的一种抽象</li>
-<li>模型可以帮助人们更好地了解事物的本质，抓住问题的要害</li>
-<li>在模型中，人们总是剔除那些与问题无关的、非本质的东西，从而使模型与真实的实体相比更加简单、易于把握</li>
-</ul>
-<h5 id="建模的目的"><a href="#建模的目的" class="headerlink" title="建模的目的"></a><strong>建模的目的</strong></h5><ul>
-<li>帮助我们按照需要对系统进行<strong>可视化</strong></li>
-<li>允许我们详细<strong>说明系统的结构和行为</strong></li>
-<li>给出了一个指导我们<strong>构造系统</strong>的模板</li>
-<li>对我们所做出的决策进行<strong>文档化</strong></li>
-</ul>
-<h5 id="建模的四项基本原理"><a href="#建模的四项基本原理" class="headerlink" title="建模的四项基本原理"></a><strong>建模的四项基本原理</strong></h5><ul>
-<li><p>选择要创建什么模型，不同的模型会有不同的启发</p>
-</li>
-<li><p>每一种模型可以在不同的精度级别上表示</p>
-</li>
-<li><p>A model is an abstraction of the real world. Good models are still connected with reality. 最好的模型都是与现实相关联的</p>
-<ul>
-<li>模型都是对现实的简化，但是简化不能掩盖掉任何重要的细节</li>
-</ul>
-</li>
-<li><p>单个模型是不充分的, 对每一个重要的系统最好用一组几乎独立的模型去处理。</p>
-</li>
-</ul>
-<h5 id="UML统一建模语言"><a href="#UML统一建模语言" class="headerlink" title="UML统一建模语言"></a><strong>UML统一建模语言</strong></h5><ul>
-<li>“事实上的”工业标准，相当于软件工程师的工具包</li>
-<li><strong>UML的构造块 (记住它们的常用符号)</strong><ul>
-<li>事物（结构事物，行为事物，分组事物，注释事物）</li>
-<li>关系（依赖，关联，泛化，实现）</li>
-<li>图（<strong>类图</strong>，对象图，<strong>顺序图</strong>，通信图，构建图，<strong>活动图</strong>，包图，<strong>用例图</strong>，<strong>状态图</strong>，部署图）</li>
-</ul>
-</li>
-<li>UML公有机制<ul>
-<li>详述</li>
-<li><strong>修饰</strong></li>
-<li>通用划分</li>
-<li>扩展机制<ul>
-<li><strong>构造型 (用于自定义)</strong>，标记值，约束</li>
-</ul>
-</li>
-</ul>
-</li>
-<li></li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/02/17/Object-Oriented-2/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -1277,7 +1236,23 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script src="/js/insight.js" defer></script>
 <link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/insight.css">
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
