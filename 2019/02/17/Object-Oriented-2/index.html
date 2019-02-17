@@ -2,21 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>xiaohanhan&#39;s blog</title>
+<title>Objected-Oriented Analysis and Design-2 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Zihan Song">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/page/2/index.html">
+    <meta name="description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统 建模 所谓建模就是把不太理解的东西和一些已经较为理解、且十分类似的东西做比较，从而对这些不太理解的东西产生更">
+<meta name="keywords" content="Object-Oriented">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objected-Oriented Analysis and Design-2">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/17/Object-Oriented-2/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Zihan Song">
+<meta property="og:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统 建模 所谓建模就是把不太理解的东西和一些已经较为理解、且十分类似的东西做比较，从而对这些不太理解的东西产生更">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-02-17T03:10:13.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaohanhan&#39;s blog">
-<meta name="twitter:description" content="Zihan Song">
+<meta name="twitter:title" content="Objected-Oriented Analysis and Design-2">
+<meta name="twitter:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统 建模 所谓建模就是把不太理解的东西和一些已经较为理解、且十分类似的东西做比较，从而对这些不太理解的东西产生更">
 
 
 
@@ -80,7 +82,7 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -109,6 +111,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -122,24 +128,23 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
+                <div class="column is-9-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time>
+                <time class="level-item has-text-grey" datetime="2019-02-17T02:37:18.000Z">2019-02-17</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1228 words)
+                    4 minutes read (About 640 words)
                 </span>
                 
             </div>
@@ -147,22 +152,71 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/02/08/Deep-Neural-Networks-1/">Deep Neural Networks-1</a>
+                Objected-Oriented Analysis and Design-2
             
         </h1>
         <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。</p>
-<h3 id="Deep-L-layer-Neural-network"><a href="#Deep-L-layer-Neural-network" class="headerlink" title="Deep L-layer Neural network"></a><strong>Deep L-layer Neural network</strong></h3><p>主要复习了之前 Logistic Regression 和单隐藏层的神经网络，并推广到多隐藏层，同时也介绍了深层神经网络的一些符号约定，基本遵循了之前的规则，所以这里不再详述。</p>
+            <p>本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言</p>
+<h3 id="UML-Unified-Modeling-Language-统一建模语言"><a href="#UML-Unified-Modeling-Language-统一建模语言" class="headerlink" title="UML (Unified Modeling Language) 统一建模语言"></a><strong>UML (Unified Modeling Language) 统一建模语言</strong></h3><p>由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统</p>
+<h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a><strong>建模</strong></h5><ul>
+<li>所谓建模就是把不太理解的东西和一些已经较为理解、且十分类似的东西做比较，从而对这些不太理解的东西产生更深刻的理解</li>
+</ul>
+<h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a><strong>模型</strong></h5><ul>
+<li>建模产生的结果就是模型，模型是对现实的简化、对事物的一种抽象</li>
+<li>模型可以帮助人们更好地了解事物的本质，抓住问题的要害</li>
+<li>在模型中，人们总是剔除那些与问题无关的、非本质的东西，从而使模型与真实的实体相比更加简单、易于把握</li>
+</ul>
+<h5 id="建模的目的"><a href="#建模的目的" class="headerlink" title="建模的目的"></a><strong>建模的目的</strong></h5><ul>
+<li>帮助我们按照需要对系统进行<strong>可视化</strong></li>
+<li>允许我们详细<strong>说明系统的结构和行为</strong></li>
+<li>给出了一个指导我们<strong>构造系统</strong>的模板</li>
+<li>对我们所做出的决策进行<strong>文档化</strong></li>
+</ul>
+<h5 id="建模的四项基本原理"><a href="#建模的四项基本原理" class="headerlink" title="建模的四项基本原理"></a><strong>建模的四项基本原理</strong></h5><ul>
+<li><p>选择要创建什么模型，不同的模型会有不同的启发</p>
+</li>
+<li><p>每一种模型可以在不同的精度级别上表示</p>
+</li>
+<li><p>A model is an abstraction of the real world. Good models are still connected with reality. 最好的模型都是与现实相关联的</p>
+<ul>
+<li>模型都是对现实的简化，但是简化不能掩盖掉任何重要的细节</li>
+</ul>
+</li>
+<li><p>单个模型是不充分的, 对每一个重要的系统最好用一组几乎独立的模型去处理。</p>
+</li>
+</ul>
+<h5 id="UML统一建模语言"><a href="#UML统一建模语言" class="headerlink" title="UML统一建模语言"></a><strong>UML统一建模语言</strong></h5><ul>
+<li>“事实上的”工业标准，相当于软件工程师的工具包</li>
+<li><strong>UML的构造块 (记住它们的常用符号)</strong><ul>
+<li>事物（结构事物，行为事物，分组事物，注释事物）</li>
+<li>关系（依赖，关联，泛化，实现）</li>
+<li>图（<strong>类图</strong>，对象图，<strong>顺序图</strong>，通信图，构建图，<strong>活动图</strong>，包图，<strong>用例图</strong>，<strong>状态图</strong>，部署图）</li>
+</ul>
+</li>
+<li>UML公有机制<ul>
+<li>详述</li>
+<li><strong>修饰</strong></li>
+<li>通用划分</li>
+<li>扩展机制<ul>
+<li><strong>构造型 (用于自定义)</strong>，标记值，约束</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/08/Deep-Neural-Networks-1/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Object-Oriented/">Object-Oriented</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -172,143 +226,28 @@
 
 
 
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    23 minutes read (About 3383 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-2/">Shallow Neural Networks-2</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程及相关作业。</p>
-<h3 id="Why-do-you-need-non-linear-activation-function"><a href="#Why-do-you-need-non-linear-activation-function" class="headerlink" title="Why do you need non-linear activation function"></a><strong>Why do you need non-linear activation function</strong></h3><p>为什么神经网络需要非线性的激活函数？不能使用线性的激活函数，比如 $g(z) = z$ 吗？</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/01/Shallow-Neural-Networks-2/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 minutes read (About 2471 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-1/">Shallow Neural Networks-1</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程。</p>
-<h3 id="Neural-Network-Overview"><a href="#Neural-Network-Overview" class="headerlink" title="Neural Network Overview"></a><strong>Neural Network Overview</strong></h3><p>本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/01/Shallow-Neural-Networks-1/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/">Previous</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/16/Object-Oriented-1/">
+                <span class="level-item">Objected-Oriented Analysis and Design-1</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Next</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -388,6 +327,41 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#UML-Unified-Modeling-Language-统一建模语言">
+        <span class="has-mr-6">1</span>
+        <span>UML (Unified Modeling Language) 统一建模语言</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#建模">
+        <span class="has-mr-6">1.1</span>
+        <span>建模</span>
+        </a></li><li>
+        <a class="is-flex" href="#模型">
+        <span class="has-mr-6">1.2</span>
+        <span>模型</span>
+        </a></li><li>
+        <a class="is-flex" href="#建模的目的">
+        <span class="has-mr-6">1.3</span>
+        <span>建模的目的</span>
+        </a></li><li>
+        <a class="is-flex" href="#建模的四项基本原理">
+        <span class="has-mr-6">1.4</span>
+        <span>建模的四项基本原理</span>
+        </a></li><li>
+        <a class="is-flex" href="#UML统一建模语言">
+        <span class="has-mr-6">1.5</span>
+        <span>UML统一建模语言</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -469,7 +443,7 @@
     
         <!-- 主页三栏，Post页两栏-->
         <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 <div class="card widget">
@@ -678,7 +652,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -882,215 +856,6 @@
 </div>
  -->
                 <!-- 主页三栏，post页两栏 -->
-                
-                    
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/02/17/Object-Oriented-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Objected-Oriented Analysis and Design-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-17T02:37:18.000Z">2019-02-17</time></div>
-                    <a href="/2019/02/17/Object-Oriented-2/" class="has-link-black-ter is-size-6">Objected-Oriented Analysis and Design-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a> / <a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/16/Object-Oriented-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Objected-Oriented Analysis and Design-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-16T08:58:22.000Z">2019-02-16</time></div>
-                    <a href="/2019/02/16/Object-Oriented-1/" class="has-link-black-ter is-size-6">Objected-Oriented Analysis and Design-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a> / <a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/08/Deep-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T09:11:34.000Z">2019-02-08</time></div>
-                    <a href="/2019/02/08/Deep-Neural-Networks-2/" class="has-link-black-ter is-size-6">Deep Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/08/Deep-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time></div>
-                    <a href="/2019/02/08/Deep-Neural-Networks-1/" class="has-link-black-ter is-size-6">Deep Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="has-link-black-ter is-size-6">Shallow Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <ul class="menu-list">
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Deep-Learning/">
-                        <span class="level-start">
-                            <span class="level-item">Deep Learning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Java/">
-                        <span class="level-start">
-                            <span class="level-item">Java</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Object-Oriented/">
-                        <span class="level-start">
-                            <span class="level-item">Object-Oriented</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/vim/">
-                        <span class="level-start">
-                            <span class="level-item">vim</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
                 
             </div>
         </div>

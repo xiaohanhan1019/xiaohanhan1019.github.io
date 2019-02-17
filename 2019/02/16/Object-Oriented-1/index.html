@@ -2,21 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>xiaohanhan&#39;s blog</title>
+<title>Objected-Oriented Analysis and Design-1 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Zihan Song">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaohanhan&#39;s blog">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/page/2/index.html">
+    <meta name="description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第一周笔记，主要讲了面向对象方法学，面向对象的起源以及面向对象的相关概念与特征">
+<meta name="keywords" content="Object-Oriented">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objected-Oriented Analysis and Design-1">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/16/Object-Oriented-1/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="Zihan Song">
+<meta property="og:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第一周笔记，主要讲了面向对象方法学，面向对象的起源以及面向对象的相关概念与特征">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-02-17T03:09:16.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaohanhan&#39;s blog">
-<meta name="twitter:description" content="Zihan Song">
+<meta name="twitter:title" content="Objected-Oriented Analysis and Design-1">
+<meta name="twitter:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第一周笔记，主要讲了面向对象方法学，面向对象的起源以及面向对象的相关概念与特征">
 
 
 
@@ -80,7 +82,7 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -109,6 +111,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -122,24 +128,23 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
+                <div class="column is-9-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time>
+                <time class="level-item has-text-grey" datetime="2019-02-16T08:58:22.000Z">2019-02-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1228 words)
+                    7 minutes read (About 1077 words)
                 </span>
                 
             </div>
@@ -147,22 +152,107 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/02/08/Deep-Neural-Networks-1/">Deep Neural Networks-1</a>
+                Objected-Oriented Analysis and Design-1
             
         </h1>
         <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第四周深层神经网络的相关课程。</p>
-<h3 id="Deep-L-layer-Neural-network"><a href="#Deep-L-layer-Neural-network" class="headerlink" title="Deep L-layer Neural network"></a><strong>Deep L-layer Neural network</strong></h3><p>主要复习了之前 Logistic Regression 和单隐藏层的神经网络，并推广到多隐藏层，同时也介绍了深层神经网络的一些符号约定，基本遵循了之前的规则，所以这里不再详述。</p>
+            <p>本文为华东师范大学开设的面向对象分析与设计慕课课程第一周笔记，主要讲了面向对象方法学，面向对象的起源以及面向对象的相关概念与特征</p>
+<a id="more"></a>
+<h3 id="面向对象分析与设计"><a href="#面向对象分析与设计" class="headerlink" title="面向对象分析与设计"></a><strong>面向对象分析与设计</strong></h3><p>面向对象之父——艾伦.C.凯</p>
+<blockquote>
+<p>启发来源: </p>
+<ul>
+<li>生物学上，细胞信息的传递方式</li>
+<li>传送数据时，将数据以及对数据的处理方法一起打包</li>
+</ul>
+</blockquote>
+<h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a><strong>类与对象</strong></h3><h5 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a><strong>Class 类</strong></h5><p>A <strong>class</strong> is a description (描述符) of a set of <strong>objects</strong> that share the same attributes, operations, relationships, and semantics 类是共享相同属性、操作、方法、关系或行为的一组对象的<strong>描述符</strong><br></p>
+<h5 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a><strong>Object 对象</strong></h5><p>An object is an <strong>instance</strong> created from a class 一个对象是根据一个类创建的一个实例 <br></p>
+<blockquote>
+<p>An instance’s <strong>behaviour</strong> and <strong>information structure</strong> is defined in the class.<br>Its current <strong>state</strong> (values of instance variables) is determined by operations performed on it.</p>
+</blockquote>
+<h5 id="Message-消息"><a href="#Message-消息" class="headerlink" title="Message 消息"></a><strong>Message 消息</strong></h5><p>对象之间的一种交流手段 <br></p>
+<blockquote>
+<p>All objects of a paricular type can receive the same messages.</p>
+</blockquote>
+<h3 id="面向对象的思考方式"><a href="#面向对象的思考方式" class="headerlink" title="面向对象的思考方式"></a><strong>面向对象的思考方式</strong></h3><h5 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a><strong>面向对象</strong></h5><p>适合解决不确定的事件、创新性的事件</p>
+<h5 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a><strong>面向过程</strong></h5><p>处理已知的事实、重要的条件都已知的场景</p>
+<h3 id="面向对象的核心特征"><a href="#面向对象的核心特征" class="headerlink" title="面向对象的核心特征"></a><strong>面向对象的核心特征</strong></h3><h5 id="Encapsulation-封装"><a href="#Encapsulation-封装" class="headerlink" title="Encapsulation 封装"></a><strong>Encapsulation 封装</strong></h5><ul>
+<li>Encapsulation is the process of hiding the implementation details of an object 隐藏了对象的实现细节</li>
+<li>The internal state is usually not accessible by other objects 内部的状态不为其他对象所访问</li>
+<li>The only access to manipulate the object data is through its interface 对象的数据只能通过接口进行访问</li>
+<li>Encapsulation allows objects to be viewed as ‘black boxes’ 封装使得对象可以被看成一个“黑盒子”</li>
+<li>It protects an object’s internal state from being corrupted by other objects. 保护数据 </li>
+<li>Also, other objects are protected from changes in the objectimplementation. 一个对象实现方法的改变，不影响其他相关对象</li>
+<li>Communication is achieved through an ‘interface’ 对象间通过“接口”进行通信</li>
+</ul>
+<blockquote>
+<p>为什么封装？</p>
+<ul>
+<li>保护隐私</li>
+<li>保护数据安全</li>
+<li>隔离复杂度</li>
+</ul>
+<p>封装原则</p>
+<ul>
+<li>An object should only reveal the interfaces needed to interact with it. Details not pertinent to the use of the object should be hidden from other objects.  只公开必须公开的属性</li>
+<li>使用 Getters and Setters 来实现信息隐藏</li>
+</ul>
+</blockquote>
+<h5 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a><strong>Inheritance 继承</strong></h5><ul>
+<li>A class gets the state and behavior of another class and adds additional state and behavior 一个类从其他的类里面获取它的状态和行为，同时加上自己的一些额外的状态和行为</li>
+</ul>
+<h5 id="Ploymorphism-多态"><a href="#Ploymorphism-多态" class="headerlink" title="Ploymorphism 多态"></a><strong>Ploymorphism 多态</strong></h5><ul>
+<li>When one class inherits from another, then polymorphism allows a subclass to stand in for the superclass. 当一个类从另一个类继承而来，多态使得子类可以代替父类</li>
+<li>The sender of a stimulus doesn’t need to know the receiver’s class. 消息发送方不需要知道消息接收方属于哪个子类</li>
+<li>Different receivers can interpret the message in their own way. <strong>同一类族</strong>的接收者可以按自己的方式处理消息 </li>
+<li><strong>使用指向父类的指针或者引用，能够调用子类的对象</strong>，这是多态的核心思想，也是设计模式的基础</li>
+</ul>
+<h5 id="Aggregation-amp-Composition-聚合-amp-组合"><a href="#Aggregation-amp-Composition-聚合-amp-组合" class="headerlink" title="Aggregation &amp; Composition 聚合&amp;组合"></a><strong>Aggregation &amp; Composition 聚合&amp;组合</strong></h5><ul>
+<li>Aggregation describes a “has a” relationship. One object is a part of another object. XX有XX这种关系</li>
+</ul>
+<blockquote>
+<ul>
+<li>Aggregation relationships are transitive. 聚合有传递性<ul>
+<li>if A contains B an B contains C, then A contains C</li>
+</ul>
+</li>
+<li>Aggregation relationships are asymmetric. 聚合是不对称的<ul>
+<li>If A contains B, then B does not contain A</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>A variant of aggregation is <strong>composition</strong> which adds the property of existence dependency. 组合是聚合的一个变种<ul>
+<li>组合特别强调<strong>整体控制着部分的生命</strong>，比如手指和手掌</li>
+</ul>
+</li>
+<li>但有些时候，聚合的组合的关系不是很明确，含糊不清的话一般用聚合</li>
+</ul>
+<h5 id="Interface-amp-Implementation-接口-amp-实现"><a href="#Interface-amp-Implementation-接口-amp-实现" class="headerlink" title="Interface &amp; Implementation 接口&amp;实现"></a><strong>Interface &amp; Implementation 接口&amp;实现</strong></h5><ul>
+<li>Interface describes how users of the class interact with the class 描述一个类的用户如何与这个类交互<ul>
+<li>使得当对其中某一个类进行局部修改的时候，不影响其他的类</li>
+</ul>
+</li>
+<li>实现即完成接口所定义的功能</li>
+</ul>
+<h5 id="Abstraction-抽象"><a href="#Abstraction-抽象" class="headerlink" title="Abstraction 抽象"></a><strong>Abstraction 抽象</strong></h5><ul>
+<li>A process allowing to focus on most important aspects while ignoring less important details. 简单地说，抽象就是专注于最重要的部分而忽略掉那些不太重要部分的过程</li>
+<li><strong>抽象是面向对象领域发现类的主要方法</strong></li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/08/Deep-Neural-Networks-1/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Object-Oriented/">Object-Oriented</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -172,143 +262,35 @@
 
 
 
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    23 minutes read (About 3383 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-2/">Shallow Neural Networks-2</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程及相关作业。</p>
-<h3 id="Why-do-you-need-non-linear-activation-function"><a href="#Why-do-you-need-non-linear-activation-function" class="headerlink" title="Why do you need non-linear activation function"></a><strong>Why do you need non-linear activation function</strong></h3><p>为什么神经网络需要非线性的激活函数？不能使用线性的激活函数，比如 $g(z) = z$ 吗？</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/01/Shallow-Neural-Networks-2/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-01T04:11:24.000Z">2019-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 minutes read (About 2471 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/01/Shallow-Neural-Networks-1/">Shallow Neural Networks-1</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第三周浅层神经网络的相关课程。</p>
-<h3 id="Neural-Network-Overview"><a href="#Neural-Network-Overview" class="headerlink" title="Neural Network Overview"></a><strong>Neural Network Overview</strong></h3><p>本周，你将学会如何实现神经网络。上周，我们讨论了对数几率回归 (logistic regression) ，并且使用计算图 (computation graph) 的方式了解了梯度下降算法的正向传播和反向传播的两个过程，如下图所示 :<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/01/Shallow-Neural-Networks-1/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/">Previous</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/17/Object-Oriented-2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Objected-Oriented Analysis and Design-2</span>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Next</a>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/08/Deep-Neural-Networks-2/">
+                <span class="level-item">Deep Neural Networks-2</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -388,6 +370,77 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#面向对象分析与设计">
+        <span class="has-mr-6">1</span>
+        <span>面向对象分析与设计</span>
+        </a></li><li>
+        <a class="is-flex" href="#类与对象">
+        <span class="has-mr-6">2</span>
+        <span>类与对象</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Class-类">
+        <span class="has-mr-6">2.1</span>
+        <span>Class 类</span>
+        </a></li><li>
+        <a class="is-flex" href="#Object-对象">
+        <span class="has-mr-6">2.2</span>
+        <span>Object 对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#Message-消息">
+        <span class="has-mr-6">2.3</span>
+        <span>Message 消息</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#面向对象的思考方式">
+        <span class="has-mr-6">3</span>
+        <span>面向对象的思考方式</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#面向对象">
+        <span class="has-mr-6">3.1</span>
+        <span>面向对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#面向过程">
+        <span class="has-mr-6">3.2</span>
+        <span>面向过程</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#面向对象的核心特征">
+        <span class="has-mr-6">4</span>
+        <span>面向对象的核心特征</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Encapsulation-封装">
+        <span class="has-mr-6">4.1</span>
+        <span>Encapsulation 封装</span>
+        </a></li><li>
+        <a class="is-flex" href="#Inheritance-继承">
+        <span class="has-mr-6">4.2</span>
+        <span>Inheritance 继承</span>
+        </a></li><li>
+        <a class="is-flex" href="#Ploymorphism-多态">
+        <span class="has-mr-6">4.3</span>
+        <span>Ploymorphism 多态</span>
+        </a></li><li>
+        <a class="is-flex" href="#Aggregation-amp-Composition-聚合-amp-组合">
+        <span class="has-mr-6">4.4</span>
+        <span>Aggregation &amp; Composition 聚合&amp;组合</span>
+        </a></li><li>
+        <a class="is-flex" href="#Interface-amp-Implementation-接口-amp-实现">
+        <span class="has-mr-6">4.5</span>
+        <span>Interface &amp; Implementation 接口&amp;实现</span>
+        </a></li><li>
+        <a class="is-flex" href="#Abstraction-抽象">
+        <span class="has-mr-6">4.6</span>
+        <span>Abstraction 抽象</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -469,7 +522,7 @@
     
         <!-- 主页三栏，Post页两栏-->
         <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 <div class="card widget">
@@ -678,7 +731,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-3-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -882,215 +935,6 @@
 </div>
  -->
                 <!-- 主页三栏，post页两栏 -->
-                
-                    
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/02/17/Object-Oriented-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Objected-Oriented Analysis and Design-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-17T02:37:18.000Z">2019-02-17</time></div>
-                    <a href="/2019/02/17/Object-Oriented-2/" class="has-link-black-ter is-size-6">Objected-Oriented Analysis and Design-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a> / <a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/16/Object-Oriented-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Objected-Oriented Analysis and Design-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-16T08:58:22.000Z">2019-02-16</time></div>
-                    <a href="/2019/02/16/Object-Oriented-1/" class="has-link-black-ter is-size-6">Objected-Oriented Analysis and Design-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a> / <a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/08/Deep-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T09:11:34.000Z">2019-02-08</time></div>
-                    <a href="/2019/02/08/Deep-Neural-Networks-2/" class="has-link-black-ter is-size-6">Deep Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/08/Deep-Neural-Networks-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Deep Neural Networks-1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-08T05:51:44.000Z">2019-02-08</time></div>
-                    <a href="/2019/02/08/Deep-Neural-Networks-1/" class="has-link-black-ter is-size-6">Deep Neural Networks-1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Shallow Neural Networks-2">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T10:42:57.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Shallow-Neural-Networks-2/" class="has-link-black-ter is-size-6">Shallow Neural Networks-2</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a> / <a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <ul class="menu-list">
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Deep-Learning/">
-                        <span class="level-start">
-                            <span class="level-item">Deep Learning</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">6</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Java/">
-                        <span class="level-start">
-                            <span class="level-item">Java</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/Object-Oriented/">
-                        <span class="level-start">
-                            <span class="level-item">Object-Oriented</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/vim/">
-                        <span class="level-start">
-                            <span class="level-item">vim</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
                 
             </div>
         </div>
