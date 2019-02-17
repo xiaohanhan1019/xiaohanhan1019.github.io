@@ -7,18 +7,21 @@
 
 
 
-    <meta name="description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统">
+    <meta name="description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统。">
 <meta name="keywords" content="Object-Oriented">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objected-Oriented Analysis and Design-2">
 <meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/17/Object-Oriented-2/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统">
+<meta property="og:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-17T03:13:26.270Z">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/17/Object-Oriented-2/1.png">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/17/Object-Oriented-2/2.png">
+<meta property="og:updated_time" content="2019-02-17T05:48:31.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objected-Oriented Analysis and Design-2">
-<meta name="twitter:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统">
+<meta name="twitter:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。 UML (Unified Modeling Language) 统一建模语言由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统。">
+<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/02/17/Object-Oriented-2/1.png">
 
 
 
@@ -144,7 +147,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 645 words)
+                    20 minutes read (About 3059 words)
                 </span>
                 
             </div>
@@ -157,7 +160,7 @@
         </h1>
         <div class="content">
             <p>本文为华东师范大学开设的面向对象分析与设计慕课课程第二周笔记，主要介绍了UML统一建模语言。</p>
-<h3 id="UML-Unified-Modeling-Language-统一建模语言"><a href="#UML-Unified-Modeling-Language-统一建模语言" class="headerlink" title="UML (Unified Modeling Language) 统一建模语言"></a><strong>UML (Unified Modeling Language) 统一建模语言</strong></h3><p>由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统</p>
+<h3 id="UML-Unified-Modeling-Language-统一建模语言"><a href="#UML-Unified-Modeling-Language-统一建模语言" class="headerlink" title="UML (Unified Modeling Language) 统一建模语言"></a><strong>UML (Unified Modeling Language) 统一建模语言</strong></h3><p>由于客户和编程人员对需求理解的差异，且完整地理解一个复杂的系统很困难，所以需要建模。建模是为了能够更好地理解正在开发的系统。</p>
 <a id="more"></a>
 <h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a><strong>建模</strong></h5><ul>
 <li>所谓建模就是把不太理解的东西和一些已经较为理解、且十分类似的东西做比较，从而对这些不太理解的东西产生更深刻的理解</li>
@@ -205,7 +208,189 @@
 </ul>
 </li>
 </ul>
-<h3 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a><strong>用例图</strong></h3>
+<h3 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a><strong>用例图</strong></h3><p>用例图的建模元素有边界，参与者，用例，关系</p>
+<h5 id="Actor-参与者"><a href="#Actor-参与者" class="headerlink" title="Actor 参与者"></a><strong>Actor 参与者</strong></h5><ul>
+<li>代表位于系统之外并和系统进行交互的一类事物（人、物、<strong>其他软件子系统</strong>等）</li>
+<li>通过它，可以对软件系统与外界发生的交互进行分析和描述</li>
+<li>通过它，可以了解客户希望软件系统提供哪些功能</li>
+</ul>
+<blockquote>
+<h5 id="如何确定参与者"><a href="#如何确定参与者" class="headerlink" title="如何确定参与者"></a><strong>如何确定参与者</strong></h5><ul>
+<li>谁使用系统？Who or what uses the system</li>
+<li>谁安装系统、维护系统？Who installs the system? Who maintains the system</li>
+<li>谁启动系统、关闭系统？Who starts and stops the system</li>
+<li>谁从系统中获取信息，谁提供信息给系统？Who gets and provides information to the system</li>
+<li>在系统交互中，谁扮演了什么角色？What roles do they play in the interaction</li>
+<li>系统会与哪些其他系统相关联？What other systems interact with this system</li>
+<li>内/外部定时器 Does anything happen at a fixed time?</li>
+</ul>
+</blockquote>
+<h5 id="UseCase-用例"><a href="#UseCase-用例" class="headerlink" title="UseCase 用例"></a><strong>UseCase 用例</strong></h5><ul>
+<li>系统为响应参与者引发的一个事件而执行的一系列的处理/动作，而这些处理应该为参与者产生一种有价值的结果，这些动作不但应包含<strong>正常情况</strong>的各种动作序列，而且应包含对<strong>非正常情况</strong>时软件系统的动作序列的描述。<strong>用例名称一般用短小精悍的“动名词”</strong></li>
+</ul>
+<blockquote>
+<h5 id="寻找用例"><a href="#寻找用例" class="headerlink" title="寻找用例"></a><strong>寻找用例</strong></h5><ul>
+<li>参与者希望系统提供什么功能 Start with actors, then identify what they want to do What functions will the actor want from the system ?</li>
+<li>系统是否存储和检索信息</li>
+<li>当系统改变状态时，是否通知参与者 Are any actors notified when the system changes ?</li>
+<li>是否存在影响系统的外部事件，是哪个参与者通知系统这些外部事件 Are there external events that notify the system ?</li>
+<li>哪个参与者触发了活动？Which actors trigger activity ?</li>
+</ul>
+</blockquote>
+<h5 id="用例图中的关系"><a href="#用例图中的关系" class="headerlink" title="用例图中的关系"></a><strong>用例图中的关系</strong></h5><ul>
+<li>参与者与用例之间<ul>
+<li>关联关系</li>
+</ul>
+</li>
+<li>参与者与参与者之间<ul>
+<li>泛化关系</li>
+</ul>
+</li>
+<li>用例之间的关系<ul>
+<li>泛化关系<ul>
+<li>如下订单和网上下订单</li>
+</ul>
+</li>
+<li>包含关系 include <ul>
+<li>如取钱用例的输入密码，因为你做任何事情都需要输入密码</li>
+</ul>
+</li>
+<li>扩展关系 extend <ul>
+<li>如取钱用例的打印单据，你可以选择在取钱以后是否打印单据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="UseCase-description用例描述"><a href="#UseCase-description用例描述" class="headerlink" title="UseCase description用例描述"></a><strong>UseCase description用例描述</strong></h5><p>一般由一个主事件流和多个异常事件流描述</p>
+<ul>
+<li>主事件流：一切正常时的动作序列</li>
+<li>异常事件流或可选事件流流：主事件流的每一步都有可能出现异常，此处描述异常情况的处理</li>
+</ul>
+<h3 id="活动图"><a href="#活动图" class="headerlink" title="活动图"></a><strong>活动图</strong></h3><p>活动图描述了在一个过程中，顺序的/并行的<strong>活动</strong>及其之间的关系，一般用于业务过程，复杂算法建模。</p>
+<p>活动图是<strong>顶点</strong>和<strong>弧</strong>的集合，包括活动节点，动作，流，对象值，注解和约束等</p>
+<h5 id="开始、结束、对象"><a href="#开始、结束、对象" class="headerlink" title="开始、结束、对象"></a><strong>开始、结束、对象</strong></h5><p><img src="/2019/02/17/Object-Oriented-2/1.png" alt=""></p>
+<h5 id="活动节点"><a href="#活动节点" class="headerlink" title="活动节点"></a><strong>活动节点</strong></h5><ul>
+<li>一个活动是一个过程中进行的非原子的执行单元</li>
+<li>活动的执行最终延伸为一些独立<strong>动作 (Action) </strong>的执行</li>
+</ul>
+<h5 id="分支"><a href="#分支" class="headerlink" title="分支"></a><strong>分支</strong></h5><ul>
+<li>一个分支可以有一个<strong>进入流</strong>和<strong>多个离去流</strong></li>
+<li>在每个离去流上必须设置一个监护条件<ul>
+<li>条件放在方括号里</li>
+<li>条件不能重叠，以免二义性</li>
+<li>可以有 [else] 分支</li>
+</ul>
+</li>
+<li>两个控制路径可以重新合并，无需监护条件</li>
+</ul>
+<h5 id="Forking-and-Joining-分岔和汇合"><a href="#Forking-and-Joining-分岔和汇合" class="headerlink" title="Forking and Joining 分岔和汇合"></a><strong>Forking and Joining 分岔和汇合</strong></h5><ul>
+<li>分岔表示把一个单独的控制流分成两个或多个并发的控制流</li>
+<li>汇合表示两个或多个并发控制流的同步发生，一个汇合可以有两个或多个进入转移和一个输出转移在UML中，用同步棒来说明并行控制流的分岔和汇合</li>
+</ul>
+<h5 id="Swimlanes-泳道"><a href="#Swimlanes-泳道" class="headerlink" title="Swimlanes 泳道"></a><strong>Swimlanes 泳道</strong></h5><ul>
+<li>将一个活动图中的活动分组，每一组表示一个特定的类别、人或部门，他们负责完成组内的活动</li>
+<li>每个组被称为一个泳道</li>
+<li>每个活动严格地属于一个用到，同步棒可以跨越泳道</li>
+</ul>
+<p><strong>活动图与用例模型互为补充，主要用于需求分析阶段</strong></p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a><strong>类图</strong></h3><h5 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a><strong>Class 类</strong></h5><ul>
+<li><strong>具有相同属性、操作、方法、关系或者行为的一组对象的描述符</strong></li>
+<li>类是真实世界事物的抽象</li>
+<li>问题领域的类：在对系统建模时，将会涉及到如何识别业务系统中的事物，这些事物构成了整个业务系统。在UML中，把所有的这些<strong>事物</strong>都建模为<strong>类</strong> (class)</li>
+</ul>
+<h5 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a><strong>Object 对象</strong></h5><ul>
+<li>当这些事物存在于真实世界中时，它们是类的实例，并被称为对象</li>
+<li>同一个类的各对象具有相同的属性，<strong>但属性的取值可以不同</strong>，提供相同的操作、有相同的语义</li>
+</ul>
+<h5 id="类图中的UML元素"><a href="#类图中的UML元素" class="headerlink" title="类图中的UML元素"></a><strong>类图中的UML元素</strong></h5><ul>
+<li>类之间的关系：关联关系，依赖关系，泛化关系，实现关系<ul>
+<li>关联的修饰<ul>
+<li>名称及其方向</li>
+<li>关联关系的多重性</li>
+<li>角色</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>类：内容包括名称，属性，操作，职责</li>
+<li>关联类，Association class is an association that is also a class, and consists of the class, association and the dashed line</li>
+</ul>
+<h3 id="顺序图"><a href="#顺序图" class="headerlink" title="顺序图"></a><strong>顺序图</strong></h3><p>一种详细描述对象之间以及对象与参与者之间交互的图，它由一组相互协作的对象或参与者实例以及它们之间发送的消息组成，<strong>强调消息之间的顺序</strong>，可用于动态验证模型的可行性。顺序图验证的某一功能，属于某个用例描述的功能中的一部分 (称为用例实现)。</p>
+<h5 id="顺序图的构成"><a href="#顺序图的构成" class="headerlink" title="顺序图的构成"></a><strong>顺序图的构成</strong></h5><p>参与者，对象生命线，执行规约，消息</p>
+<h5 id="对象生命线"><a href="#对象生命线" class="headerlink" title="对象生命线"></a><strong>对象生命线</strong></h5><ul>
+<li>表示对象在一段时间的存在</li>
+</ul>
+<h5 id="执行规约-或称控制焦点"><a href="#执行规约-或称控制焦点" class="headerlink" title="执行规约 (或称控制焦点)"></a><strong>执行规约 (或称控制焦点)</strong></h5><ul>
+<li>执行规约 (execution specification) 是一个对象执行一个操作的时期</li>
+</ul>
+<h5 id="消息"><a href="#消息" class="headerlink" title="消息"></a><strong>消息</strong></h5><ul>
+<li>对象间的协作与交流表现为一个对象以某种方式启动另一个对象的活动，这种交流在<br>UML里被定义为消息</li>
+<li>同步消息：如有对象A与对象B，A给B发送同步消息，要求对象B处理好消息并且返回结果，对象A才会继续往下</li>
+<li>异步消息：如有对象A与对象B，A给B发送同步消息，这时候A是将消息发送到B的队列里面，接着A继续做自己的事情，等到有空的时候，就去看看自己的队列中有没有消息，如果有就把这个请求拿出来处理，如果没有就继续做自己的事情。B也是如此，当B闲下来后发现A发来了消息，那么它就会处理并返回给A结果，A在它空闲时查看队列就会得到返回结果，过程如下图：<ul>
+<li><img src="/2019/02/17/Object-Oriented-2/2.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h5 id="结构化控制"><a href="#结构化控制" class="headerlink" title="结构化控制"></a><strong>结构化控制</strong></h5><p>在顺序图中，除了按顺序排列消息外，还应表示对消息进行选择、循环和并行处理</p>
+<h3 id="通信图"><a href="#通信图" class="headerlink" title="通信图"></a><strong>通信图</strong></h3><p>顺序图与通信图本质上是一样的，在语义上是等价的。但建模的角度不同，<strong>前者反映了对象之间协作的时间顺序，后者反映了对象之间协作的结构关系</strong>，强调了对象之间的交流。</p>
+<h5 id="通信图的构成"><a href="#通信图的构成" class="headerlink" title="通信图的构成"></a><strong>通信图的构成</strong></h5><p>对象，链接，在链接上的消息</p>
+<h3 id="状态图"><a href="#状态图" class="headerlink" title="状态图"></a><strong>状态图</strong></h3><p>描述了<strong>单个对象</strong>在其生命周期内响应事件所经历的状态序列以及<strong>动态行为</strong></p>
+<h5 id="State-machine状态机"><a href="#State-machine状态机" class="headerlink" title="State machine状态机"></a><strong>State machine状态机</strong></h5><ul>
+<li>是一种行为，说明对象在它的生命期中, 响应事件所经历的<strong>状态序列</strong>以及它们<strong>对每个事件的响应</strong></li>
+</ul>
+<h5 id="State-Diagram-状态图"><a href="#State-Diagram-状态图" class="headerlink" title="State Diagram 状态图"></a><strong>State Diagram 状态图</strong></h5><ul>
+<li>状态机可以用状态图来可视化，状态图显示了一个状态机，它强调从状态到状态的控制流</li>
+</ul>
+<h5 id="State-状态"><a href="#State-状态" class="headerlink" title="State 状态"></a><strong>State 状态</strong></h5><ul>
+<li>是对象的生命期中的一个条件或状况，在此期间，对象可以响应事件、执行某活动等</li>
+<li>状态由以下几个部分组成<ul>
+<li>名称</li>
+<li>进入/退出动作 (entry/exit action)</li>
+<li>内部迁移 (internal transition)</li>
+<li>子状态</li>
+<li>延迟事件 (deferred event)</li>
+</ul>
+</li>
+</ul>
+<h5 id="Event-事件"><a href="#Event-事件" class="headerlink" title="Event 事件"></a><strong>Event 事件</strong></h5><ul>
+<li>是对一个在时间和空间上占有一定位置的有意义的事情的描述<ul>
+<li><strong>在状态机的语境中，一个事件是一个激励的发生，它能够触发一个状态迁移</strong></li>
+</ul>
+</li>
+<li>UML对四种事件进行建模<ul>
+<li>change event 参量变化</li>
+<li>signal 信号 (异步)</li>
+<li>call 调用 (同步)</li>
+<li>时间事件 </li>
+</ul>
+</li>
+</ul>
+<h5 id="Transition-迁移"><a href="#Transition-迁移" class="headerlink" title="Transition 迁移"></a><strong>Transition 迁移</strong></h5><ul>
+<li>在状态A，发生事件并满足一定条件，转到状态B。一个迁移由5部分组成：<ul>
+<li>source state 源状态</li>
+<li>event trigger 事件触发器</li>
+<li>guard condition 触发条件</li>
+<li>effect 效应 (或称迁移动作)</li>
+<li>目标状态</li>
+</ul>
+</li>
+<li>特殊的迁移<ul>
+<li>self transition 自身迁移</li>
+<li>internal transition 内部迁移</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>状态图建模注意事项</strong></p>
+<ul>
+<li>不允许孤立的状态存在</li>
+<li>不允许只进不出的状态迁移</li>
+<li>不允许只出不进的状态迁移</li>
+<li>不允许没有事件发生的迁移</li>
+</ul>
+</blockquote>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -361,7 +546,127 @@
         <a class="is-flex" href="#用例图">
         <span class="has-mr-6">2</span>
         <span>用例图</span>
-        </a></li></ul>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Actor-参与者">
+        <span class="has-mr-6">2.1</span>
+        <span>Actor 参与者</span>
+        </a></li><li>
+        <a class="is-flex" href="#如何确定参与者">
+        <span class="has-mr-6">2.2</span>
+        <span>如何确定参与者</span>
+        </a></li><li>
+        <a class="is-flex" href="#UseCase-用例">
+        <span class="has-mr-6">2.3</span>
+        <span>UseCase 用例</span>
+        </a></li><li>
+        <a class="is-flex" href="#寻找用例">
+        <span class="has-mr-6">2.4</span>
+        <span>寻找用例</span>
+        </a></li><li>
+        <a class="is-flex" href="#用例图中的关系">
+        <span class="has-mr-6">2.5</span>
+        <span>用例图中的关系</span>
+        </a></li><li>
+        <a class="is-flex" href="#UseCase-description用例描述">
+        <span class="has-mr-6">2.6</span>
+        <span>UseCase description用例描述</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#活动图">
+        <span class="has-mr-6">3</span>
+        <span>活动图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#开始、结束、对象">
+        <span class="has-mr-6">3.1</span>
+        <span>开始、结束、对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#活动节点">
+        <span class="has-mr-6">3.2</span>
+        <span>活动节点</span>
+        </a></li><li>
+        <a class="is-flex" href="#分支">
+        <span class="has-mr-6">3.3</span>
+        <span>分支</span>
+        </a></li><li>
+        <a class="is-flex" href="#Forking-and-Joining-分岔和汇合">
+        <span class="has-mr-6">3.4</span>
+        <span>Forking and Joining 分岔和汇合</span>
+        </a></li><li>
+        <a class="is-flex" href="#Swimlanes-泳道">
+        <span class="has-mr-6">3.5</span>
+        <span>Swimlanes 泳道</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#类图">
+        <span class="has-mr-6">4</span>
+        <span>类图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Class-类">
+        <span class="has-mr-6">4.1</span>
+        <span>Class 类</span>
+        </a></li><li>
+        <a class="is-flex" href="#Object-对象">
+        <span class="has-mr-6">4.2</span>
+        <span>Object 对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#类图中的UML元素">
+        <span class="has-mr-6">4.3</span>
+        <span>类图中的UML元素</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#顺序图">
+        <span class="has-mr-6">5</span>
+        <span>顺序图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#顺序图的构成">
+        <span class="has-mr-6">5.1</span>
+        <span>顺序图的构成</span>
+        </a></li><li>
+        <a class="is-flex" href="#对象生命线">
+        <span class="has-mr-6">5.2</span>
+        <span>对象生命线</span>
+        </a></li><li>
+        <a class="is-flex" href="#执行规约-或称控制焦点">
+        <span class="has-mr-6">5.3</span>
+        <span>执行规约 (或称控制焦点)</span>
+        </a></li><li>
+        <a class="is-flex" href="#消息">
+        <span class="has-mr-6">5.4</span>
+        <span>消息</span>
+        </a></li><li>
+        <a class="is-flex" href="#结构化控制">
+        <span class="has-mr-6">5.5</span>
+        <span>结构化控制</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#通信图">
+        <span class="has-mr-6">6</span>
+        <span>通信图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#通信图的构成">
+        <span class="has-mr-6">6.1</span>
+        <span>通信图的构成</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#状态图">
+        <span class="has-mr-6">7</span>
+        <span>状态图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#State-machine状态机">
+        <span class="has-mr-6">7.1</span>
+        <span>State machine状态机</span>
+        </a></li><li>
+        <a class="is-flex" href="#State-Diagram-状态图">
+        <span class="has-mr-6">7.2</span>
+        <span>State Diagram 状态图</span>
+        </a></li><li>
+        <a class="is-flex" href="#State-状态">
+        <span class="has-mr-6">7.3</span>
+        <span>State 状态</span>
+        </a></li><li>
+        <a class="is-flex" href="#Event-事件">
+        <span class="has-mr-6">7.4</span>
+        <span>Event 事件</span>
+        </a></li><li>
+        <a class="is-flex" href="#Transition-迁移">
+        <span class="has-mr-6">7.5</span>
+        <span>Transition 迁移</span>
+        </a></li></ul></li></ul>
         </div>
     </div>
 </div>
