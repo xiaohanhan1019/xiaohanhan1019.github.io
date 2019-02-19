@@ -2,27 +2,25 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8" name="google-site-verification" content="4r262MlSHG2usfX6yLIYST-qBIOPGbPPczLRsjsatqY">
-<title>Basic of Neural Networks-1 - xiaohanhan&#39;s blog</title>
+<title>Objected-Oriented Analysis and Design-4 - xiaohanhan&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代">
-<meta name="keywords" content="Deep Learning">
+    <meta name="description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第四周笔记，系统地介绍了面向对象分析法的CRC法，同时举了一些例子帮助理解。 首先，我们再来复习一下面向对象分析的三种方法：  Conceptual model (Larman) 概念模型，又称“名词法” Analysis model with stereotypes (Jacobson) 分析模型 CRC cards (Beck, Cunning">
+<meta name="keywords" content="Object-Oriented">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Basic of Neural Networks-1">
-<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/index.html">
+<meta property="og:title" content="Objected-Oriented Analysis and Design-4">
+<meta property="og:url" content="https://xiaohanhan1019.github.io/2019/02/19/Object-Oriented-4/index.html">
 <meta property="og:site_name" content="xiaohanhan&#39;s blog">
-<meta property="og:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代">
+<meta property="og:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第四周笔记，系统地介绍了面向对象分析法的CRC法，同时举了一些例子帮助理解。 首先，我们再来复习一下面向对象分析的三种方法：  Conceptual model (Larman) 概念模型，又称“名词法” Analysis model with stereotypes (Jacobson) 分析模型 CRC cards (Beck, Cunning">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
-<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png">
-<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png">
-<meta property="og:updated_time" content="2019-02-10T08:27:58.310Z">
+<meta property="og:image" content="https://xiaohanhan1019.github.io/2019/02/19/Object-Oriented-4/1.png">
+<meta property="og:updated_time" content="2019-02-19T03:34:01.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Basic of Neural Networks-1">
-<meta name="twitter:description" content="本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。 Binary Classification在二分分类问题中，目标是训练出一个分类器，以特征向量x (feature vector)为输入，以y (output label)为输出，y一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代">
-<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png">
+<meta name="twitter:title" content="Objected-Oriented Analysis and Design-4">
+<meta name="twitter:description" content="本文为华东师范大学开设的面向对象分析与设计慕课课程第四周笔记，系统地介绍了面向对象分析法的CRC法，同时举了一些例子帮助理解。 首先，我们再来复习一下面向对象分析的三种方法：  Conceptual model (Larman) 概念模型，又称“名词法” Analysis model with stereotypes (Jacobson) 分析模型 CRC cards (Beck, Cunning">
+<meta name="twitter:image" content="https://xiaohanhan1019.github.io/2019/02/19/Object-Oriented-4/1.png">
 
 
 
@@ -138,17 +136,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-21T13:43:43.000Z">2019-01-21</time>
+                <time class="level-item has-text-grey" datetime="2019-02-19T01:28:48.000Z">2019-02-19</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/deeplearning-ai/">deeplearning.ai</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/deeplearning-ai/Deep-learning-NN/">Deep learning & NN</a>
+                <a class="has-link-grey -link" href="/categories/Software-Engineering/">Software Engineering</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Software-Engineering/Object-Oriented/">Object-Oriented</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2159 words)
+                    15 minutes read (About 2285 words)
                 </span>
                 
             </div>
@@ -156,139 +154,187 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Basic of Neural Networks-1
+                Objected-Oriented Analysis and Design-4
             
         </h1>
         <div class="content">
-            <p>本文为 Andrew Ng 深度学习课程第一部分神经网络和深度学习的笔记，对应第二周神经网络基础的相关课程。</p>
-<h3 id="Binary-Classification"><a href="#Binary-Classification" class="headerlink" title="Binary Classification"></a><strong>Binary Classification</strong></h3><p>在二分分类问题中，目标是训练出一个分类器，以特征向量<code>x (feature vector)</code>为输入，以<code>y (output label)</code>为输出，<code>y</code>一般只有 ${0,1}​$ 两个离散值。以图像识别问题为例，判断图片中是否由猫存在，0代表noncat，1代表cat<br></p>
+            <p>本文为华东师范大学开设的面向对象分析与设计慕课课程第四周笔记，系统地介绍了面向对象分析法的CRC法，同时举了一些例子帮助理解。</p>
+<p>首先，我们再来复习一下面向对象分析的三种方法：</p>
+<ul>
+<li>Conceptual model (Larman) 概念模型，又称“名词法”</li>
+<li>Analysis model with stereotypes (Jacobson) 分析模型</li>
+<li>CRC cards (Beck, Cunningham) CRC 法</li>
+</ul>
 <a id="more"></a>
-<p>通常，我们用 $(x,y)​$ 来表示一个单独的样本，其中<code>x(feature vector)</code>是$n_x​$维的向量 ( $n_x​$ 为样本特征个数，即决定输出的因素) ，<code>y(output label)</code>为输出，取值为 $y\in\{0,1\}​$<br><br>则m个训练样本 (training example) 可表示为</p>
-<script type="math/tex; mode=display">
-\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(m)},y^{(m)})\}</script><p>用$ m=m_{train} $表示训练样本的个数<br></p>
-<p>最后，我们可以用更紧凑的符号 $X$ 表示整个训练集，$X$ 由训练集中的 $x^{(1)}$，$x^{(2)}$，…，$x^{(m)}$ 作为列向量组成，$X\in{\Bbb R}^{n_x*m}$，即 X.shape = $(n_x,m)$</p>
-<script type="math/tex; mode=display">
-\mathbf{X} =
-\left( \begin{array}{c}
-\vdots & \vdots & \ldots & \vdots \\\\
-x^{(1)} & x^{(2)} & \ldots & x^{(m)} \\\\
-\vdots & \vdots & \ldots & \vdots
-\end{array} \right)</script><p>同时，把<code>y</code>也放入列中，用 $Y$ 来表示，$Y\in{\Bbb R}^{1*m}$，即 Y.shape = $(1,m)​$</p>
-<script type="math/tex; mode=display">
-\mathbf{Y} =
-\left( \begin{array}{c}
-y^{(1)} & y^{(2)} & \ldots & y^{(m)} \
-\end{array} \right)</script><h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a><strong>Logistic Regression</strong></h3><p>参照了周志华的西瓜书，把 Logisitic Regression 翻译为对数纪律回归，简称为对率回归。对数几率回归是一种解决二分分类问题的机器学习方法，用于预测某种实物的可能性。<br></p>
 <blockquote>
-<p>Given x, you want $\hat{y} = P(y=1 \mid x)​$. </p>
-<p>In other words, if x is a picture, as talked about above, you want $\hat{y}​$ to tell you the chance that there is a cat in the picture.</p>
+<p>A good analyst knows more than one strategy and even may mix strategies in order to identify the objects and relationships for the design phase. 一个好的分析师掌握多种技术，知道如何混合使用各种技术，目标只有一个：发现对象、定义对象之间的关系。</p>
 </blockquote>
-<p>根据输入 $x$ 和参数 $w, b$，计算出 $\hat{y}$ ，下面介绍了两种方法 :</p>
-<blockquote>
-<p>Parameter : $w\in{\Bbb R}^{n_x}, b\in{\Bbb R}​$<br>Output : $\hat{y}​$</p>
-<blockquote>
-<p>One way : $\hat{y} = w^{T}x + b​$ (Linear regression) </p>
+<h3 id="标识概念类和对象"><a href="#标识概念类和对象" class="headerlink" title="标识概念类和对象"></a><strong>标识概念类和对象</strong></h3><p>原则：</p>
 <ul>
-<li>Not good for binary classification</li>
-<li>Because you want $\hat{y}​$ to be the chance that $y​$ equals to one. In this situation  $\hat{y}​$ can be much bigger than 1 or negative.</li>
+<li>类，表示一组具有相同行为、属性的对象 Remember that a class represents a group (classification) of objects with the same behaviors</li>
+<li>类，在表示对象群体的时候，一般用单数 Generally, classes that represent objects should be given names that are singular nouns</li>
+<li>根据类，可以创建所需要数量的对象个体 We are free to instantiate as many of each object as needed</li>
 </ul>
-<p>The other way : $\hat{y} = \sigma(w^{T}x + b)$ (Logistic Regression) </p>
+<blockquote>
+<p>可能的抉择：</p>
 <ul>
-<li>$\sigma(z) =  \frac{1}{1+e^{-z}} ​$</li>
-<li>通过$\sigma(z)$函数，可以将输出限定在$[0,1]$之间</li>
+<li>一个名词，是作为概念类合适，还是作为某个类的属性更合适 ？ Sometimes it is challenging to decide whether something should be represented as a class<ul>
+<li>主要还是根据实际情况，取决于我们要解决的问题。一般来说，对问题了解得越细越透彻，越有把握做出决定</li>
+</ul>
+</li>
 </ul>
 </blockquote>
-</blockquote>
-<h3 id="Logistic-Regression-Cost-Function"><a href="#Logistic-Regression-Cost-Function" class="headerlink" title="Logistic Regression Cost Function"></a><strong>Logistic Regression Cost Function</strong></h3><p>给出$\{(x^{(1)},y^{(1)})…,(x^{(m)},y^{(m)})\}​$，希望通过训练集，找到参数 $w, b​$ 使得 $\hat{y}^{(i)} \approx  y^{(i)}​$ 。所以，我们需要定义一个<code>loss function</code>，通过这个<code>loss function</code>来衡量你的预测输出值 $\hat{y}​$ 与 $y​$ 的实际值由多接近 <br></p>
-<p>对于m个训练样本，我们通常用上标 $(i)​$ 来指明数据与第 $i​$ 个样本有关。<br></p>
-<p>通常，我们这样定义Loss function (损失函数) :</p>
-<script type="math/tex; mode=display">
-L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2</script><p>但在对数几率回归中一般不使用，因为它是non-convex (非凸的) ，将来使用<code>梯度下降算法 (Gradient Descent)</code>时无法找到全局最优值 <br></p>
-<p>在对数几率回归中，我们使用的损失函数为 : </p>
-<script type="math/tex; mode=display">
-L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))</script><blockquote>
-<p>If y = 1 : $L(\hat{y},y) = -\log(\hat{y})​$, you want $\hat{y}​$ to be large</p>
-<p>if y = 0 : $L(\hat{y},y) = -\log(1-\hat{y})​$, you want  $\hat{y}​$ to be small</p>
-<p>所以，这个损失函数和 $L(\hat{y},y) = \frac{1}{2}(\hat{y} - y)^2$ 类似，都希望 $L$ 越小越好</p>
-</blockquote>
-<p>上述的<code>Loss function</code>衡量了单个训练样本的表现，对于m个样本，我们定义<code>Cost function</code> (代价函数) ，它衡量了全体训练样本的表现</p>
-<script type="math/tex; mode=display">
-J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log\hat{y}^{(i)} + (1-y^{(i)}) \log(1-\hat{y}^{(i)})</script><p><code>Loss function</code>只适用于单个训练样本，<code>Cost function</code>是基于参数的总代价。所以，在训练对数几率回归模型时，我们要找到合适的参数 $w, b$ 使得<code>Cost function</code>尽可能的小<br></p>
-<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a><strong>Gradient Descent</strong></h3><p>我们将使用<code>梯度下降 (Gradient Descent) 算法</code>来找出合适的参数 $w,b$，使得<code>Cost function</code> 即 $J(w,b)$ 最小 <br></p>
+<p>在适当的细节层面定义概念类 We want to define classes with the proper amount of<br>detail</p>
 <ul>
-<li><img src="/2019/01/21/Basic-of-Neural-Networks-1/gradient_descent.png" alt=""></li>
+<li>当发现一个类非常复杂时，要考虑拆分成多个小一点的类 When a class becomes too complex, it often should be decomposed into multiple smaller classes to distribute the responsibilities</li>
+<li>但是，又不能有太多的类！But , not too many classes</li>
 </ul>
-<p>最上方的小红点为初始点，对于对数几率回归，一般使用0来初始化，随机初始化也有效，但通常不这么做 <br></p>
+<p>在表示概念类的过程中，同时要考虑每个类的职责分配，但是不需要在领域模型中明示。</p>
+<p>总的来说，对于即将要开发的系统，每项任务 (每个职责) 都需要有一个或多个类去处理，在一开始表示成较为粗狂的职责描述，不必要定义每个类的每个操作</p>
+<h3 id="CRC方法标识概念类"><a href="#CRC方法标识概念类" class="headerlink" title="CRC方法标识概念类"></a><strong>CRC方法标识概念类</strong></h3><h5 id="CRC-Class-Responsibility-Cooperation-分别代表什么？"><a href="#CRC-Class-Responsibility-Cooperation-分别代表什么？" class="headerlink" title="CRC (Class Responsibility Cooperation) 分别代表什么？"></a><strong>CRC (Class Responsibility Cooperation) 分别代表什么？</strong></h5><ul>
+<li>Classes (of objects) 类</li>
+<li>Responsibilities (of the objects in each class) 职责</li>
+<li>Collaborations (with objects in other classes) 协作<ul>
+<li>In UML, these will be examples of “associations” </li>
+</ul>
+</li>
+</ul>
+<p>CRC又称为索引卡片 (CRC card)，每张卡片代表一个类，每张卡片上写出这个类承担的职责、与其合作交互的其他类名</p>
 <blockquote>
-<p>梯度下降过程：</p>
+<p>例子：</p>
+<p><img src="/2019/02/19/Object-Oriented-4/1.png" alt=""></p>
+</blockquote>
+<h5 id="CRC的特点"><a href="#CRC的特点" class="headerlink" title="CRC的特点"></a><strong>CRC的特点</strong></h5><ul>
+<li>非正式的、不是很细节的 Informal, non-detailed</li>
+<li>采用小组“头脑风暴”的形式提出概念 Used for group brain-storming</li>
+<li>CRC的目标不是提供完整的设计 Not intended to provide a complete design</li>
+<li>CRC产生的结果需要进一步精化 End result is a first cut at classes for an object-oriented model</li>
+</ul>
+<h5 id="CRC的输入信息：用例模型"><a href="#CRC的输入信息：用例模型" class="headerlink" title="CRC的输入信息：用例模型"></a><strong>CRC的输入信息：用例模型</strong></h5><ul>
+<li><p>用例图、边界、用例描述，清楚地描述了系统需求，作为CRC概念类分析的起点 A good starting point for CRC analysis is a clear statement of all of the use-cases.</p>
+</li>
+<li><p>用例描述的正常事件流、异常事件流，可以作为CRC的“角色扮演”的脚本 Use-cases, or their accompanying scenarios, can be used as a kind of script for the role-playing method (角色扮演) of checking the CRC cards</p>
 <ul>
-<li>从初始点开始，朝最陡的下坡方向走一步</li>
-<li>重复上述过程，不断修正 $w, b​$ 使得 $J(w,b)​$ 接近全局最优值 (global opitmal)</li>
+<li>“角色扮演” 也可以用顺序图代替</li>
 </ul>
-</blockquote>
-<p>代码表述为：</p>
-<blockquote>
-<p>Repeat {<br>$w := w - \alpha \frac{\partial J(w,b)}{\partial w}​$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial w}​$ 记作”dw”<br>$b := b - \alpha \frac{\partial J(w,b)}{\partial b}​$ &nbsp; &nbsp;&nbsp;&nbsp;在代码中 $\frac{\partial J(w,b)}{\partial b}​$ 记作”db”<br>}</p>
-</blockquote>
-<h3 id="Computation-Graph"><a href="#Computation-Graph" class="headerlink" title="Computation Graph"></a><strong>Computation Graph</strong></h3><p>神经网络的训练包含了两个过程：</p>
+</li>
+</ul>
+<h3 id="CRC方法建模案例：ATM取款机软件"><a href="#CRC方法建模案例：ATM取款机软件" class="headerlink" title="CRC方法建模案例：ATM取款机软件"></a><strong>CRC方法建模案例：ATM取款机软件</strong></h3><h5 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a><strong>需求描述</strong></h5><p>University Bank will be opening in January, 2020. We plan to use a<br>full service automated teller machine (ATM) system</p>
 <ul>
-<li>正向传播 (Forward Propagation)，从输入经过一层层神经网络，最后得到 $\hat{y}$ ，从而计算代价函数 $J$</li>
-<li>反向传播 (Back Propagation)，根据损失函数 $L(\hat{y},y)$ 来反方向的计算每一层参数的偏导数，从而更新参数</li>
+<li>The <strong>ATM system</strong> will interact with the <strong>customer</strong> through a <strong>display screen</strong>, numeric and special <strong>input keys</strong>, a <strong>bankcard reader</strong>, a <strong>deposit slot</strong>, and a <strong>receipt printer</strong></li>
+<li><strong>Customers</strong> may make <strong>deposits</strong>, <strong>withdrawals</strong>, and <strong>balance inquires</strong> using the <strong>ATM machine</strong>, but the update to <strong>accounts</strong> will be handled through an <strong>interface</strong> to the <strong>Accounts system</strong></li>
+<li><strong>Customers</strong> will be assigned a <strong>Personal Identification Number (PIN)</strong> and <strong>clearance level</strong> by the <strong>Security system</strong>. The PIN can be verified prior to any <strong>transaction</strong></li>
+<li>In the future, we would also like to support <strong>routine operations</strong> such as a change of <strong>address</strong> or <strong>phone number</strong> using the ATM</li>
 </ul>
-<p>下面我们用计算图 (Computation Graph) 来理解这个过程</p>
-<p><img src="/2019/01/21/Basic-of-Neural-Networks-1/computation_graph.png" alt=""></p>
-<p>从左向右，可以计算出 $J​$ 的值，对应着神经网络中输入经过计算得到代价函数 $J(w,b)​$ 值的过程<br></p>
-<p>从右向左，根据求导的链式法则，可以得到：</p>
-<script type="math/tex; mode=display">
-\frac{\partial J}{\partial a} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial a} = 3 \cdot 1 = 3</script><script type="math/tex; mode=display">
-\frac{\partial J}{\partial b} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial b} = 3 \cdot 1 \cdot c = 6</script><script type="math/tex; mode=display">
-\frac{\partial J}{\partial c} = \frac{\partial J}{\partial v} \cdot \frac{\partial v}{\partial u} \cdot \frac{\partial u}{\partial c} = 3 \cdot 1 \cdot b = 9</script><p>在反向传播中，一般我们只关心最终输出值 (在这个例子中是 $J$ ) ，需要计算 $J$ 对于某个变量 (记作var) 的导数，即 $\frac {dJ}{dvar}​$，在Python代码中简写为<code>dvar</code> <br></p>
-<h3 id="Logistic-Regression-Gradient-Descent"><a href="#Logistic-Regression-Gradient-Descent" class="headerlink" title="Logistic Regression Gradient Descent"></a><strong>Logistic Regression Gradient Descent</strong></h3><p>现在，我们来实现对数几率回归梯度下降算法，只考虑单个样本的情况 :</p>
-<blockquote>
-<p>$z = w^{T}x + b$</p>
-<p>$\hat{y} = a = \sigma({z})​$</p>
-<p>$L(\hat{y},y) = -(y \log\hat{y} + (1-y) \log(1-\hat{y}))​$</p>
-</blockquote>
-<p>假设样本只有两个，分别为 $x1, x2$，则计算图如下 :</p>
-<p><img src="/2019/01/21/Basic-of-Neural-Networks-1/logistic_regression_gradient_descent.png" alt=""></p>
-<p>在对数几率回归中，我们需要做的是，改变参数 $w, b$ 的值，来最小化损失函数，即需要计算出 $dw, dz$ <br></p>
-<p>向后传播计算损失函数 $L​$ 的偏导数步骤如下：</p>
-<blockquote>
+<p>通过头脑风暴，列出概念，已加粗表示</p>
+<h5 id="标识核心概念类-Identifying-Core-Classes"><a href="#标识核心概念类-Identifying-Core-Classes" class="headerlink" title="标识核心概念类 Identifying Core Classes "></a><strong>标识核心概念类 Identifying Core Classes </strong></h5><p>Moving from brainstorming to analysis, divide the candidate classes into categories in the following order:</p>
 <ul>
-<li>$da = \frac {\partial L(a,y)}{\partial a} = -\frac {y}{a} + \frac{1-y}{1-a}​$</li>
-<li>$dz = \frac {\partial L}{\partial z} = \frac {\partial L}{\partial a} \cdot \frac {da}{dz}= (-\frac {y}{a} + \frac{1-y}{1-a}) \cdot a \cdot (1-a) = a - y​$</li>
-<li>$dw_1 =  \frac {\partial L}{\partial w_1} = \frac {\partial L}{\partial z} \cdot \frac { \partial z}{\partial w_1} = x_1 \cdot dz ​$</li>
-<li>$dw_2 =  \frac {\partial L}{\partial w_2} = \frac {\partial L}{\partial z} \cdot \frac { \partial z}{\partial w_2} = x_2 \cdot dz ​$</li>
-<li>$db =  \frac {\partial L}{\partial b} = \frac {\partial L}{\partial z} \cdot \frac { \partial z}{\partial b} = dz​$</li>
-</ul>
-</blockquote>
-<p>所以，在对数几率回归梯度下降算法中你需要做的是</p>
+<li><p>关键的critical classes (i.e., the “winners”), for which we will definitely write CRC cards Items that directly relate to the main entities of the application</p>
 <blockquote>
+<p>在ATM例子中，如：Account, Deposit, Withdrawal, BalanceUnquiry 这些类</p>
+</blockquote>
+</li>
+<li><p>无关的 irrelevant candidates (i.e., the “losers”), which we will definitely eliminate Items that are clearly outside the system scope</p>
+<blockquote>
+<p>在ATM例子中，如：Printer, Prompt 这些与我们软件无关的类，可能与用户界面相关，但与模型无关</p>
+</blockquote>
+</li>
+<li><p>待定的 undecided candidates (i.e., the “maybes”), which we will review further for categorization</p>
 <ul>
-<li>$ dz = a - y$</li>
-<li>$dw_1 = x_1 \cdot dz ​$</li>
-<li>$dw_2 = x_2 \cdot dz ​$</li>
-<li>$db = dz​$</li>
-<li>更新$w_1​$,  $w_1 = w_1 - \alpha dw_1​$</li>
-<li>更新$w_2$,  $w_2 = w_2 - \alpha dw_2$</li>
-<li>更新$b​$,  $b = b - \alpha db​$</li>
+<li>Items that we may not be able to categorize without first clarifying the system boundaries and definition</li>
 </ul>
-</blockquote>
-<h3 id="Gradient-descent-on-m-examples"><a href="#Gradient-descent-on-m-examples" class="headerlink" title="Gradient descent on $m$ examples"></a><strong>Gradient descent on $m$ examples</strong></h3><p>之前只实现了单个样本的梯度下降算法，现在我们将梯度下降算法应用到整个训练集<br></p>
-<blockquote>
-<p>$J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) $</p>
-<p>$a^{(i)} = \hat{y}^{(i)} = \sigma(z^{(i)}) = \sigma(w^{T}x^{(i)}+b)​$</p>
-<p>$\frac {\partial}{\partial w_1}J(w,b) = \frac {1}{m} \sum_{i=1}^{m} \frac {\partial}{\partial w_1}L(a^{(i)},y^{(i)}) = \frac {1}{m} \sum_{i=1}^{m}dw_1^{(i)}$ </p>
+</li>
+</ul>
+<h5 id="明确系统范围-Clarifying-System-Scope"><a href="#明确系统范围-Clarifying-System-Scope" class="headerlink" title="明确系统范围 Clarifying System Scope"></a><strong>明确系统范围 Clarifying System Scope</strong></h5><p>To continue design, we must determine <strong>what is and what is not part of the system</strong></p>
+<p>Scope of the ATM system</p>
 <ul>
-<li>$dw_1^{(i)}​$按照之前单个样本的情况计算</li>
+<li>Does it handle everything—the banking application, the user<br>interface, and the interactions between them?</li>
+<li>Is the ATM responsible for updating accounting records or just recording and mediating the transaction activity?<ul>
+<li>更新账户的操作一般也不会让ATM操作，一般是传到银行服务器上操作</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>在ATM例子中，我们需要明确以上问题，有时画图是一个不错的方法来确定系统边界 (如：用例图)</p>
+</blockquote>
+<h5 id="去掉不必要的核心类"><a href="#去掉不必要的核心类" class="headerlink" title="去掉不必要的核心类"></a><strong>去掉不必要的核心类</strong></h5><p>进一步检查，发现不适合应用系统的类，检查那些与系统相关、但是在系统外部的类；系统需要有接口与它们通信，但不需要在系统内部为它们建模</p>
+<blockquote>
+<p>在ATM的例子中，比如用户类，ATM并不关心用户的各种信息，比如年龄性别，它只关心用户手里拿的银行卡的信息，以及用户在界面上的操作。</p>
+</blockquote>
+<p>可能你还需要合并同义词</p>
+<blockquote>
+<p>在ATM例子中，BankCustomer和AccountHolder其实是一个概念。但特别要注意的是，同一个名词在不同的地方表示不同的含义时，可能需要增加一个新的核心类。</p>
+</blockquote>
+<p>辨析一个概念是属性还是类，符合以下两点的，一般是属性</p>
+<ul>
+<li><p>它不做具体的事情 it does not do anything — it has no operations</p>
+<blockquote>
+<p>在ATM例子中，Balance and FundsAvailable have few meaningful operations and both are closely associated with Account</p>
+</blockquote>
+</li>
+<li><p>它不能改变状态 it cannot change state</p>
+<blockquote>
+<p>If a PIN is viewed as being immutable(不变的), not changing state, then it probably should be an attribute of Account. However, if a PIN can change state — say from among valid, invalid, and suspended — then it should be a class</p>
+</blockquote>
+</li>
+</ul>
+<p>通过以上分析，我们可以得到ATM的核心类：FinancialTransaction, Account, BalanceInquiry, Withdrawal, Deposit, AuthorizeSystemInteraction, BankCard</p>
+<h5 id="为核心类分配职责"><a href="#为核心类分配职责" class="headerlink" title="为核心类分配职责"></a><strong>为核心类分配职责</strong></h5><p>为每个核心类准备一个CRC卡，写上职责 Write responsibilities on CRC cards for each core class</p>
+<p>为概念类定义协作者，此过程与定义职责的过程是交错进行的 Task of finding collaborators for classes often intermixed with finding responsibilities</p>
+<p>集中在 What, 而不是 How</p>
+<p>定义职责的方法</p>
+<ul>
+<li>首先，以“头脑风暴”为核心类列出各种可能的职责，然后再精化，</li>
+<li>如果大多数职责都归属于少数几个类，则设计出了点问题<ul>
+<li>没有充分利用多态、封装等特性</li>
+<li>很多类的功能退化为”记录信息”，只知道自己的信息</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>ATM example: class Account</p>
+<p>A tendency might be to give most of the responsibility to the Account class, which becomes a strong, busy “manager” procedure giving commands to relatively weak, ill-defined “worker” classes</p>
+<ul>
+<li>这样Account这个类可重用性就差了</li>
 </ul>
 </blockquote>
-<p>伪代码如下 :</p>
+<p>应该给与每个类一个明确的职责 Give each class a distinct role in the system. Strive to make each class a well-defined, complete, cohesive abstraction</p>
 <blockquote>
-<p>$J=0; dw_1=0; dw_2=0; db=0;$<br>$for \quad i = 1 \quad to \quad m $<br>$\quad z^{(i)} = w^{T}x^{(i)}+b$<br>$\quad a^{(i)} = \sigma(z^{(i)})$<br>$\quad J += -(y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)}))$<br>$\quad dz^{(i)} = a^{(i)}-y^{(i)}$<br>$\quad dw_1 += x_1^{(i)}dz^{(i)}$<br>$\quad dw_2 += x_2^{(i)}dz^{(i)} \qquad$<br>$\quad…\quad\quad\quad\quad\quad\quad$ //这里应该是一个循环，这里 $n_x = 2$<br>$\quad db  += dz^{(i)}$<br>​$J /= m$<br>$dw_1 /= m$<br>$dw_2 /= m$<br>$db /= m$</p>
-<p>$w_1 = w_1 - \alpha dw_1​$<br>$w_2 = w_2 - \alpha dw_2​$<br>$b = b - \alpha db​$</p>
+<p>ATM example: class Withdrawal</p>
+<p>the responsibility “Withdraw Funds”, making it potentially useful to any other class needing to do a withdrawal</p>
+<ul>
+<li>取钱应该是ATM例子中比较灵活的功能，如果设计的好，就能在多个地方重用 </li>
+</ul>
 </blockquote>
-<p>但这种方法，有两个循环，一个是最外层的循环，循环 $m$ 个训练样本，另一个是 $dw_1, dw_2$ (feature) 的循环，在这个例子中 $n_x = 2$。随着训练集越来越大，应该尽量避免使用for循环，而使用向量化技术 (vectorization)</p>
+<p>Factoring out complexity (分解复杂性) also involves identifying specialized behaviors that occurs repeatedly and, as appropriate, spinning off(引出) new classes 如果有一件非常繁琐的事情，可以由几个类共同完成，也可以定义出新的类</p>
+<blockquote>
+<p>ATM example: The capturing and responding to user requests might be factored out into a new class ‘Form’ to ask user for information</p>
+</blockquote>
+<p>使用抽象 Use abstraction</p>
+<ul>
+<li>Build hierarchies of classes. Abstract the essence of related classes by identifying<ul>
+<li>where they have common responsibilities</li>
+<li>where they do the same thing, but do it differently<ul>
+<li><strong>same “what”, different “how”</strong></li>
+</ul>
+</li>
+<li>That is, look for opportunities for the classes to use <strong>polymorphism</strong> to implement the same responsibility differently</li>
+<li>The new parent classes may be <strong>abstract classes</strong>. The abstract class exists to link together similar concrete types of objects</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>ATM example: Create an abstract class <strong>Transaction</strong> that is a superclass for Withdrawal, Deposit, etc. It can have an abstract responsibility “execute a financial transaction”, that is implemented differently for each subclass</p>
+</blockquote>
+<h5 id="分配协作-Assigning-Collaborations"><a href="#分配协作-Assigning-Collaborations" class="headerlink" title="分配协作 Assigning Collaborations"></a><strong>分配协作 Assigning Collaborations</strong></h5><p>标识类之间的关系 Identify relationships among classes</p>
+<ul>
+<li>Each class is specialist in some set of knowledge and behaviors</li>
+<li>Classes must cooperate to accomplish nontrivial tasks</li>
+</ul>
+<p>使用“基于场景”的角色扮演，发现/测试协作 Use scenariobased role-play to find and/or test these collaborations</p>
+<ul>
+<li><strong>Scenario is a system behavior and sequence of system events to realize it</strong></li>
+</ul>
 
         </div>
         
@@ -296,7 +342,7 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Deep-Learning/">Deep Learning</a>
+                    <a class="has-link-grey -link" href="/tags/Object-Oriented/">Object-Oriented</a>
                 </div>
             </div>
         </div>
@@ -313,17 +359,10 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/26/Basic-of Neural-Networks-2/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Basic of Neural Networks-2</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/17/Java-Constant-Pool/">
-                <span class="level-item">Java常量池</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/17/Object-Oriented-3/">
+                <span class="level-item">Objected-Oriented Analysis and Design-3</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -425,34 +464,54 @@ J(w,b) = \frac{1}{m} \sum_{i=1}^{m}L(\hat{y}^{(i)},y^{(i)}) = -\frac{1}{m} \sum_
                 Catalogue
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#Binary-Classification">
+        <a class="is-flex" href="#标识概念类和对象">
         <span class="has-mr-6">1</span>
-        <span>Binary Classification</span>
+        <span>标识概念类和对象</span>
         </a></li><li>
-        <a class="is-flex" href="#Logistic-Regression">
+        <a class="is-flex" href="#CRC方法标识概念类">
         <span class="has-mr-6">2</span>
-        <span>Logistic Regression</span>
+        <span>CRC方法标识概念类</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#CRC-Class-Responsibility-Cooperation-分别代表什么？">
+        <span class="has-mr-6">2.1</span>
+        <span>CRC (Class Responsibility Cooperation) 分别代表什么？</span>
         </a></li><li>
-        <a class="is-flex" href="#Logistic-Regression-Cost-Function">
+        <a class="is-flex" href="#CRC的特点">
+        <span class="has-mr-6">2.2</span>
+        <span>CRC的特点</span>
+        </a></li><li>
+        <a class="is-flex" href="#CRC的输入信息：用例模型">
+        <span class="has-mr-6">2.3</span>
+        <span>CRC的输入信息：用例模型</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#CRC方法建模案例：ATM取款机软件">
         <span class="has-mr-6">3</span>
-        <span>Logistic Regression Cost Function</span>
+        <span>CRC方法建模案例：ATM取款机软件</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#需求描述">
+        <span class="has-mr-6">3.1</span>
+        <span>需求描述</span>
         </a></li><li>
-        <a class="is-flex" href="#Gradient-Descent">
-        <span class="has-mr-6">4</span>
-        <span>Gradient Descent</span>
+        <a class="is-flex" href="#标识核心概念类-Identifying-Core-Classes">
+        <span class="has-mr-6">3.2</span>
+        <span>标识核心概念类 Identifying Core Classes </span>
         </a></li><li>
-        <a class="is-flex" href="#Computation-Graph">
-        <span class="has-mr-6">5</span>
-        <span>Computation Graph</span>
+        <a class="is-flex" href="#明确系统范围-Clarifying-System-Scope">
+        <span class="has-mr-6">3.3</span>
+        <span>明确系统范围 Clarifying System Scope</span>
         </a></li><li>
-        <a class="is-flex" href="#Logistic-Regression-Gradient-Descent">
-        <span class="has-mr-6">6</span>
-        <span>Logistic Regression Gradient Descent</span>
+        <a class="is-flex" href="#去掉不必要的核心类">
+        <span class="has-mr-6">3.4</span>
+        <span>去掉不必要的核心类</span>
         </a></li><li>
-        <a class="is-flex" href="#Gradient-descent-on-m-examples">
-        <span class="has-mr-6">7</span>
-        <span>Gradient descent on $m$ examples</span>
-        </a></li></ul>
+        <a class="is-flex" href="#为核心类分配职责">
+        <span class="has-mr-6">3.5</span>
+        <span>为核心类分配职责</span>
+        </a></li><li>
+        <a class="is-flex" href="#分配协作-Assigning-Collaborations">
+        <span class="has-mr-6">3.6</span>
+        <span>分配协作 Assigning Collaborations</span>
+        </a></li></ul></li></ul>
         </div>
     </div>
 </div>
